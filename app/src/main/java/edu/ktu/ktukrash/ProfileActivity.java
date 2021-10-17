@@ -34,11 +34,19 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         Button button1 = findViewById(R.id.declarationButton);
+        Button button2 = findViewById(R.id.drawButton);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openActivityNew();
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openPaint();
             }
         });
 
@@ -82,6 +90,12 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void openPaint() {
+        Intent intent = new Intent(this, PaintActivity.class);
+        startActivity(intent);
+    }
+
     public void openActivityNew(){
         Intent intent = new Intent(this, DeclarationStart.class);
         startActivity(intent);

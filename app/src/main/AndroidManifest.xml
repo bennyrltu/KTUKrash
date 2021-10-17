@@ -26,6 +26,10 @@
             android:exported="false"
             android:parentActivityName=".MainActivity"/>
         <activity
+            android:name=".PaintActivity"
+            android:exported="false"
+            android:parentActivityName=".ProfileActivity"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
