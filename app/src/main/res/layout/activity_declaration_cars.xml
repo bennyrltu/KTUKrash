@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DeclarationCars">
+
+
+    <TextView
+        android:id="@+id/Transports"
+        android:layout_width="409dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="23dp"
+        android:text="Declare vehicles:"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/yourNumbersHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/otherPersonVehicleHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="23dp"
+        android:text="Other person's vehicle numbers"
+        android:textSize="28dp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/secondPersonCar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstPersonCar"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/firstPersonCar"
+        android:layout_width="354dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="23dp"
+        android:ems="10"
+        android:hint="Vehicle numbers"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/otherPersonVehicleHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yourNumbersHeader"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/yourNumbersHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Your vehicle numbers:"
+        android:textSize="32dp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/firstPersonCar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Transports"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/secondPersonCar"
+        android:layout_width="420dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="81dp"
+        android:ems="10"
+        android:hint="Vehicle numbers"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/continueButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/otherPersonVehicleHeader"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/continueButton"
+        android:layout_width="234dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="228dp"
+        android:text="Continue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/secondPersonCar"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

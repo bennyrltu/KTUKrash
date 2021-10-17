@@ -10,11 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KTUKrash">
         <activity
+            android:name=".FirstPersonData"
+            android:exported="false"
+            android:parentActivityName=".DeclarationCars"/>
+        <activity
+            android:name=".DeclarationCars"
+            android:exported="false"
+            android:parentActivityName=".DeclarationStart"/>
+        <activity
             android:name=".DeclarationStart"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".ProfileActivity"/>
         <activity
             android:name=".ProfileActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -24,7 +34,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
