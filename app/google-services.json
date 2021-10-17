@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "533506782578",
+    "firebase_url": "https://krashapp-d2bad-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "krashapp-d2bad",
+    "storage_bucket": "krashapp-d2bad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533506782578:android:e18ba2e33cd9d02b3e19eb",
+        "android_client_info": {
+          "package_name": "edu.ktu.ktukrash"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533506782578-rnunt94itg6tgn6pg4n3qjtmpd5h7bic.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDggZyw5sp6I5-Zrr2aUhh-rPTmGA3N1Ew"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "533506782578-rnunt94itg6tgn6pg4n3qjtmpd5h7bic.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
