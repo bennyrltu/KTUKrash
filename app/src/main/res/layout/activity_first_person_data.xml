@@ -7,64 +7,170 @@
     tools:context=".FirstPersonData">
 
 
-
     <TextView
         android:id="@+id/firstPersonNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="76dp"
         android:text="TextView"
         android:textSize="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintBottom_toTopOf="@+id/firstPersonLastName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstPersonHeader"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/secondPersonNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="TextView"
-        android:textSize="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/secondPersonHeader"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/firstPersonHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="188dp"
-        android:text="Firt person numbers:"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="16dp"
+        android:text="Driver's declaration"
         android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/firstPersonNumber"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/secondPersonHeader"
+    <EditText
+        android:id="@+id/FirstPersonNameField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="71dp"
-        android:text="Second person numbers:"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="11dp"
+        android:autofillHints="name"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstPersonNumber"
+        app:layout_constraintTop_toBottomOf="@+id/firstPersonNumber" />
+
+    <TextView
+        android:id="@+id/CountryView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="466dp"
+        android:text="Pick country and number"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DisplayDate"
         tools:ignore="MissingConstraints" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
+    <com.hbb20.CountryCodePicker
+        android:id="@+id/ccp"
+        android:layout_width="0dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="237dp"
+        android:layout_marginBottom="237dp"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextNumber"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/FirstPersonNameField">
+
+    </com.hbb20.CountryCodePicker>
+
+    <EditText
+        android:id="@+id/FirstPersonPhoneNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp" />
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="393dp"
+        android:ems="10"
+        android:hint="Phone number"
+        android:inputType="phone"
+        android:minHeight="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/OpenDatePicker" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:text="Continue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNumber"
+        app:layout_constraintStart_toEndOf="@+id/firstPersonNumber" />
+
+    <EditText
+        android:id="@+id/addressField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="30dp"
+        android:autofillHints="postalAddress"
+        android:drawableLeft="@drawable/ic_location"
+        android:ems="10"
+        android:hint="Adress"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ccp" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="Send Email to"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressField" />
+
+    <EditText
+        android:id="@+id/editTextNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginBottom="138dp"
+        android:ems="10"
+        android:hint="Personal code"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/firstPersonLastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="23dp"
+        android:ems="10"
+        android:hint="Last Name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/DisplayDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstPersonNumber"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/OpenDatePicker"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="196dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="61dp"
+        android:text="Pick"
+        app:layout_constraintBottom_toTopOf="@+id/FirstPersonPhoneNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/DisplayDate"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/DisplayDate"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="159dp"
+        android:layout_marginBottom="28dp"
+        android:text=""
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/CountryView"
+        app:layout_constraintEnd_toStartOf="@+id/OpenDatePicker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstPersonLastName" />
 </androidx.constraintlayout.widget.ConstraintLayout>
