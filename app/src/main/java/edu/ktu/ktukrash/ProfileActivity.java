@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private Button button1, button2;
+    private Button button1, button2,button3;
     private Button logout;
 
     private FirebaseUser user;
@@ -35,6 +35,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         Button button1 = findViewById(R.id.declarationButton);
         Button button2 = findViewById(R.id.drawButton);
+        Button button3 = findViewById(R.id.UppImagesButton);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +48,13 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 openPaint();
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openActivityNewUpp();
             }
         });
 
@@ -97,7 +105,15 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     public void openActivityNew(){
+
         Intent intent = new Intent(this, DeclarationStart.class);
         startActivity(intent);
     }
+
+    public void openActivityNewUpp(){
+
+        Intent intent = new Intent(this, EventPictures.class);
+        startActivity(intent);
+    }
+
     }

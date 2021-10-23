@@ -7,28 +7,32 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.KTUKrash">
         <activity
+            android:name=".EventPictures"
+            android:exported="false" />
+        <activity
             android:name=".FirstPersonData"
             android:exported="false"
-            android:parentActivityName=".DeclarationCars"/>
+            android:parentActivityName=".DeclarationCars" />
         <activity
             android:name=".DeclarationCars"
             android:exported="false"
-            android:parentActivityName=".DeclarationStart"/>
+            android:parentActivityName=".DeclarationStart" />
         <activity
             android:name=".DeclarationStart"
             android:exported="false"
-            android:parentActivityName=".ProfileActivity"/>
+            android:parentActivityName=".ProfileActivity" />
         <activity
             android:name=".ProfileActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".PaintActivity"
             android:exported="false"
-            android:parentActivityName=".ProfileActivity"/>
+            android:parentActivityName=".ProfileActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
