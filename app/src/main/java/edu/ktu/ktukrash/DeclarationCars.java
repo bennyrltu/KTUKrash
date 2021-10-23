@@ -39,7 +39,7 @@ public class DeclarationCars extends AppCompatActivity {
 
         Intent intent = new Intent(this, FirstPersonData.class);
         intent.putExtra(EXTRA_TEXT, text);
-        intent.putExtra(EXTRA_TEXT2, text);
+        intent.putExtra(EXTRA_TEXT2, text2);
         startActivity(intent);
     }
 }

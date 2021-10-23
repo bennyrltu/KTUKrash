@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private Button button1, button2;
+    private Button button1, button2, button3;
     private Button logout;
 
     private FirebaseUser user;
@@ -35,6 +35,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         Button button1 = findViewById(R.id.declarationButton);
         Button button2 = findViewById(R.id.drawButton);
+        Button button3 = findViewById(R.id.UppImagesButton);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,9 +51,16 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openActivityNew2();
+            }
+        });
+
         logout = findViewById(R.id.signOut);
 
-        logout.setOnClickListener(new View.OnClickListener(){
+        logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
@@ -73,7 +81,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User userProfile = snapshot.getValue(User.class);
 
-                if (userProfile != null){
+                if (userProfile != null) {
                     String fullName = userProfile.fullName;
                     String email = userProfile.email;
                     String age = userProfile.age;
@@ -96,8 +104,13 @@ public class ProfileActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openActivityNew(){
+    public void openActivityNew() {
         Intent intent = new Intent(this, DeclarationStart.class);
         startActivity(intent);
     }
+
+    public void openActivityNew2() {
+        Intent intent = new Intent(this, EventPictures.class);
+        startActivity(intent);
     }
+}

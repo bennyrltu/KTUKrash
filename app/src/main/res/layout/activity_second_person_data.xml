@@ -4,25 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstPersonData">
-
+    tools:context=".SecondPersonData">
 
     <TextView
-        android:id="@+id/firstPersonNumber"
+        android:id="@+id/SecondPersonNumber"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="17dp"
         android:layout_marginBottom="8dp"
         android:text="TextView"
         android:textSize="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/FirstPersonNameField"
-        app:layout_constraintEnd_toStartOf="@+id/firstPersonHeader"
+        app:layout_constraintBottom_toTopOf="@+id/SecondPersonNameField"
+        app:layout_constraintEnd_toStartOf="@+id/SecondPersonHeader"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/firstPersonHeader"
+        android:id="@+id/SecondPersonHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -32,12 +31,12 @@
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/OpenDatePicker"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/firstPersonNumber"
+        app:layout_constraintStart_toEndOf="@+id/SecondPersonNumber"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/FirstPersonNameField"
+        android:id="@+id/SecondPersonNameField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -46,9 +45,9 @@
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/firstPersonLastName"
+        app:layout_constraintBottom_toTopOf="@+id/SecondPersonLastName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstPersonNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/SecondPersonNumber" />
 
     <TextView
         android:id="@+id/CountryView"
@@ -67,7 +66,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/FirstPersonPhoneNumber"
+        android:id="@+id/SecondPersonPhoneNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"
@@ -86,7 +85,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="3dp"
-        app:layout_constraintBottom_toTopOf="@+id/FirstPersonPhoneNumber"
+        app:layout_constraintBottom_toTopOf="@+id/SecondPersonPhoneNumber"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CountryView">
 
@@ -105,7 +104,7 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FirstPersonPhoneNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/SecondPersonPhoneNumber" />
 
     <EditText
         android:id="@+id/editTextNumber"
@@ -145,7 +144,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
 
     <EditText
-        android:id="@+id/firstPersonLastName"
+        android:id="@+id/SecondPersonLastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -155,16 +154,8 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/DisplayDate"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FirstPersonNameField"
+        app:layout_constraintTop_toBottomOf="@+id/SecondPersonNameField"
         tools:ignore="TouchTargetSizeCheck" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="0dp"/>
-
 
     <Button
         android:id="@+id/OpenDatePicker"
@@ -176,7 +167,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/CountryView"
-        app:layout_constraintTop_toBottomOf="@+id/firstPersonHeader" />
+        app:layout_constraintTop_toBottomOf="@+id/SecondPersonHeader" />
 
     <TextView
         android:id="@+id/DisplayDate"
@@ -186,8 +177,8 @@
         android:text="Birth date"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/CountryView"
-        app:layout_constraintEnd_toEndOf="@+id/FirstPersonNameField"
-        app:layout_constraintStart_toStartOf="@+id/firstPersonLastName"
-        app:layout_constraintTop_toBottomOf="@+id/firstPersonLastName" />
+        app:layout_constraintEnd_toEndOf="@+id/SecondPersonNameField"
+        app:layout_constraintStart_toStartOf="@+id/SecondPersonLastName"
+        app:layout_constraintTop_toBottomOf="@+id/SecondPersonLastName" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
