@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.ktu.ktukrash">
+    package="edu.ktu.ktukrash" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.KTUKrash">
+        android:theme="@style/Theme.KTUKrash" >
+
+        <meta-data
+            android:name="com.android.geo.API_KEY"
+            android:value="AIzaSyDxk5WKLun-UPLVYU2MAPbLgllJkcnCO0A" />
+
         <activity
             android:name=".EventPictures"
             android:exported="false" />
@@ -35,7 +44,7 @@
             android:parentActivityName=".ProfileActivity" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
