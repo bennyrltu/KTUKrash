@@ -80,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Birth date"
+        android:hint="Age"
         android:inputType="date"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/email"
