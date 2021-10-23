@@ -23,7 +23,6 @@ public class ProfileActivity extends AppCompatActivity {
 
     private Button button1, button2, button3;
     private Button logout;
-    private FirebaseAuth auth;
 
     private FirebaseUser user;
     private DatabaseReference reference;
@@ -36,32 +35,32 @@ public class ProfileActivity extends AppCompatActivity {
 
         Button button1 = findViewById(R.id.declarationButton);
         Button button2 = findViewById(R.id.drawButton);
-        Button button3 = findViewById(R.id.reportDrawingButton);
-        logout = findViewById(R.id.signOut);
+        Button button3 = findViewById(R.id.UppImagesButton);
 
-        //Button to start filling declaration
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openActivityNew();
             }
         });
-        //Button to open paint
+
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openPaint();
             }
         });
-        //Pictures of drawn reports
+
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ProfileActivity.this, ReportImageActivity.class));
+                openActivityNew2();
             }
         });
-        //Button for logout
-        logout.setOnClickListener(new View.OnClickListener(){
+
+        logout = findViewById(R.id.signOut);
+
+        logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
@@ -82,7 +81,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User userProfile = snapshot.getValue(User.class);
 
-                if (userProfile != null){
+                if (userProfile != null) {
                     String fullName = userProfile.fullName;
                     String email = userProfile.email;
                     String age = userProfile.age;
@@ -105,8 +104,13 @@ public class ProfileActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openActivityNew(){
+    public void openActivityNew() {
         Intent intent = new Intent(this, DeclarationStart.class);
         startActivity(intent);
     }
+
+    public void openActivityNew2() {
+        Intent intent = new Intent(this, EventPictures.class);
+        startActivity(intent);
     }
+}
