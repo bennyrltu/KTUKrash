@@ -32,6 +32,10 @@
             android:exported="false"
             android:parentActivityName=".DeclarationCars" />
         <activity
+            android:name=".SecondPersonData"
+            android:exported="false"
+            />
+        <activity
             android:name=".DeclarationCars"
             android:exported="false"
             android:parentActivityName=".DeclarationStart" />
