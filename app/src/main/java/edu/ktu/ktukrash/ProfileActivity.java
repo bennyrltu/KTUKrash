@@ -21,8 +21,9 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private Button button1, button2;
+    private Button button1, button2, button3;
     private Button logout;
+    private FirebaseAuth auth;
 
     private FirebaseUser user;
     private DatabaseReference reference;
@@ -35,23 +36,31 @@ public class ProfileActivity extends AppCompatActivity {
 
         Button button1 = findViewById(R.id.declarationButton);
         Button button2 = findViewById(R.id.drawButton);
+        Button button3 = findViewById(R.id.reportDrawingButton);
+        logout = findViewById(R.id.signOut);
 
+        //Button to start filling declaration
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openActivityNew();
             }
         });
-
+        //Button to open paint
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openPaint();
             }
         });
-
-        logout = findViewById(R.id.signOut);
-
+        //Pictures of drawn reports
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ProfileActivity.this, ReportImageActivity.class));
+            }
+        });
+        //Button for logout
         logout.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

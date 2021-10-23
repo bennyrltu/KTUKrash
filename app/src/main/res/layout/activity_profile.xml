@@ -41,12 +41,12 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/imageButton"
+        android:id="@+id/reportDrawingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="164dp"
-        android:text="Image"
+        android:layout_marginStart="88dp"
+        android:layout_marginBottom="340dp"
+        android:text="Filled report drawings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />

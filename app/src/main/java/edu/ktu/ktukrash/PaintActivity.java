@@ -178,6 +178,8 @@ public class PaintActivity extends AppCompatActivity {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 Task<Uri> downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl();
+                Log.i("uri",downloadUrl.toString());
+
             }
         });
 
