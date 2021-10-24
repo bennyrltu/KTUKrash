@@ -1,10 +1,17 @@
 package edu.ktu.ktukrash;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.DialogFragment;
 
+import android.Manifest;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,16 +19,29 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.api.Places;
 import com.hbb20.CountryCodePicker;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.List;
+import java.util.Locale;
 
 public class SecondPersonData extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     private CountryCodePicker ccp;
     private TextView phoneTextView;
     private Button button;
+
+    //Location stuff
+    private Button locationButton;
+    private EditText locationText;
+    FusedLocationProviderClient fusedLocationProviderClient;
+    //--------------------------------
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +72,40 @@ public class SecondPersonData extends AppCompatActivity implements DatePickerDia
             }
         });
 
+        //Location stuff
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        locationButton = (Button) findViewById(R.id.buttonLocation);
+        locationText = (EditText) findViewById(R.id.addressField);
+        locationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(ActivityCompat.checkSelfPermission(SecondPersonData.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+                    fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Location> task) {
+                            Location location = task.getResult();
+                            if(location != null){
+                                Geocoder geocoder = new Geocoder(SecondPersonData.this,
+                                        Locale.getDefault());
+                                try {
+                                    List<Address> addresses = geocoder.getFromLocation(
+                                            location.getLatitude(), location.getLongitude(), 1
+                                    );
+                                    locationText.setText(addresses.get(0).getAddressLine(0));
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                    });
+                }
+                else{
+                    ActivityCompat.requestPermissions(SecondPersonData.this
+                            ,new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
+                }
+            }
+        });
+        //---------------------------------------------------
 
     }
 
