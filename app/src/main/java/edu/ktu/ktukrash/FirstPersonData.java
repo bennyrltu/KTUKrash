@@ -169,6 +169,45 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
 
         Intent intent = new Intent(this, SecondPersonData.class);
 
+        //Validation--------------------------------------------------------------
+        EditText name = (EditText) findViewById(R.id.FirstPersonNameField);
+        EditText lastName = (EditText) findViewById(R.id.firstPersonLastName);
+
+        EditText phone = (EditText) findViewById(R.id.FirstPersonPhoneNumber);
+        EditText email = (EditText) findViewById(R.id.editTextTextEmailAddress);
+        EditText personalCode = (EditText) findViewById(R.id.editTextNumber);
+
+        if(name.getText().toString().isEmpty()){
+            name.setError("This field is required");
+            name.requestFocus();
+            return;
+        }
+        if(lastName.getText().toString().isEmpty()){
+            lastName.setError("This field is required");
+            lastName.requestFocus();
+            return;
+        }
+        if(phone.getText().toString().isEmpty()){
+            phone.setError("This field is required");
+            phone.requestFocus();
+            return;
+        }
+        if(locationText.getText().toString().isEmpty()){
+            locationText.setError("This field is required");
+            locationText.requestFocus();
+            return;
+        }
+        if(email.getText().toString().isEmpty()){
+            email.setError("This field is required");
+            email.requestFocus();
+            return;
+        }
+        if(personalCode.getText().toString().isEmpty()){
+            personalCode.setError("This field is required");
+            personalCode.requestFocus();
+            return;
+        }
+        //------------------------------------------------------------
 
         TextView editText2 = (TextView) findViewById(R.id.textView7);
         String text2 = editText2.getText().toString().trim();
