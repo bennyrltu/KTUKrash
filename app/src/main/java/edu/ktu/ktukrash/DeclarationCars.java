@@ -37,6 +37,17 @@ public class DeclarationCars extends AppCompatActivity {
         EditText editText2 = (EditText) findViewById(R.id.secondPersonCar);
         String text2 = editText2.getText().toString().trim();
 
+        if(text.isEmpty()){
+            editText1.setError("This field is required");
+            editText1.requestFocus();
+            return;
+        }
+        if(text2.isEmpty()){
+            editText2.setError("This field is required");
+            editText2.requestFocus();
+            return;
+        }
+
         Intent intent = new Intent(this, FirstPersonData.class);
         intent.putExtra(EXTRA_TEXT, text);
         intent.putExtra(EXTRA_TEXT2, text2);
