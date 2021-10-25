@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".dashboard"
+    tools:context=".ProfileActivity"
     android:background="@drawable/background">
 
     <LinearLayout
@@ -218,7 +218,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="Upload pictures"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/purple_700" />
 
 
                 </LinearLayout>

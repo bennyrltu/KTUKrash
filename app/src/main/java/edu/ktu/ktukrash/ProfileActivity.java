@@ -1,14 +1,25 @@
 package edu.ktu.ktukrash;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.view.MenuItemCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,164 +31,142 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class ProfileActivity extends AppCompatActivity {
 
-    private Button button1, button2, button3;
-    private Button logout;
-
-    private FirebaseUser user;
-    private DatabaseReference reference;
-    private String userID;
-
-    private CardView cardProfile;
-    private CardView cardDraw;
-    private CardView carGallery;
-    private CardView cardFill;
-    private CardView cardUpl;
-    private CardView cardLogout;
+    RecyclerView recyclerV;
+    MyAdapter myAdapter;
+    SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dashboard);
-        //setContentView(R.layout.activity_profile);
+        setContentView(R.layout.dashboard_recyclerview);
+        recyclerV = findViewById(R.id.recyclerView);
 
-//        Button button1 = findViewById(R.id.declarationButton);
-//        Button button2 = findViewById(R.id.drawButton);
-//        Button button3 = findViewById(R.id.UppImagesButton);
-//
-//        button1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                openActivityNew();
-//            }
-//        });
-//
-//        button2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                openPaint();
-//            }
-//        });
-//
-//        button3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                openActivityNew2();
-//            }
-//        });
-//
-//        logout = findViewById(R.id.signOut);
-//
-//        logout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                FirebaseAuth.getInstance().signOut();
-//                startActivity(new Intent(ProfileActivity.this, MainActivity.class));
-//            }
-//        });
+        preferences = this.getSharedPreferences("My preferences", MODE_PRIVATE);
 
-        cardProfile = findViewById(R.id.cardProfile);
-        cardDraw = findViewById(R.id.cardDraw);
-        carGallery = findViewById(R.id.cardGallery);
-        cardFill = findViewById(R.id.cardFill);
-        cardUpl = findViewById(R.id.cardUpl);
-        cardLogout = findViewById(R.id.cardLogout);
+        getMyList();
+    }
 
-        cardProfile.setOnClickListener(new View.OnClickListener() {
+    private void getMyList(){
+        ArrayList<recyclerModel> arr = new ArrayList<>();
+
+        recyclerModel n = new recyclerModel();
+        n.setTitle("Profile");
+        n.setDescription("Profile section");
+        n.setImg(R.drawable.ic_account);
+        arr.add(n);
+
+        n = new recyclerModel();
+        n.setTitle("Draw");
+        n.setDescription("Drawing sections");
+        n.setImg(R.drawable.ic_draw);
+        arr.add(n);
+
+        n = new recyclerModel();
+        n.setTitle("Gallery");
+        n.setDescription("Picture gallery");
+        n.setImg(R.drawable.ic_gallery);
+        arr.add(n);
+
+        n = new recyclerModel();
+        n.setTitle("Declaration");
+        n.setDescription("Declaration filling form");
+        n.setImg(R.drawable.ic_fill);
+        arr.add(n);
+
+        n = new recyclerModel();
+        n.setTitle("Upload");
+        n.setDescription("Upload pictures");
+        n.setImg(R.drawable.ic_upl);
+        arr.add(n);
+
+        n = new recyclerModel();
+        n.setTitle("Logout");
+        n.setDescription("");
+        n.setImg(R.drawable.ic_logout);
+        arr.add(n);
+
+        //return arr;
+
+        String sortPreferences = preferences.getString("Sort", "ascending");
+        if (sortPreferences.equals("ascending")){
+            Collections.sort(arr, recyclerModel.By_TITLE_ASCENDING);
+        }else if(sortPreferences.equals("descending")){
+            Collections.sort(arr, recyclerModel.By_TITLE_DESCENDING);
+        }
+        recyclerV.setLayoutManager(new LinearLayoutManager(this));
+        myAdapter = new MyAdapter(this, arr);
+        recyclerV.setAdapter(myAdapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu, menu);
+
+        MenuItem item = menu.findItem(R.id.search);
+
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public void onClick(View v){
-                showToast("yep");
+            public boolean onQueryTextSubmit(String s) {
+                myAdapter.getFilter().filter(s);
+                return false;
+            }
 
+            @Override
+            public boolean onQueryTextChange(String s) {
+                myAdapter.getFilter().filter(s);
+                return false;
             }
         });
 
-        cardDraw.setOnClickListener(new View.OnClickListener() {
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+
+        if (id == R.id.sorting){
+            sortDialog();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void sortDialog() {
+        String[] options = {"Ascending", "Descending"};
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("Sort by: ");
+        builder.setIcon(R.drawable.ic_sort);
+
+        builder.setItems(options, new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(View v){
-                openPaint();
-                showToast("yep");
-            }
-        });
-
-        carGallery.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                showToast("yep");
-
-            }
-        });
-
-        cardFill.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                openActivityNew();
-                showToast("yep");
-            }
-        });
-
-        cardUpl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                openActivityNew2();
-                showToast("yep");
-            }
-        });
-
-        cardLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                showToast("yep");
-                startActivity(new Intent(ProfileActivity.this, MainActivity.class));
-            }
-        });
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        reference = FirebaseDatabase.getInstance().getReference("Users");
-        userID = user.getUid();
-
-        final TextView fullNameTextView = findViewById(R.id.fullName);
-        final TextView emailTextView = findViewById(R.id.email);
-        final TextView ageTextView = findViewById(R.id.age);
-
-        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                User userProfile = snapshot.getValue(User.class);
-
-                if (userProfile != null) {
-                    String fullName = userProfile.fullName;
-                    String email = userProfile.email;
-                    String age = userProfile.age;
-
-//                    fullNameTextView.setText(fullName);
-//                    emailTextView.setText(email);
-//                    ageTextView.setText(age);
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if (i == 0){
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("Sort", "ascending");
+                    editor.apply();
+                    getMyList();
+                }
+                if (i == 1){
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("Sort", "descending");
+                    editor.apply();
+                    getMyList();
                 }
             }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(ProfileActivity.this, "Something went wrong!", Toast.LENGTH_LONG).show();
-            }
         });
-    }
-    private void showToast(String message){
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+
+        builder.create().show();
     }
 
-    private void openPaint() {
-        Intent intent = new Intent(this, PaintActivity.class);
-        startActivity(intent);
-    }
 
-    public void openActivityNew() {
-        Intent intent = new Intent(this, DeclarationStart.class);
-        startActivity(intent);
-    }
-
-    public void openActivityNew2() {
-        Intent intent = new Intent(this, EventPictures.class);
-        startActivity(intent);
-    }
 }

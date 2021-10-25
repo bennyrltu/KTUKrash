@@ -46,11 +46,16 @@
         <activity
             android:name=".ProfileActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.KTUKrashAction"/>
         <activity
             android:name=".PaintActivity"
             android:exported="false"
              />
+        <activity
+            android:name=".Profile"
+            android:exported="false"
+            />
         <activity
             android:name=".MainActivity"
             android:exported="true" >
