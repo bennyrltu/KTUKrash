@@ -5,6 +5,9 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.drawable.Drawable;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.view.*;
@@ -14,7 +17,9 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -62,6 +67,10 @@ public class PaintActivity extends AppCompatActivity {
     SeekBar seekBar;
     TextView txtPenSize;
     private static String fileName;
+    Button button1;
+    ImageView imageView;
+    Uri fileUri;
+
 
     private ProgressDialog mProgressDialog;
     private StorageReference mStorageRef;
@@ -87,9 +96,12 @@ public class PaintActivity extends AppCompatActivity {
         mProgressDialog = new ProgressDialog(PaintActivity.this);
         auth = FirebaseAuth.getInstance();
         mStorageRef = FirebaseStorage.getInstance().getReference();
+        button1 = findViewById(R.id.addImage);
+        imageView = findViewById(R.id.photoBackground);
+
 
         askPermission();
-
+        signatureView.setBackground(Drawable.createFromPath("background.jpg"));
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault());
         String date = format.format(new Date());
         fileName = date;
@@ -98,6 +110,18 @@ public class PaintActivity extends AppCompatActivity {
         {
             path.mkdirs();
         }
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ImagePicker
+                        .Companion
+                        .with(PaintActivity.this)
+                        .start(1);
+
+
+            }
+        });
 
 
         defaultColor = ContextCompat.getColor(PaintActivity.this, R.color.black);
@@ -153,15 +177,30 @@ public class PaintActivity extends AppCompatActivity {
     }
 
 
+    public static Bitmap mergeToPin(Bitmap back, Bitmap front) {
+        Bitmap result = Bitmap.createBitmap(back.getWidth(), back.getHeight(), back.getConfig());
+        Canvas canvas = new Canvas(result);
+        int widthBack = back.getWidth();
+        int widthFront = front.getWidth();
+        float move = (widthBack - widthFront) / 2;
+        canvas.drawBitmap(back, 0f, 0f, null);
+        canvas.drawBitmap(front, move, move, null);
+        return result;
+    }
+
+
     private void saveImage() throws IOException {
         File file = new File(fileName);
         FirebaseUser user = auth.getCurrentUser();
         String userID = user.getUid();
 
         Bitmap bitmap = signatureView.getSignatureBitmap();
+        Bitmap bitmap1 = imageView.getDrawingCache();
+        Bitmap bitmap2 = mergeToPin(bitmap, bitmap1);
 
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
+        bitmap2.compress(Bitmap.CompressFormat.PNG, 100, bos);
+
         byte[] bitmapData = bos.toByteArray();
 
         FirebaseStorage storage = FirebaseStorage.getInstance();
@@ -184,8 +223,6 @@ public class PaintActivity extends AppCompatActivity {
         });
 
     }
-
-    
 
 
 
@@ -222,4 +259,19 @@ public class PaintActivity extends AppCompatActivity {
             }
         }).check();
     }
-}
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
+                if (data != null) {
+                    fileUri = data.getData();
+                    imageView.setImageURI(fileUri);
+                    Drawable d = imageView.getDrawable();
+                    signatureView.setBackground(d);
+
+                }
+            }
+        }
+}}

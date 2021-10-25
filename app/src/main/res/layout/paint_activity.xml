@@ -4,17 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PaintActivity">
+    tools:context=".PaintActivity"
+    >
+
+    <Button
+        android:id="@+id/addImage"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="2dp"
+        android:gravity="center"
+        android:autofillHints="name"
+        android:text="AddPhoto"
+    />
+
 
     <com.kyanogen.signatureview.SignatureView xmlns:sign="http://schemas.android.com/apk/res-auto"
         android:id="@+id/signature_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/optionsHolder"
-        sign:backgroundColor="#ffffff"
+        sign:backgroundColor="@android:color/transparent"
         sign:enableSignature="true"
         sign:penColor="#000000"
-        sign:penSize="5dp" />
+        sign:penSize="5dp"/>
+
+
+    <ImageView
+        android:id="@+id/photoBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp" />
+
+
 
     <LinearLayout
         android:id="@+id/optionsHolder"
@@ -46,6 +69,8 @@
 
             </TextView>
         </LinearLayout>
+
+
         <LinearLayout
             android:layout_weight="1"
             android:layout_margin="4dp"
@@ -79,6 +104,7 @@
                 android:layout_width="0dp"
                 android:layout_height="70dp">
             </ImageButton>
+
 
 
         </LinearLayout>
