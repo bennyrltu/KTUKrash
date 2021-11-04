@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="6dp"
+    android:elevation="6dp"
+    app:cardUseCompatPadding="true">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:id="@+id/relative">
+
+        <ImageView
+            android:id="@+id/img1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="81dp"></ImageView>
+
+        <TextView
+            android:id="@+id/FPheaderext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="FP header:"
+            android:textColor="#000"
+            android:textSize="25sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/FPnameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@id/FPheaderext"
+            android:layout_toRightOf="@id/img1"
+            android:text="FP Name"
+            android:textColor="#000"
+            android:textSize="25sp"
+            android:textStyle="bold">
+        </TextView>
+
+        <TextView
+            android:id="@+id/FPlastnameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/FPnameText"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img1"
+            android:text="FP Last name"
+            android:textColor="#000"
+            android:textSize="25sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/FPbirthdateText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/FPlastnameText"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img1"
+            android:text="FP Birthdate"
+            android:textColor="#000"
+            android:textSize="25sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/FPphoneText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/FPbirthdateText"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img1"
+            android:text="FP Phone number"
+            android:textColor="#000"
+            android:textSize="25sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/FPaddressText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/FPphoneText"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img1"
+            android:text="FP Address"
+            android:textColor="#000"
+            android:textSize="25sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/FPemailText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/FPaddressText"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img1"
+            android:text="FP Email"
+            android:textColor="#000"
+            android:textSize="25sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/FPpersonalText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/FPemailText"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img1"
+            android:text="FP Personal code"
+            android:textColor="#000"
+            android:textSize="25sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/FPcarnumbertext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/FPpersonalText"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img1"
+            android:text="FP Car number"
+            android:textColor="#000"
+            android:textSize="25sp"
+            android:textStyle="bold"></TextView>
+
+
+        <ImageView
+            android:id="@+id/img2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="450dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"></ImageView>
+
+        <TextView
+            android:id="@+id/SPheaderext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/FPpersonalText"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="39dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="40dp"
+            android:text="SP header:"
+            android:textColor="#000"
+            android:textSize="25sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/SPnameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SPheaderext"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img2"
+            android:text="SP Name"
+            android:textColor="#000"
+            android:textSize="25sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/SPlastnameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SPnameText"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img2"
+            android:text="SP Last name"
+            android:textColor="#000"
+            android:textSize="25sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/SPbirthdateText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SPlastnameText"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img2"
+            android:text="SP Birthdate"
+            android:textColor="#000"
+            android:textSize="25sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/SPphoneText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SPbirthdateText"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img2"
+            android:text="SP Phone number"
+            android:textColor="#000"
+            android:textSize="25sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/SPaddressText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SPphoneText"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img2"
+            android:text="SP Address"
+            android:textColor="#000"
+            android:textSize="25sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/SPemailText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SPaddressText"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img2"
+            android:text="SP Email"
+            android:textColor="#000"
+            android:textSize="25sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/SPpersonalText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SPemailText"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img2"
+            android:text="SP Personal code"
+            android:textColor="#000"
+            android:textSize="25sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/SPcarnumbertext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SPpersonalText"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img2"
+            android:text="SP Car number"
+            android:textColor="#000"
+            android:textSize="25sp"
+            android:textStyle="bold"></TextView>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

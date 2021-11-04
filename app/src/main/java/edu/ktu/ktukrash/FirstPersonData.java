@@ -31,12 +31,16 @@ import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.api.model.TypeFilter;
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.hbb20.CountryCodePicker;
 
 import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
@@ -49,9 +53,19 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
     private Button locationButton;
     private EditText locationText;
     FusedLocationProviderClient fusedLocationProviderClient;
+
+    private FirebaseDatabase db = FirebaseDatabase.getInstance();
+
+    String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+    private DatabaseReference root = db.getReference()
+            .child("Declaration_Data")
+            .child(currentuser)
+            .child("Declarations");
     //--------------------------------
 
     public static final String EXTRA_TEXT3 = "ktu.edu.KTUKrash.EXTRA.TEXT3";
+    public static final String EXTRA_TEXT4 = "ktu.edu.KTUKrash.EXTRA.TEXT4";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +89,6 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
 
         Button button = (Button) findViewById(R.id.OpenDatePicker);
 
-        Places.initialize(getApplicationContext(), "AIzaSyDxk5WKLun-UPLVYU2MAPbLgllJkcnCO0A");
-        Places.createClient(this);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,9 +147,9 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
             @Override
             public void onClick(View v) {
                 // Get Variable
-                String code = ccp.getSelectedCountryCode();
-                String country = ccp.getSelectedCountryEnglishName();
-                String number = phoneTextView.getText().toString();
+                //String code = ccp.getSelectedCountryCode();
+                //String country = ccp.getSelectedCountryEnglishName();
+                //String number = code + phoneTextView.getText().toString();
 
                 // Create Toast
                 //Context context = getApplicationContext();
@@ -177,6 +189,11 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
         EditText email = (EditText) findViewById(R.id.editTextTextEmailAddress);
         EditText personalCode = (EditText) findViewById(R.id.editTextNumber);
 
+        TextView textView1 = (TextView) findViewById(R.id.firstPersonNumber);
+        TextView textView2 = (TextView) findViewById(R.id.textView7);
+        TextView textView3 = (TextView) findViewById(R.id.DisplayDate);
+
+
         if(name.getText().toString().isEmpty()){
             name.setError("This field is required");
             name.requestFocus();
@@ -207,11 +224,53 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
             personalCode.requestFocus();
             return;
         }
-        //------------------------------------------------------------
 
+        if(textView3.getText().toString().isEmpty()){
+            textView3.setError("This field is required");
+            textView3.requestFocus();
+            return;
+        }
+
+
+        //------------------------------------------------------------
+        String dbName = name.getText().toString().trim();
+        String dbLastname = lastName.getText().toString().trim();
+        String dbLocation = locationText.getText().toString().trim();
+        String dbEmail = email.getText().toString().trim();
+        String dbCode= personalCode.getText().toString().trim();
+        String code = ccp.getSelectedCountryCode().trim();
+        String number = code + phoneTextView.getText().toString().trim();
+        String dbNumber = textView1.getText().toString().trim();
+        String dbBirthdate = textView3.getText().toString().trim();
+        String secondCar = textView2.getText().toString().trim();
+        String newDeklaracija = dbNumber + "_" + secondCar;
+
+        HashMap<String, String> dataMap = new HashMap<>();
+
+        dataMap.put("FP_Name", dbName);
+        dataMap.put("FP_LastName", dbLastname);
+        dataMap.put("FP_Birthdate", dbBirthdate);
+        dataMap.put("FP_PhoneNumber", number);
+        dataMap.put("FP_Location", dbLocation);
+        dataMap.put("FP_Email", dbEmail);
+        dataMap.put("FP_PersonalCode", dbCode);
+        dataMap.put("FP_CarNumber", dbNumber);
+
+        //root.push().setValue(dataMap);
+        root.child(newDeklaracija).setValue(dataMap);
+
+
+
+        //------------------------------------------------------------
         TextView editText2 = (TextView) findViewById(R.id.textView7);
         String text2 = editText2.getText().toString().trim();
         intent.putExtra(EXTRA_TEXT3, text2);
+
+        TextView editText3 = (TextView) findViewById(R.id.firstPersonNumber);
+        String text3 = editText3.getText().toString().trim();
+        intent.putExtra(EXTRA_TEXT4, text3);
         startActivity(intent);
+
+
     }
 }

@@ -17,17 +17,23 @@ import android.widget.Toast;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
+import java.util.HashMap;
 
 public class EventPictures extends AppCompatActivity {
 
     ImageView imageView;
     ImageView imageView2;
     ImageView imageView3;
+    TextView textView11;
 
     Uri fileUri;
     Uri fileUri2;
@@ -36,6 +42,16 @@ public class EventPictures extends AppCompatActivity {
     ProgressBar progressBar;
     TextView progressTextView;
     Button uploadButton;
+    Button continueButton;
+
+    String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+    private FirebaseDatabase db = FirebaseDatabase.getInstance();
+
+    private DatabaseReference root = db.getReference()
+            .child("Declaration_Data")
+            .child(currentuser)
+            .child("Declarations");
 
 
     @Override
@@ -48,11 +64,19 @@ public class EventPictures extends AppCompatActivity {
         imageView3 = findViewById(R.id.imageView3);
 
         uploadButton = findViewById(R.id.uploadButton);
+        continueButton = findViewById(R.id.continueButton);
 
         progressBar = findViewById(R.id.progressBar);
         progressTextView = findViewById(R.id.progressTextView);
 
-        String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        textView11 = findViewById(R.id.textView11);
+        Intent intent = getIntent();
+        String text2 = intent.getStringExtra(SecondPersonData.EXTRA_TEXT5);
+
+        textView11.setText(text2);
+
+        String stringas = textView11.getText().toString().trim();
+
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,17 +123,43 @@ public class EventPictures extends AppCompatActivity {
                 UploadTask uploadTask2 = uploadImageRef2.putFile(fileUri2);
                 UploadTask uploadTask3 = uploadImageRef3.putFile(fileUri3);
 
+
+                HashMap<String, Object> dataMap = new HashMap<>();
+
                 uploadTask2.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         Toast.makeText(EventPictures.this, "Successfully uploaded image", Toast.LENGTH_SHORT).show();
+                        Task<Uri> result = taskSnapshot.getMetadata().getReference().getDownloadUrl();
+
+                        result.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                String photoStringLink = uri.toString();
+                                dataMap.put("Second_Image_Link", photoStringLink);
+                                root.child(stringas).updateChildren(dataMap);
+                            }
+                        });
+
                     }
                 });
+
 
                 uploadTask3.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         Toast.makeText(EventPictures.this, "Successfully uploaded image", Toast.LENGTH_SHORT).show();
+                        Task<Uri> result = taskSnapshot.getMetadata().getReference().getDownloadUrl();
+
+                        result.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                String photoStringLink = uri.toString();
+                                dataMap.put("Third_Image_Link", photoStringLink);
+                                root.child(stringas).updateChildren(dataMap);
+                            }
+                        });
+
                     }
                 });
 
@@ -118,7 +168,16 @@ public class EventPictures extends AppCompatActivity {
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
                         Toast.makeText(EventPictures.this, "Successfully uploaded image", Toast.LENGTH_SHORT).show();
+                        Task<Uri> result = taskSnapshot.getMetadata().getReference().getDownloadUrl();
 
+                        result.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                String photoStringLink = uri.toString();
+                                dataMap.put("First_Image_Link", photoStringLink);
+                                root.child(stringas).updateChildren(dataMap);
+                            }
+                        });
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -139,6 +198,12 @@ public class EventPictures extends AppCompatActivity {
         });
 
 
+        continueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OpenNewActivity();
+            }
+        });
     }
 
     @Override
@@ -149,6 +214,7 @@ public class EventPictures extends AppCompatActivity {
                 if (data != null) {
                     fileUri = data.getData();
                     imageView.setImageURI(fileUri);
+
                 }
             }
         }
@@ -169,5 +235,10 @@ public class EventPictures extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    private void OpenNewActivity() {
+        Intent intent = new Intent(this, DisplayAllDataActivity.class);
+        startActivity(intent);
     }
 }

@@ -48,6 +48,17 @@ public class DeclarationCars extends AppCompatActivity {
             return;
         }
 
+        if(text.length() != 6){
+            editText1.setError("Invalid car number");
+            editText1.requestFocus();
+            return;
+        }
+        if(text2.length() != 6){
+            editText2.setError("Invalid car number");
+            editText2.requestFocus();
+            return;
+        }
+
         Intent intent = new Intent(this, FirstPersonData.class);
         intent.putExtra(EXTRA_TEXT, text);
         intent.putExtra(EXTRA_TEXT2, text2);
