@@ -50,6 +50,8 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
     private Button button;
 
     //Location stuff
+    private Button mapTest;
+
     private Button locationButton;
     private EditText locationText;
     FusedLocationProviderClient fusedLocationProviderClient;
@@ -99,6 +101,14 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
         });
 
         //Location stuff
+        mapTest = (Button) findViewById(R.id.map);
+        mapTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startMap();
+            }
+        });
+
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         locationButton = (Button) findViewById(R.id.buttonLocation);
         locationText = (EditText) findViewById(R.id.addressField);
@@ -134,6 +144,11 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
         //---------------------------------------------------
 
 
+    }
+
+    private void startMap(){
+        Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
     }
 
     private void initializeViews(){
