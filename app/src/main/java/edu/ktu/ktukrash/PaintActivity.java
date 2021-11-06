@@ -2,16 +2,10 @@ package edu.ktu.ktukrash;
 
 import android.Manifest;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
-import android.provider.MediaStore;
-import android.util.Base64;
-import android.view.*;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -24,8 +18,12 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import com.github.dhaval2404.imagepicker.ImagePicker;
-import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -33,12 +31,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
 import com.google.firebase.storage.UploadTask;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
@@ -49,8 +41,6 @@ import com.kyanogen.signatureview.SignatureView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -195,12 +185,11 @@ public class PaintActivity extends AppCompatActivity {
         String userID = user.getUid();
 
         Bitmap bitmap = signatureView.getSignatureBitmap();
-        Bitmap bitmap1 = imageView.getDrawingCache();
-        Bitmap bitmap2 = mergeToPin(bitmap, bitmap1);
+        //Bitmap bitmap1 = imageView.getDrawingCache();
+        //Bitmap bitmap2 = mergeToPin(bitmap, bitmap1);
 
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        bitmap2.compress(Bitmap.CompressFormat.PNG, 100, bos);
-
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
         byte[] bitmapData = bos.toByteArray();
 
         FirebaseStorage storage = FirebaseStorage.getInstance();
