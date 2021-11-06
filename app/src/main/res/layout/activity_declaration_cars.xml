@@ -72,7 +72,7 @@
         android:id="@+id/secondPersonCar"
         android:layout_width="332dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="250dp"
+        android:layout_marginBottom="150dp"
         android:ems="10"
         android:hint="Registration plate"
         android:inputType="textPersonName"
@@ -87,12 +87,28 @@
         android:id="@+id/continueButton"
         android:layout_width="234dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="150dp"
         android:text="Continue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/secondPersonCar"
         tools:ignore="MissingConstraints" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:progressDrawable="@drawable/custom_progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:progress="10"
+        android:max="100"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/continueButton"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
