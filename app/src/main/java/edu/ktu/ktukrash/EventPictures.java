@@ -43,6 +43,7 @@ public class EventPictures extends AppCompatActivity {
     TextView progressTextView;
     Button uploadButton;
     Button continueButton;
+    Button drawingButton;
 
     String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -53,6 +54,8 @@ public class EventPictures extends AppCompatActivity {
             .child(currentuser)
             .child("Declarations");
 
+
+    public static final String EXTRA_TEXT6 = "ktu.edu.KTUKrash.EXTRA.TEXT6";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +68,7 @@ public class EventPictures extends AppCompatActivity {
 
         uploadButton = findViewById(R.id.uploadButton);
         continueButton = findViewById(R.id.continueButton);
+        drawingButton = findViewById(R.id.DrawingButton);
 
         progressBar = findViewById(R.id.progressBar);
         progressTextView = findViewById(R.id.progressTextView);
@@ -204,6 +208,14 @@ public class EventPictures extends AppCompatActivity {
                 OpenNewActivity();
             }
         });
+
+        drawingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OpenNewActivity2();
+            }
+        });
+
     }
 
     @Override
@@ -239,6 +251,14 @@ public class EventPictures extends AppCompatActivity {
 
     private void OpenNewActivity() {
         Intent intent = new Intent(this, DisplayAllDataActivity.class);
+        startActivity(intent);
+    }
+    private void OpenNewActivity2() {
+        Intent intent = new Intent(this, PaintActivity.class);
+        TextView editText3 = (TextView) findViewById(R.id.textView11);
+        String text3 = editText3.getText().toString().trim();
+        intent.putExtra(EXTRA_TEXT6, text3);
+        startActivity(intent);
         startActivity(intent);
     }
 }

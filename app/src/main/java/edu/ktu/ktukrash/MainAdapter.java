@@ -55,6 +55,10 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
         Glide.with(holder.Second_Image_Link.getContext())
                 .load(model.getSecond_Image_Link())
                 .into(holder.Second_Image_Link);
+
+        Glide.with(holder.Drawing_Link.getContext())
+                .load(model.getDrawing_Link())
+                .into(holder.Drawing_Link);
     }
 
     @NonNull
@@ -71,7 +75,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
 
         ImageView Second_Image_Link;
         TextView SP_Name, SP_LastName, SP_Birthdate, SP_PhoneNumber, SP_Location, SP_Email, SP_PersonalCode, SP_Header, SP_CarNumber;
-
+        ImageView Drawing_Link;
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -87,6 +91,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
 
             First_Image_Link = (ImageView)itemView.findViewById(R.id.img1);
             Second_Image_Link = (ImageView)itemView.findViewById(R.id.img2);
+            Drawing_Link = (ImageView)itemView.findViewById(R.id.img3);
 
             SP_Name = (TextView)itemView.findViewById(R.id.SPnameText);
             SP_LastName = (TextView)itemView.findViewById(R.id.SPlastnameText);

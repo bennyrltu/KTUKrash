@@ -15,6 +15,7 @@ public class MainModel {
     String First_Image_Link;
     String Second_Image_Link;
     String Third_Image_Link;
+    String Drawing_Link;
 
 
     String SP_Header;
@@ -33,7 +34,7 @@ public class MainModel {
 
     }
 
-    public MainModel(String FP_Header, String FP_Name, String FP_LastName, String FP_Birthdate, String FP_PhoneNumber, String FP_Location, String FP_Email, String FP_PersonalCode, String FP_CarNumber, String first_Image_Link, String second_Image_Link, String third_Image_Link, String SP_Header, String SP_Name, String SP_LastName, String SP_Birthdate, String SP_PhoneNumber, String SP_Location, String SP_Email, String SP_PersonalCode, String SP_CarNumber) {
+    public MainModel(String FP_Header, String FP_Name, String FP_LastName, String FP_Birthdate, String FP_PhoneNumber, String FP_Location, String FP_Email, String FP_PersonalCode, String FP_CarNumber, String first_Image_Link, String second_Image_Link, String third_Image_Link, String SP_Header, String SP_Name, String SP_LastName, String SP_Birthdate, String SP_PhoneNumber, String SP_Location, String SP_Email, String SP_PersonalCode, String SP_CarNumber, String Drawing_Link) {
         this.FP_Header = FP_Header;
         this.FP_Name = FP_Name;
         this.FP_LastName = FP_LastName;
@@ -46,6 +47,7 @@ public class MainModel {
         this.First_Image_Link = first_Image_Link;
         this.Second_Image_Link = second_Image_Link;
         this.Third_Image_Link = third_Image_Link;
+        this.Drawing_Link = Drawing_Link;
         this.SP_Header = SP_Header;
         this.SP_Name = SP_Name;
         this.SP_LastName = SP_LastName;
@@ -55,6 +57,7 @@ public class MainModel {
         this.SP_Email = SP_Email;
         this.SP_PersonalCode = SP_PersonalCode;
         this.SP_CarNumber = SP_CarNumber;
+
     }
     public String getFP_Header() {
         return FP_Header;
@@ -222,6 +225,14 @@ public class MainModel {
 
     public void setSP_CarNumber(String SP_CarNumber) {
         this.SP_CarNumber = SP_CarNumber;
+    }
+
+    public String getDrawing_Link() {
+        return Drawing_Link;
+    }
+
+    public void setDrawing_Link(String drawing_Link) {
+        Drawing_Link = drawing_Link;
     }
 }
 

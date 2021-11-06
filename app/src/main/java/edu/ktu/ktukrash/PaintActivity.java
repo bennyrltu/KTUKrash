@@ -29,6 +29,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -44,6 +46,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
@@ -55,7 +58,7 @@ public class PaintActivity extends AppCompatActivity {
     SignatureView signatureView;
     ImageButton imgEraser, imgColor, imgSave;
     SeekBar seekBar;
-    TextView txtPenSize;
+    TextView txtPenSize, textView;
     private static String fileName;
     Button button1;
     ImageView imageView;
@@ -67,6 +70,16 @@ public class PaintActivity extends AppCompatActivity {
     private FirebaseAuth auth;
 
 
+
+
+    String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+    private FirebaseDatabase db = FirebaseDatabase.getInstance();
+
+    private DatabaseReference root = db.getReference()
+            .child("Declaration_Data")
+            .child(currentuser)
+            .child("Declarations");
 
 
     File path = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pictures");
@@ -88,7 +101,14 @@ public class PaintActivity extends AppCompatActivity {
         mStorageRef = FirebaseStorage.getInstance().getReference();
         button1 = findViewById(R.id.addImage);
         imageView = findViewById(R.id.photoBackground);
+        textView = findViewById(R.id.textView13);
 
+        Intent intent = getIntent();
+        String text = intent.getStringExtra(EventPictures.EXTRA_TEXT6);
+
+        TextView textView1 = (TextView) findViewById(R.id.textView13);
+
+        textView1.setText(text);
 
         askPermission();
         signatureView.setBackground(Drawable.createFromPath("background.jpg"));
@@ -100,6 +120,8 @@ public class PaintActivity extends AppCompatActivity {
         {
             path.mkdirs();
         }
+
+
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -207,6 +229,23 @@ public class PaintActivity extends AppCompatActivity {
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 Task<Uri> downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl();
                 Log.i("uri",downloadUrl.toString());
+
+                HashMap<String, Object> dataMap = new HashMap<>();
+
+                Toast.makeText(PaintActivity.this, "Successfully uploaded image", Toast.LENGTH_SHORT).show();
+                Task<Uri> result = taskSnapshot.getMetadata().getReference().getDownloadUrl();
+                TextView textView1 = (TextView) findViewById(R.id.textView13);
+                String stringas = textView1.getText().toString().trim();
+
+                result.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        String photoStringLink = uri.toString();
+                        dataMap.put("Drawing_Link", photoStringLink);
+                        root.child(stringas).updateChildren(dataMap);
+                    }
+                });
+                
 
             }
         });
