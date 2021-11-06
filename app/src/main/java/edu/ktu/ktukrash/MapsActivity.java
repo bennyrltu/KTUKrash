@@ -5,11 +5,16 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -32,6 +37,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
+    private EditText locationText;
+    private Button confirmButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +51,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        locationText = (EditText) findViewById(R.id.locationText);
+        confirmButton = (Button) findViewById(R.id.confirm_button);
+
+        confirmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("loc", locationText.getText().toString());
+                setResult(Activity.RESULT_OK, resultIntent);
+                finish();
+            }
+        });
     }
 
     /**
@@ -74,10 +94,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                     location.getLatitude(), location.getLongitude(), 1
                             );
 
+                            locationText.setText(addresses.get(0).getAddressLine(0));
+
                             LatLng markerLocation = new LatLng(addresses.get(0).getLatitude(), addresses.get(0).getLongitude());
                             mMap.addMarker(new MarkerOptions().position(markerLocation));
-
-                            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(markerLocation,10));
+                            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(markerLocation,17));
 
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -91,6 +112,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     ,new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
         }
         //--------------------------------------------------------
+
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(@NonNull LatLng latLng) {
+                Geocoder geocoder = new Geocoder(MapsActivity.this, Locale.getDefault());
+                try {
+                    List<Address> addresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1);
+                    locationText.setText(addresses.get(0).getAddressLine(0));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                MarkerOptions markerOptions = new MarkerOptions();
+                markerOptions.position(latLng);
+                mMap.clear();
+                mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+                mMap.addMarker(markerOptions);
+            }
+        });
 
         // Add a marker in Sydney and move the camera
         //LatLng sydney = new LatLng(-34, 151);
