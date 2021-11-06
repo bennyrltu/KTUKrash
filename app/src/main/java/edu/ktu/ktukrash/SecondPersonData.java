@@ -67,7 +67,7 @@ public class SecondPersonData extends AppCompatActivity implements DatePickerDia
         String text2 = intent.getStringExtra(FirstPersonData.EXTRA_TEXT3);
         String text3 = intent.getStringExtra(FirstPersonData.EXTRA_TEXT4);
 
-        TextView textView1 = (TextView) findViewById(R.id.SecondPersonNumber);
+        TextView textView1 = (TextView) findViewById(R.id.secondPersonNumber);
         TextView textView2 = (TextView) findViewById(R.id.textView10);
 
 
@@ -127,7 +127,7 @@ public class SecondPersonData extends AppCompatActivity implements DatePickerDia
 
     private void initializeViews(){
         ccp = (CountryCodePicker) findViewById(R.id.ccp);
-        phoneTextView = (EditText) findViewById(R.id.SecondPersonPhoneNumber);
+        phoneTextView = (EditText) findViewById(R.id.secondPersonPhoneNumber);
         button = (Button) findViewById(R.id.button2);
     }
 
@@ -171,14 +171,14 @@ public class SecondPersonData extends AppCompatActivity implements DatePickerDia
         Intent intent = new Intent(this, EventPictures.class);
 
         //Validation--------------------------------------------------------------
-        EditText name = (EditText) findViewById(R.id.SecondPersonNameField);
-        EditText lastName = (EditText) findViewById(R.id.SecondPersonLastName);
+        EditText name = (EditText) findViewById(R.id.secondPersonNameField);
+        EditText lastName = (EditText) findViewById(R.id.secondPersonLastName);
 
-        EditText phone =(EditText) findViewById(R.id.SecondPersonPhoneNumber);
-        EditText email = (EditText) findViewById(R.id.SecondPersonEmail);
-        EditText personalCode = (EditText) findViewById(R.id.SecondPersonCode);
+        EditText phone =(EditText) findViewById(R.id.secondPersonPhoneNumber);
+        EditText email = (EditText) findViewById(R.id.editTextTextEmailAddress);
+        EditText personalCode = (EditText) findViewById(R.id.editTextNumber);
 
-        TextView textView1 = (TextView) findViewById(R.id.SecondPersonNumber);
+        TextView textView1 = (TextView) findViewById(R.id.secondPersonNumber);
         TextView textView2 = (TextView) findViewById(R.id.textView10);
         TextView textView3 = (TextView) findViewById(R.id.DisplayDate);
 
