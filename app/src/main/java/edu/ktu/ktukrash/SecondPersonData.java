@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.DialogFragment;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -42,9 +43,9 @@ public class SecondPersonData extends AppCompatActivity implements DatePickerDia
     private Button button;
 
     //Location stuff
-    private Button locationButton;
+    private Button map;
+    private Intent intent;
     private EditText locationText;
-    FusedLocationProviderClient fusedLocationProviderClient;
     //--------------------------------
 
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
@@ -88,41 +89,36 @@ public class SecondPersonData extends AppCompatActivity implements DatePickerDia
             }
         });
 
-        //Location stuff
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-        locationButton = (Button) findViewById(R.id.buttonLocation);
-        locationText = (EditText) findViewById(R.id.addressField);
-        locationButton.setOnClickListener(new View.OnClickListener() {
+        //Location stuff--------------------------------------------------------------------
+        map = (Button) findViewById(R.id.map);
+        map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(ActivityCompat.checkSelfPermission(SecondPersonData.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
-                    fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Location> task) {
-                            Location location = task.getResult();
-                            if(location != null){
-                                Geocoder geocoder = new Geocoder(SecondPersonData.this,
-                                        Locale.getDefault());
-                                try {
-                                    List<Address> addresses = geocoder.getFromLocation(
-                                            location.getLatitude(), location.getLongitude(), 1
-                                    );
-                                    locationText.setText(addresses.get(0).getAddressLine(0));
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-                    });
-                }
-                else{
-                    ActivityCompat.requestPermissions(SecondPersonData.this
-                            ,new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
-                }
+                startMap();
             }
         });
+        locationText = (EditText) findViewById(R.id.addressField);
         //---------------------------------------------------
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch(requestCode) {
+            case (5) : {
+                if (resultCode == Activity.RESULT_OK) {
+                    String newText = data.getStringExtra("loc");
+                    locationText.setText(newText);
+                }
+                break;
+            }
+        }
+    }
+
+    private void startMap(){
+        intent = new Intent(this, MapsActivity.class);
+        startActivityForResult(intent, 5);
     }
 
     private void initializeViews(){
