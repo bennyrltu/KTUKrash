@@ -51,11 +51,9 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
     private Button button;
 
     //Location stuff
-    private Button mapTest;
+    private Button map;
     private Intent intent;
-
     private EditText locationText;
-    FusedLocationProviderClient fusedLocationProviderClient;
 
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
 
@@ -102,8 +100,8 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
         });
 
         //Location stuff--------------------------------------------------------------------
-        mapTest = (Button) findViewById(R.id.map);
-        mapTest.setOnClickListener(new View.OnClickListener() {
+        map = (Button) findViewById(R.id.map);
+        map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startMap();
