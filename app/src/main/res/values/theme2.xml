@@ -3,7 +3,7 @@
     <style name="Theme.KTUKrashAction" parent="Theme.MaterialComponents.DayNight">
         <!-- Primary brand color. -->
         <item name="android:homeAsUpIndicator">@null</item>
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
