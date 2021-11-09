@@ -38,23 +38,29 @@ public class DeclarationCars extends AppCompatActivity {
         String text2 = editText2.getText().toString().trim();
 
         if(text.isEmpty()){
-            editText1.setError("This field is required");
+            editText1.setError("This field is required!");
             editText1.requestFocus();
             return;
         }
         if(text2.isEmpty()){
-            editText2.setError("This field is required");
+            editText2.setError("This field is required!");
             editText2.requestFocus();
             return;
         }
 
         if(text.length() != 6){
-            editText1.setError("Invalid car number");
+            editText1.setError("Invalid first car number!");
             editText1.requestFocus();
             return;
         }
-        if(text2.length() != 6){
-            editText2.setError("Invalid car number");
+
+        if(!text.toString().matches("^[A-Z]{3}[0-9]{3}$")){
+            editText1.setError("Invalid first car number!");
+            editText1.requestFocus();
+            return;
+        }
+        if(!text2.toString().matches("^[A-Z]{3}[0-9]{3}$")){
+            editText2.setError("Invalid second car number!");
             editText2.requestFocus();
             return;
         }

@@ -178,19 +178,39 @@ public class SecondPersonData extends AppCompatActivity implements DatePickerDia
         TextView textView2 = (TextView) findViewById(R.id.textView10);
         TextView textView3 = (TextView) findViewById(R.id.DisplayDate);
 
+        Button button = (Button) findViewById(R.id.OpenDatePicker);
+
 
         if(name.getText().toString().isEmpty()){
-            name.setError("This field is required");
+            name.setError("This field is required!");
+            name.requestFocus();
+            return;
+        }
+
+        if(!name.getText().toString().matches("^[a-zA-Z ]+$")){
+            name.setError("Name cannot contain special characters or numbers!");
             name.requestFocus();
             return;
         }
         if(lastName.getText().toString().isEmpty()){
-            lastName.setError("This field is required");
+            lastName.setError("This field is required!");
             lastName.requestFocus();
             return;
         }
+
+        if(!lastName.getText().toString().matches("^[a-zA-Z ]+$")){
+            lastName.setError("Last name cannot contain special characters or numbers!");
+            lastName.requestFocus();
+            return;
+        }
+
         if(phone.getText().toString().isEmpty()){
-            phone.setError("This field is required");
+            phone.setError("This field is required!");
+            phone.requestFocus();
+            return;
+        }
+        if(phone.getText().toString().matches(".*\\D.*")){
+            phone.setError("Phone number only contains numbers!");
             phone.requestFocus();
             return;
         }
@@ -204,15 +224,26 @@ public class SecondPersonData extends AppCompatActivity implements DatePickerDia
             email.requestFocus();
             return;
         }
+        if(!email.getText().toString().matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])")){
+            email.setError("Invalid email entered!");
+            email.requestFocus();
+            return;
+        }
         if(personalCode.getText().toString().isEmpty()){
             personalCode.setError("This field is required");
             personalCode.requestFocus();
             return;
         }
 
+        if(personalCode.getText().toString().matches(".*\\D.*")){
+            phone.setError("Personal code only contains numbers!");
+            phone.requestFocus();
+            return;
+        }
+
         if(textView3.getText().toString().isEmpty()){
-            textView3.setError("This field is required");
-            textView3.requestFocus();
+            button.setError("Birth date is required");
+            button.requestFocus();
             return;
         }
 

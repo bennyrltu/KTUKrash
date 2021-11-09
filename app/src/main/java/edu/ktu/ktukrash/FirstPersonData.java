@@ -41,6 +41,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -48,8 +49,7 @@ import java.util.Locale;
 public class FirstPersonData extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     private CountryCodePicker ccp;
     private TextView phoneTextView;
-    private Button button;
-
+    private Button button, button2;
     //Location stuff
     private Button map;
     private Intent intent;
@@ -86,9 +86,8 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
         textView2.setText(text2);
 
         initializeViews();
-        listeners();
-
         Button button = (Button) findViewById(R.id.OpenDatePicker);
+        Button button2 = (Button) findViewById(R.id.button2);
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +97,14 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
                 datePicker.show(getSupportFragmentManager(), "date picker");
             }
         });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OpenNewActivity();
+            }
+        });
+
 
         //Location stuff--------------------------------------------------------------------
         map = (Button) findViewById(R.id.map);
@@ -135,29 +142,7 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
     private void initializeViews(){
         ccp = (CountryCodePicker) findViewById(R.id.ccp);
         phoneTextView = (EditText) findViewById(R.id.FirstPersonPhoneNumber);
-        button = (Button) findViewById(R.id.button2);
-    }
-
-    private void listeners(){
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Get Variable
-                //String code = ccp.getSelectedCountryCode();
-                //String country = ccp.getSelectedCountryEnglishName();
-                //String number = code + phoneTextView.getText().toString();
-
-                // Create Toast
-                //Context context = getApplicationContext();
-                //CharSequence text = "Country - " + country + ", Value Sent: " + code + " " + number;
-                //int duration = Toast.LENGTH_SHORT;
-                //Toast toast = Toast.makeText(context, text, duration);
-                //toast.show();
-
-                OpenNewActivity();
-
-            }
-        });
+        button = (Button) findViewById(R.id.OpenDatePicker);
     }
 
     @Override
@@ -189,19 +174,39 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
         TextView textView2 = (TextView) findViewById(R.id.textView7);
         TextView textView3 = (TextView) findViewById(R.id.DisplayDate);
 
+        Button button = (Button) findViewById(R.id.OpenDatePicker);
+
 
         if(name.getText().toString().isEmpty()){
-            name.setError("This field is required");
+            name.setError("This field is required!");
+            name.requestFocus();
+            return;
+        }
+
+        if(!name.getText().toString().matches("^[a-zA-Z ]+$")){
+            name.setError("Name cannot contain special characters or numbers!");
             name.requestFocus();
             return;
         }
         if(lastName.getText().toString().isEmpty()){
-            lastName.setError("This field is required");
+            lastName.setError("This field is required!");
             lastName.requestFocus();
             return;
         }
+
+        if(!lastName.getText().toString().matches("^[a-zA-Z ]+$")){
+            lastName.setError("Last name cannot contain special characters or numbers!");
+            lastName.requestFocus();
+            return;
+        }
+
         if(phone.getText().toString().isEmpty()){
-            phone.setError("This field is required");
+            phone.setError("This field is required!");
+            phone.requestFocus();
+            return;
+        }
+        if(phone.getText().toString().matches(".*\\D.*")){
+            phone.setError("Phone number only contains numbers!");
             phone.requestFocus();
             return;
         }
@@ -215,18 +220,28 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
             email.requestFocus();
             return;
         }
+        if(!email.getText().toString().matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])")){
+            email.setError("Invalid email entered!");
+            email.requestFocus();
+            return;
+        }
         if(personalCode.getText().toString().isEmpty()){
             personalCode.setError("This field is required");
             personalCode.requestFocus();
             return;
         }
 
-        if(textView3.getText().toString().isEmpty()){
-            textView3.setError("This field is required");
-            textView3.requestFocus();
+        if(personalCode.getText().toString().matches(".*\\D.*")){
+            phone.setError("Personal code only contains numbers!");
+            phone.requestFocus();
             return;
         }
 
+        if(textView3.getText().toString().isEmpty()){
+            button.setError("Birth date is required");
+            button.requestFocus();
+            return;
+        }
 
         //------------------------------------------------------------
         String dbName = name.getText().toString().trim();
@@ -266,7 +281,6 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
         String text3 = editText3.getText().toString().trim();
         intent.putExtra(EXTRA_TEXT4, text3);
         startActivity(intent);
-
 
     }
 }
