@@ -1,5 +1,6 @@
 package edu.ktu.ktukrash;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -34,7 +35,7 @@ public class Profile extends AppCompatActivity {
         listButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Profile.this, "To be done!", Toast.LENGTH_LONG).show();
+                OpenActivity();
             }
         });
 
@@ -65,6 +66,13 @@ public class Profile extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(Profile.this, "Something went wrong!", Toast.LENGTH_LONG).show();
             }
+
         });
+
+
+    }
+    public void OpenActivity(){
+        Intent intent = new Intent(this, DisplayAllDataActivity.class);
+        startActivity(intent);
     }
 }

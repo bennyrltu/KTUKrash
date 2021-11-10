@@ -1,18 +1,35 @@
 package edu.ktu.ktukrash;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+import com.orhanobut.dialogplus.DialogPlus;
+import com.orhanobut.dialogplus.ViewHolder;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.myViewHolder> {
 
@@ -27,7 +44,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull MainModel model) {
+    protected void onBindViewHolder(@NonNull myViewHolder holder, @SuppressLint("RecyclerView") final int position, @NonNull MainModel model) {
         holder.FP_Header.setText("First person data: ");
         holder.FP_Name.setText("First name: " + model.getFP_Name());
         holder.FP_LastName.setText("Last name: "+ model.getFP_LastName());
@@ -40,6 +57,99 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
         Glide.with(holder.First_Image_Link.getContext())
                 .load(model.getFirst_Image_Link())
                 .into(holder.First_Image_Link);
+
+        holder.btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final DialogPlus dialogPlus = DialogPlus.newDialog(holder.First_Image_Link.getContext())
+                        .setContentHolder(new ViewHolder(R.layout.update_popup))
+                        .setExpanded(true,2000)
+                        .create();
+
+
+
+                View view = dialogPlus.getHolderView();
+                EditText name= view.findViewById(R.id.txtName);
+                EditText lastname= view.findViewById(R.id.txtLastName);
+                EditText birthdate= view.findViewById(R.id.txtBirthdate);
+                EditText phonenumber= view.findViewById(R.id.txtPhoneNumber);
+                EditText address= view.findViewById(R.id.txtAdress);
+                EditText email= view.findViewById(R.id.txtEmail);
+                EditText personalcode= view.findViewById(R.id.txtPersonalCode);
+
+                Button btnUpdate=view.findViewById(R.id.btnUpdate);
+
+                name.setText(model.getFP_Name());
+                lastname.setText(model.getFP_LastName());
+                birthdate.setText(model.getFP_Birthdate());
+                phonenumber.setText(model.getFP_PhoneNumber());
+                address.setText(model.getFP_Location());
+                email.setText(model.getFP_Email());
+                personalcode.setText(model.getFP_PersonalCode());
+
+                dialogPlus.show();
+
+                btnUpdate.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Map<String, Object> dataMap = new HashMap<>();
+                        dataMap.put("FP_Name", name.getText().toString().trim());
+                        dataMap.put("FP_LastName", lastname.getText().toString().trim());
+                        dataMap.put("FP_Birthdate", birthdate.getText().toString().trim());
+                        dataMap.put("FP_PhoneNumber",phonenumber.getText().toString().trim());
+                        dataMap.put("FP_Location", address.getText().toString().trim());
+                        dataMap.put("FP_Email", email.getText().toString().trim());
+                        dataMap.put("FP_PersonalCode", personalcode.getText().toString().trim());
+
+                        String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+
+                        FirebaseDatabase.getInstance().getReference().child("Declaration_Data").child(currentuser).child("Declarations").child(getRef(position).getKey()).updateChildren(dataMap)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toast.makeText(holder.FP_Name.getContext(), "Data updaded succesfully!", Toast.LENGTH_SHORT).show();
+                                        dialogPlus.dismiss();
+                                    }
+                                })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(holder.FP_Name.getContext(), "Error when updating data!", Toast.LENGTH_SHORT).show();
+                                dialogPlus.dismiss();
+
+                            }
+                        });
+
+                    }
+                });
+            }
+        });
+
+        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(holder.FP_Name.getContext());
+                builder.setTitle("Are you sure you want to delete?");
+                builder.setMessage("Deleted data can't be undo");
+                builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        FirebaseDatabase.getInstance().getReference().child("Declaration_Data").child(currentuser).child("Declarations").child(getRef(position).getKey()).removeValue();
+
+                    }
+                });
+
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(holder.FP_Name.getContext(), "Cancelled.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                builder.show();
+            }
+        });
 
         //Glide.with(holder.First_Image_Link).load(model.getFirst_Image_Link());
 
@@ -68,11 +178,14 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
         return new myViewHolder(view);
     }
 
+
     class myViewHolder extends RecyclerView.ViewHolder{
 
         ImageView First_Image_Link;
         TextView FP_Name, FP_LastName, FP_Birthdate, FP_PhoneNumber, FP_Location, FP_Email, FP_PersonalCode, FP_Header, FP_CarNumber;
 
+
+        Button btnEdit, btnDelete;
         ImageView Second_Image_Link;
         TextView SP_Name, SP_LastName, SP_Birthdate, SP_PhoneNumber, SP_Location, SP_Email, SP_PersonalCode, SP_Header, SP_CarNumber;
         ImageView Drawing_Link;
@@ -103,7 +216,9 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
             SP_Header = (TextView)itemView.findViewById(R.id.SPheaderext);
             SP_CarNumber = (TextView)itemView.findViewById(R.id.SPcarnumbertext);
 
+            btnEdit = (Button)itemView.findViewById(R.id.btnEdit);
+            btnDelete = (Button)itemView.findViewById(R.id.btnDelete);
+
         }
     }
-
 }
