@@ -7,19 +7,6 @@
     tools:context=".PaintActivity"
     >
 
-    <Button
-        android:id="@+id/addImage"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="2dp"
-        android:gravity="center"
-        android:autofillHints="name"
-        android:text="AddPhoto"
-    />
-
 
     <com.kyanogen.signatureview.SignatureView xmlns:sign="http://schemas.android.com/apk/res-auto"
         android:id="@+id/signature_view"
@@ -29,7 +16,7 @@
         sign:backgroundColor="@android:color/transparent"
         sign:enableSignature="true"
         sign:penColor="#000000"
-        sign:penSize="5dp"/>
+        sign:penSize="5dp" />
 
 
     <ImageView
@@ -47,70 +34,82 @@
 
     <LinearLayout
         android:id="@+id/optionsHolder"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/blueish"
+        android:gravity="center"
+        android:orientation="horizontal">
+
         <LinearLayout
-            android:layout_weight="1"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_weight="1">
+
             <SeekBar
-                android:layout_weight="1"
-                android:layout_marginStart="8dp"
                 android:id="@+id/penSize"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1">
 
             </SeekBar>
 
             <TextView
                 android:id="@+id/txtPenSize"
-                android:textColor="@color/black"
-                android:text="5dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:text="5dp"
+                android:textColor="@color/black">
 
             </TextView>
         </LinearLayout>
 
 
         <LinearLayout
-            android:layout_weight="1"
-            android:layout_margin="4dp"
-            android:gravity="end"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:gravity="end">
+
             <ImageButton
                 android:id="@+id/btnEraser"
-                android:background="@color/white"
-                android:scaleType="center"
-                android:layout_weight="1"
-                android:src="@drawable/ic_eraser"
                 android:layout_width="0dp"
-                android:layout_height="70dp">
-            </ImageButton>
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:background="@color/blueish"
+                android:scaleType="center"
+                android:src="@drawable/ic_eraser"></ImageButton>
+
             <ImageButton
                 android:id="@+id/btnColor"
-                android:background="@color/white"
-                android:scaleType="center"
-                android:layout_weight="1"
-                android:src="@drawable/ic_color"
                 android:layout_width="0dp"
-                android:layout_height="70dp">
-            </ImageButton>
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:background="@color/blueish"
+                android:scaleType="center"
+                android:src="@drawable/ic_color"></ImageButton>
+
+            <Button
+                android:id="@+id/addImage"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/addimage"
+                android:gravity="center"></Button>
+
             <ImageButton
                 android:id="@+id/btnSave"
-                android:background="@color/white"
-                android:scaleType="center"
-                android:layout_weight="1"
-                android:src="@drawable/ic_save"
                 android:layout_width="0dp"
-                android:layout_height="70dp">
-            </ImageButton>
-
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:background="@color/blueish"
+                android:scaleType="center"
+                android:src="@drawable/ic_save"></ImageButton>
 
 
         </LinearLayout>

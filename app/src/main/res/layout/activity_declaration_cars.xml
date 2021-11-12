@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".DeclarationCars">
 
 
@@ -16,6 +17,7 @@
         android:text="Declare vehicles:"
         android:textSize="40dp"
         android:textStyle="bold"
+        android:textColor="#1eb0c7"
         app:layout_constraintBottom_toTopOf="@+id/yourNumbersHeader"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
@@ -40,18 +42,23 @@
 
     <EditText
         android:id="@+id/firstPersonCar"
-        android:layout_width="332dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="45dp"
-        android:ems="10"
-        android:hint="Registration plate"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="35dp"
+        android:layout_marginTop="-20dp"
+        android:layout_marginLeft="20dp"
+
+        android:hint="XXX-000"
         android:inputType="textPersonName"
+        android:background="@drawable/numberplate"
+        android:paddingStart="55dp"
+        android:paddingVertical="5dp"
+        android:textSize="55dp"
         app:layout_constraintBottom_toTopOf="@+id/otherPersonVehicleHeader"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.202"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/yourNumbersHeader"
+        app:layout_constraintStart_toStartOf="@id/yourNumbersHeader"
         app:layout_constraintTop_toBottomOf="@+id/yourNumbersHeader"
-        tools:ignore="MissingConstraints" />
+        />
 
     <TextView
         android:id="@+id/yourNumbersHeader"
@@ -70,30 +77,61 @@
 
     <EditText
         android:id="@+id/secondPersonCar"
-        android:layout_width="332dp"
-        android:layout_height="40dp"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
         android:layout_marginBottom="150dp"
-        android:ems="10"
-        android:hint="Registration plate"
+        android:layout_marginTop="-20dp"
+        android:layout_marginLeft="25dp"
+        android:hint="XXX-000"
         android:inputType="textPersonName"
+        android:background="@drawable/numberplate"
+        android:paddingStart="55dp"
+        android:paddingVertical="5dp"
+        android:textSize="55dp"
         app:layout_constraintBottom_toTopOf="@+id/continueButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.238"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/otherPersonVehicleHeader"
+        app:layout_constraintStart_toStartOf="@id/otherPersonVehicleHeader"
         app:layout_constraintTop_toBottomOf="@+id/otherPersonVehicleHeader"
-        tools:ignore="MissingConstraints" />
+         />
+
+
+
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="-35dp"
+        android:text="Back"
+        android:textSize="20dp"
+        android:gravity="center"
+
+        android:drawableStart="@drawable/arrow_left"
+        android:drawablePadding="-30dp"
+        android:background="@drawable/gradientbackr"
+        app:layout_constraintBottom_toBottomOf="@id/progressBar"
+        app:layout_constraintStart_toStartOf="@id/secondPersonCar"
+
+         />
 
     <Button
         android:id="@+id/continueButton"
-        android:layout_width="234dp"
+        android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="150dp"
-        android:text="Continue"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/secondPersonCar"
-        tools:ignore="MissingConstraints" />
+        android:layout_marginBottom="40dp"
+        android:layout_marginRight="-230dp"
+        android:text="Next"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:background="@drawable/gradientbackr"
+        android:drawablePadding="-15dp"
+        android:drawableEnd="@drawable/arrow_right"
+        app:layout_constraintBottom_toBottomOf="@id/progressBar"
+        app:layout_constraintEnd_toEndOf="@id/secondPersonCar"
+        app:layout_constraintStart_toStartOf="@id/secondPersonCar"
+
+        />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -103,7 +141,6 @@
         android:layout_height="wrap_content"
         android:progress="10"
         android:max="100"
-        android:layout_marginBottom="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
