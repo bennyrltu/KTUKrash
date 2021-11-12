@@ -74,7 +74,7 @@
             android:name=".ProfileActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.KTUKrashAction" />
         <activity
             android:name=".PaintActivity"
             android:exported="false"

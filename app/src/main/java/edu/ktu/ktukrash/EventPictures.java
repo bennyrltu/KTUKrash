@@ -41,7 +41,7 @@ public class EventPictures extends AppCompatActivity {
 
     ProgressBar progressBar;
     TextView progressTextView;
-    Button uploadButton;
+    Button uploadButton, backButton;
     Button continueButton;
     Button drawingButton;
 
@@ -69,6 +69,7 @@ public class EventPictures extends AppCompatActivity {
         uploadButton = findViewById(R.id.uploadButton);
         continueButton = findViewById(R.id.continueButton);
         drawingButton = findViewById(R.id.DrawingButton);
+        backButton = findViewById(R.id.backButton);
 
         progressBar = findViewById(R.id.progressBar);
         progressTextView = findViewById(R.id.progressTextView);
@@ -216,6 +217,17 @@ public class EventPictures extends AppCompatActivity {
             }
         });
 
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openPreviousActivity();
+            }
+        });
+
+    }
+    private void openPreviousActivity() {
+        Intent intent = new Intent(this, SecondPersonData.class);
+        startActivity(intent);
     }
 
     @Override

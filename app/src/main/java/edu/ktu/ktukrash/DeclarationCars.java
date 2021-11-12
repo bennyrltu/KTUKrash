@@ -12,7 +12,7 @@ public class DeclarationCars extends AppCompatActivity {
 
     public static final String EXTRA_TEXT = "ktu.edu.KTUKrash.EXTRA.TEXT";
     public static final String EXTRA_TEXT2 = "ktu.edu.KTUKrash.EXTRA.TEXT2";
-    private Button button;
+    private Button button, button1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,7 @@ public class DeclarationCars extends AppCompatActivity {
         setContentView(R.layout.activity_declaration_cars);
 
         Button button = (Button) findViewById(R.id.continueButton);
+        button1 = (Button) findViewById(R.id.backButton);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -27,6 +28,17 @@ public class DeclarationCars extends AppCompatActivity {
                 OpenNewActivity();
             }
         });
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                OpenNewActivity1();
+            }
+        });
+    }
+
+    private void OpenNewActivity1() {
+        Intent intent = new Intent(this, DeclarationStart.class);
+        startActivity(intent);
     }
 
     private void OpenNewActivity() {

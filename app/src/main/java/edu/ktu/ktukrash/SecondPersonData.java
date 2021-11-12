@@ -40,7 +40,7 @@ import java.util.Locale;
 public class SecondPersonData extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     private CountryCodePicker ccp;
     private TextView phoneTextView;
-    private Button button;
+    private Button button, button2;
 
     //Location stuff
     private Button map;
@@ -79,6 +79,7 @@ public class SecondPersonData extends AppCompatActivity implements DatePickerDia
         listeners();
 
         Button button = (Button) findViewById(R.id.OpenDatePicker);
+        button2 = (Button) findViewById(R.id.backButton);
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -86,6 +87,12 @@ public class SecondPersonData extends AppCompatActivity implements DatePickerDia
             public void onClick(View v) {
                 DialogFragment datePicker = new DateFragment();
                 datePicker.show(getSupportFragmentManager(), "date picker");
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openPreviousActivity();
             }
         });
 
@@ -100,6 +107,10 @@ public class SecondPersonData extends AppCompatActivity implements DatePickerDia
         locationText = (EditText) findViewById(R.id.addressField);
         //---------------------------------------------------
 
+    }
+    private void openPreviousActivity() {
+        Intent intent = new Intent(this, FirstPersonData.class);
+        startActivity(intent);
     }
 
     @Override

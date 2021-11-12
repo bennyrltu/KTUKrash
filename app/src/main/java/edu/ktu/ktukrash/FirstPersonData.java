@@ -49,7 +49,7 @@ import java.util.Locale;
 public class FirstPersonData extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     private CountryCodePicker ccp;
     private TextView phoneTextView;
-    private Button button, button2;
+    private Button button, button2,button3;
     //Location stuff
     private Button map;
     private Intent intent;
@@ -88,6 +88,7 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
         initializeViews();
         Button button = (Button) findViewById(R.id.OpenDatePicker);
         Button button2 = (Button) findViewById(R.id.button2);
+        button3 = (Button) findViewById(R.id.backButton);
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -105,6 +106,13 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
             }
         });
 
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openPreviousActivity();
+            }
+        });
+
 
         //Location stuff--------------------------------------------------------------------
         map = (Button) findViewById(R.id.map);
@@ -118,6 +126,11 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
         //---------------------------------------------------
 
 
+    }
+
+    private void openPreviousActivity() {
+        Intent intent = new Intent(this, DeclarationCars.class);
+        startActivity(intent);
     }
 
     @Override
