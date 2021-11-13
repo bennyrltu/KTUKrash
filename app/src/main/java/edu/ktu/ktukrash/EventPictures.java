@@ -1,11 +1,15 @@
 package edu.ktu.ktukrash;
 
+import static android.graphics.drawable.Drawable.*;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -71,7 +75,8 @@ public class EventPictures extends AppCompatActivity {
 
         uploadButton = findViewById(R.id.uploadButton);
         uploadButton.setEnabled(false);
-        uploadButton.setBackgroundColor(Color.parseColor("#808080"));
+        uploadButton.setBackground(ContextCompat.getDrawable(this, R.drawable.grayedround));
+
         backButton = findViewById(R.id.backButton);
 
         progressBar = findViewById(R.id.progressBar);
@@ -201,6 +206,7 @@ public class EventPictures extends AppCompatActivity {
                                 root.child(stringas).updateChildren(dataMap);
                             }
                         });
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -253,7 +259,7 @@ public class EventPictures extends AppCompatActivity {
                     IMG1 = true;
                     if (IMG1 && IMG2 && IMG3) {
                         uploadButton.setEnabled(true);
-                        uploadButton.setBackgroundColor(Color.parseColor("#26ff4a"));
+                        uploadButton.setBackground(ContextCompat.getDrawable(this, R.drawable.gradientbackr));
                     }
 
                 }
@@ -268,7 +274,7 @@ public class EventPictures extends AppCompatActivity {
                     IMG2 = true;
                     if (IMG1 && IMG2 && IMG3) {
                         uploadButton.setEnabled(true);
-                        uploadButton.setBackgroundColor(Color.parseColor("#26ff4a"));
+                        uploadButton.setBackground(ContextCompat.getDrawable(this, R.drawable.gradientbackr));
                     }
                 }
             }
@@ -281,7 +287,7 @@ public class EventPictures extends AppCompatActivity {
                     IMG3 = true;
                     if (IMG1 && IMG2 && IMG3) {
                         uploadButton.setEnabled(true);
-                        uploadButton.setBackgroundColor(Color.parseColor("#26ff4a"));
+                        uploadButton.setBackground(ContextCompat.getDrawable(this, R.drawable.gradientbackr));
                     }
                 }
             }
