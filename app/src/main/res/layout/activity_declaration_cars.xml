@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@drawable/background1"
     tools:context=".DeclarationCars">
 
 
@@ -27,12 +27,12 @@
 
     <TextView
         android:id="@+id/otherPersonVehicleHeader"
-        android:layout_width="341dp"
+        android:layout_width="350dp"
         android:layout_height="40dp"
         android:layout_marginBottom="15dp"
         android:text="Other person's vehicle's registration plate:"
         android:textSize="19dp"
-        android:textStyle="italic"
+        android:textStyle="italic|bold"
         app:layout_constraintBottom_toTopOf="@+id/secondPersonCar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.228"
@@ -67,7 +67,7 @@
         android:layout_marginBottom="15dp"
         android:text="Your vehicle's registration plate:"
         android:textSize="19dp"
-        android:textStyle="italic"
+        android:textStyle="italic|bold"
         app:layout_constraintBottom_toTopOf="@+id/firstPersonCar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.275"
@@ -139,7 +139,7 @@
         android:progressDrawable="@drawable/custom_progress_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:progress="10"
+        android:progress="20"
         android:max="100"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

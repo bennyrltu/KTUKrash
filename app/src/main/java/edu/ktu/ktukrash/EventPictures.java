@@ -42,8 +42,6 @@ public class EventPictures extends AppCompatActivity {
     ProgressBar progressBar;
     TextView progressTextView;
     Button uploadButton, backButton;
-    Button continueButton;
-    Button drawingButton;
 
     String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -67,8 +65,6 @@ public class EventPictures extends AppCompatActivity {
         imageView3 = findViewById(R.id.imageView3);
 
         uploadButton = findViewById(R.id.uploadButton);
-        continueButton = findViewById(R.id.continueButton);
-        drawingButton = findViewById(R.id.DrawingButton);
         backButton = findViewById(R.id.backButton);
 
         progressBar = findViewById(R.id.progressBar);
@@ -199,23 +195,10 @@ public class EventPictures extends AppCompatActivity {
                                 progressTextView.setText(progressString);
                             }
                         });
+                openNext();
             }
         });
 
-
-        continueButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                OpenNewActivity();
-            }
-        });
-
-        drawingButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                OpenNewActivity2();
-            }
-        });
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -227,6 +210,10 @@ public class EventPictures extends AppCompatActivity {
     }
     private void openPreviousActivity() {
         Intent intent = new Intent(this, SecondPersonData.class);
+        startActivity(intent);
+    }
+    private void openNext() {
+        Intent intent = new Intent(this, PaintActivity.class);
         startActivity(intent);
     }
 
@@ -261,16 +248,5 @@ public class EventPictures extends AppCompatActivity {
         }
     }
 
-    private void OpenNewActivity() {
-        Intent intent = new Intent(this, DisplayAllDataActivity.class);
-        startActivity(intent);
-    }
-    private void OpenNewActivity2() {
-        Intent intent = new Intent(this, PaintActivity.class);
-        TextView editText3 = (TextView) findViewById(R.id.textView11);
-        String text3 = editText3.getText().toString().trim();
-        intent.putExtra(EXTRA_TEXT6, text3);
-        startActivity(intent);
-        startActivity(intent);
-    }
+
 }
