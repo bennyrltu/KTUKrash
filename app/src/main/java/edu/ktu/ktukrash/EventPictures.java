@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -39,6 +40,10 @@ public class EventPictures extends AppCompatActivity {
     Uri fileUri2;
     Uri fileUri3;
 
+    public boolean IMG1 = false;
+    public boolean IMG2 = false;
+    public boolean IMG3 = false;
+
     ProgressBar progressBar;
     TextView progressTextView;
     Button uploadButton, backButton;
@@ -65,6 +70,8 @@ public class EventPictures extends AppCompatActivity {
         imageView3 = findViewById(R.id.imageView3);
 
         uploadButton = findViewById(R.id.uploadButton);
+        uploadButton.setEnabled(false);
+        uploadButton.setBackgroundColor(Color.parseColor("#808080"));
         backButton = findViewById(R.id.backButton);
 
         progressBar = findViewById(R.id.progressBar);
@@ -73,6 +80,7 @@ public class EventPictures extends AppCompatActivity {
         textView11 = findViewById(R.id.textView11);
         Intent intent = getIntent();
         String text2 = intent.getStringExtra(SecondPersonData.EXTRA_TEXT5);
+
 
         textView11.setText(text2);
 
@@ -115,10 +123,11 @@ public class EventPictures extends AppCompatActivity {
         uploadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 StorageReference storageRef = FirebaseStorage.getInstance().getReference();
-                StorageReference uploadImageRef = storageRef.child("images/" + currentuser + "/"+"EVENT_"+ fileUri.getLastPathSegment());
-                StorageReference uploadImageRef2 = storageRef.child("images/" + currentuser + "/"+"FIRST_"+ fileUri2.getLastPathSegment());
-                StorageReference uploadImageRef3 = storageRef.child("images/" + currentuser + "/"+"SECOND_"+ fileUri3.getLastPathSegment());
+                StorageReference uploadImageRef = storageRef.child("images/" + currentuser + "/" + "EVENT_" + fileUri.getLastPathSegment());
+                StorageReference uploadImageRef2 = storageRef.child("images/" + currentuser + "/" + "FIRST_" + fileUri2.getLastPathSegment());
+                StorageReference uploadImageRef3 = storageRef.child("images/" + currentuser + "/" + "SECOND_" + fileUri3.getLastPathSegment());
 
                 UploadTask uploadTask = uploadImageRef.putFile(fileUri);
                 UploadTask uploadTask2 = uploadImageRef2.putFile(fileUri2);
@@ -144,6 +153,12 @@ public class EventPictures extends AppCompatActivity {
 
                     }
                 });
+                uploadTask2.addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        imageView2.requestFocus();
+                    }
+                });
 
 
                 uploadTask3.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -161,6 +176,13 @@ public class EventPictures extends AppCompatActivity {
                             }
                         });
 
+                    }
+                });
+
+                uploadTask3.addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        imageView2.requestFocus();
                     }
                 });
 
@@ -184,6 +206,7 @@ public class EventPictures extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(EventPictures.this, "Failed to Upload Image", Toast.LENGTH_SHORT).show();
+                        imageView.requestFocus();
                     }
                 })
                         .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
@@ -208,10 +231,12 @@ public class EventPictures extends AppCompatActivity {
         });
 
     }
+
     private void openPreviousActivity() {
         Intent intent = new Intent(this, SecondPersonData.class);
         startActivity(intent);
     }
+
     private void openNext() {
         Intent intent = new Intent(this, PaintActivity.class);
         startActivity(intent);
@@ -225,6 +250,11 @@ public class EventPictures extends AppCompatActivity {
                 if (data != null) {
                     fileUri = data.getData();
                     imageView.setImageURI(fileUri);
+                    IMG1 = true;
+                    if (IMG1 && IMG2 && IMG3) {
+                        uploadButton.setEnabled(true);
+                        uploadButton.setBackgroundColor(Color.parseColor("#26ff4a"));
+                    }
 
                 }
             }
@@ -235,6 +265,11 @@ public class EventPictures extends AppCompatActivity {
                 if (data != null) {
                     fileUri2 = data.getData();
                     imageView2.setImageURI(fileUri2);
+                    IMG2 = true;
+                    if (IMG1 && IMG2 && IMG3) {
+                        uploadButton.setEnabled(true);
+                        uploadButton.setBackgroundColor(Color.parseColor("#26ff4a"));
+                    }
                 }
             }
         }
@@ -243,10 +278,13 @@ public class EventPictures extends AppCompatActivity {
                 if (data != null) {
                     fileUri3 = data.getData();
                     imageView3.setImageURI(fileUri3);
+                    IMG3 = true;
+                    if (IMG1 && IMG2 && IMG3) {
+                        uploadButton.setEnabled(true);
+                        uploadButton.setBackgroundColor(Color.parseColor("#26ff4a"));
+                    }
                 }
             }
         }
     }
-
-
 }
