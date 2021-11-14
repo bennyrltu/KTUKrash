@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mapInfo"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:id="@+id/revTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Eismo įvykio duomenys"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/revDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/revTitle"
+                android:text="Eismo įvykio data ir laikas: "
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/revDateTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/revTitle"
+                android:layout_toRightOf="@id/revDate"
+                android:text="DATA LAIKAS"
+                android:textColor="@color/black">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/revVieta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/revDateTime"
+                android:text="Eismo įvykio vieta: "
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/revLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/revDate"
+                android:layout_toRightOf="@id/revVieta"
+                android:text="LOKACIJA"
+                android:textColor="@color/black">
+
+            </TextView>
+
+            <ImageView
+                android:layout_below="@+id/revLocation"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:id="@+id/revMAPAS"
+                android:src="@drawable/logo1">
+
+            </ImageView>
+
+            <TextView
+                android:layout_below="@+id/revMAPAS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Schema"
+                android:textColor="@color/black"
+                android:id="@+id/revSchemetext"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                >
+
+
+            </TextView>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/revScheme"
+                android:src="@drawable/logo1"
+                android:layout_below="@+id/revSchemetext"
+                >
+
+            </ImageView>
+
+            <TextView
+                android:layout_below="@+id/revScheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sužalotų asmenų nėra. Trečiųjų asmenų turtui (pvz. statiniams, kelio įrenginiams ir pan.) žala nepadaryta."
+                android:textColor="@color/black"
+                >
+
+
+            </TextView>
+
+        </RelativeLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="5dp"
+            app:cardUseCompatPadding="true"
+            android:id="@+id/fpCardView"
+            android:layout_below="@+id/mapInfo">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/quantum_vanillablue50">
+
+                <TextView
+                    android:id="@+id/revCar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lengvasis automobilis"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/revNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/revCar"
+                    android:text="NUMBERIS"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/revModel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/revCar"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/revNumber"
+                    android:text="MODELIS"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/revNukent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/revNumber"
+                    android:text="\nAtsakingas uz eismo ivyki"
+                    android:textColor="@color/penRoyalBlue"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/revApdrausta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/revNukent"
+                    android:text="Apdrausta: "
+                    android:textColor="@color/black"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/fprevDraudimas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/revNukent"
+                    android:layout_marginLeft="50dp"
+                    android:layout_toRightOf="@id/revApdrausta"
+                    android:text="DRAUDIMO IMONE\n"
+                    android:textColor="@color/black">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/revVairuotojas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/fprevDraudimas"
+                    android:text="Vairuotojas: "
+                    android:textColor="@color/black"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/fprevNameLastName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/fprevDraudimas"
+                    android:layout_marginLeft="50dp"
+                    android:layout_toRightOf="@id/revApdrausta"
+                    android:text="Vardas Pavarde"
+                    android:textColor="@color/black">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/revAmzius"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/revVairuotojas"
+                    android:text="Amzius: "
+                    android:textColor="@color/black"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/fprevAge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/revVairuotojas"
+                    android:layout_marginLeft="50dp"
+                    android:layout_toRightOf="@id/revApdrausta"
+                    android:text="Metai"
+                    android:textColor="@color/black">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/revTelefonas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/revAmzius"
+                    android:text="Telefonas: "
+                    android:textColor="@color/black"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/fprevPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/fprevAge"
+                    android:layout_marginLeft="50dp"
+                    android:layout_toRightOf="@id/revApdrausta"
+                    android:text="phone number"
+                    android:textColor="@color/black">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/revPastas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/revTelefonas"
+                    android:text="El. pastas: "
+                    android:textColor="@color/black"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/fprevEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/fprevPhone"
+                    android:layout_marginLeft="50dp"
+                    android:layout_toRightOf="@id/revApdrausta"
+                    android:text="El. pastas"
+                    android:textColor="@color/black">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/revAplinkybes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/revPastas"
+                    android:text="Aplinkybės: "
+                    android:textColor="@color/black"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/FPrevDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/fprevEmail"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/revApdrausta"
+                    android:text="įvažiuojant į žiedinę sankryžą."
+                    android:textColor="@color/black">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/revSugadinimai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/revAplinkybes"
+                    android:text="Transporto priemonės sugadinimai: "
+                    android:textColor="@color/black"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <ImageView
+                    android:id="@+id/revImage"
+                    android:layout_width="200dp"
+                    android:layout_height="300dp"
+                    android:layout_below="@id/revSugadinimai"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/logo1">
+
+                </ImageView>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="5dp"
+            app:cardUseCompatPadding="true"
+            android:id="@+id/spCardView"
+            android:layout_below="@+id/fpCardView">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/quantum_yellow100"
+                >
+
+                <TextView
+                    android:id="@+id/sprevCar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lengvasis automobilis"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="20sp">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/sprevNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sprevCar"
+                    android:text="NUMBERIS"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/sprevModel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sprevCar"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/sprevNumber"
+                    android:text="MODELIS"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="20sp">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/sprevNukent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sprevNumber"
+                    android:text="\nNukentėjusysis"
+                    android:textColor="@color/penRoyalBlue"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/sprevApdrausta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sprevNukent"
+                    android:text="Apdrausta: "
+                    android:textColor="@color/black"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/sprevDraudimas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sprevNukent"
+                    android:layout_marginLeft="50dp"
+                    android:layout_toRightOf="@id/sprevApdrausta"
+                    android:text="DRAUDIMO IMONE\n"
+                    android:textColor="@color/black">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/sprevVairuotojas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sprevDraudimas"
+                    android:text="Vairuotojas: "
+                    android:textColor="@color/black"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/sprevNameLastName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sprevDraudimas"
+                    android:layout_marginLeft="50dp"
+                    android:layout_toRightOf="@id/sprevApdrausta"
+                    android:text="Vardas Pavarde"
+                    android:textColor="@color/black">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/sprevAmzius"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sprevVairuotojas"
+                    android:text="Amzius: "
+                    android:textColor="@color/black"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/sprevAge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sprevVairuotojas"
+                    android:layout_marginLeft="50dp"
+                    android:layout_toRightOf="@id/sprevApdrausta"
+                    android:text="Metai"
+                    android:textColor="@color/black">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/sprevTelefonas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sprevAmzius"
+                    android:text="Telefonas: "
+                    android:textColor="@color/black"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/sprevPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sprevAge"
+                    android:layout_marginLeft="50dp"
+                    android:layout_toRightOf="@id/sprevApdrausta"
+                    android:text="phone number"
+                    android:textColor="@color/black">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/sprevPastas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sprevTelefonas"
+                    android:text="El. pastas: "
+                    android:textColor="@color/black"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/sprevEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sprevPhone"
+                    android:layout_marginLeft="50dp"
+                    android:layout_toRightOf="@id/sprevApdrausta"
+                    android:text="El. pastas"
+                    android:textColor="@color/black">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/sprevAplinkybes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sprevPastas"
+                    android:text="Aplinkybės: "
+                    android:textColor="@color/black"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/sprevDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sprevEmail"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/sprevApdrausta"
+                    android:text="įvažiuojant į žiedinę sankryžą."
+                    android:textColor="@color/black">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/sprevSugadinimai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sprevAplinkybes"
+                    android:text="Transporto priemonės sugadinimai: "
+                    android:textColor="@color/black"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <ImageView
+                    android:id="@+id/sprevImage"
+                    android:layout_width="200dp"
+                    android:layout_height="300dp"
+                    android:layout_below="@id/sprevSugadinimai"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/logo1">
+
+                </ImageView>
+
+
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</ScrollView>
