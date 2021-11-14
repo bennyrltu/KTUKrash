@@ -110,6 +110,8 @@ public class PaintActivity extends AppCompatActivity {
 
         textView1.setText(text);
 
+        String stringas = textView1.getText().toString().trim();
+
         askPermission();
         signatureView.setBackground(Drawable.createFromPath("background.jpg"));
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault());
@@ -205,6 +207,11 @@ public class PaintActivity extends AppCompatActivity {
         File file = new File(fileName);
         FirebaseUser user = auth.getCurrentUser();
         String userID = user.getUid();
+        Intent intent = getIntent();
+        TextView textView1 = (TextView) findViewById(R.id.textView13);
+        String text = intent.getStringExtra(EventPictures.EXTRA_TEXT6);
+        textView1.setText(text);
+        String stringas = textView1.getText().toString().trim();
 
         Bitmap bitmap = signatureView.getSignatureBitmap();
         //Bitmap bitmap1 = imageView.getDrawingCache();
@@ -234,9 +241,6 @@ public class PaintActivity extends AppCompatActivity {
 
                 Toast.makeText(PaintActivity.this, "Successfully uploaded image", Toast.LENGTH_SHORT).show();
                 Task<Uri> result = taskSnapshot.getMetadata().getReference().getDownloadUrl();
-                TextView textView1 = (TextView) findViewById(R.id.textView13);
-                String stringas = textView1.getText().toString().trim();
-
                 result.addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {

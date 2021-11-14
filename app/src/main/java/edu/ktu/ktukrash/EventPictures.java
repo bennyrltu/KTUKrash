@@ -245,6 +245,8 @@ public class EventPictures extends AppCompatActivity {
 
     private void openNext() {
         Intent intent = new Intent(this, PaintActivity.class);
+        String stringas = textView11.getText().toString().trim();
+        intent.putExtra(EXTRA_TEXT6, stringas);
         startActivity(intent);
     }
 

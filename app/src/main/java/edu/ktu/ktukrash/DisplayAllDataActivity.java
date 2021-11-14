@@ -50,6 +50,7 @@ public class DisplayAllDataActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
+
         FirebaseRecyclerOptions<MainModel> options =
                 new FirebaseRecyclerOptions.Builder<MainModel>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Declaration_Data").child(currentuser).child("Declarations"), MainModel.class)
@@ -58,6 +59,7 @@ public class DisplayAllDataActivity extends AppCompatActivity {
 
         mainAdapter = new MainAdapter(options);
         recyclerView.setAdapter(mainAdapter);
+        recyclerView.setHasFixedSize(true);
 
         DatabaseReference fbDb = FirebaseDatabase.getInstance().getReference().child("Declaration_Data").child(currentuser).child("Declarations");
         fbDb.addListenerForSingleValueEvent(new ValueEventListener() {
