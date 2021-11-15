@@ -25,26 +25,17 @@ public class Profile extends AppCompatActivity {
     private DatabaseReference reference;
     private String userID;
     private Button listButton;
-    private Button revButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
         listButton = findViewById(R.id.declarationList);
-        revButton = findViewById(R.id.REVIEW);
 
         listButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 OpenActivity();
-            }
-        });
-
-        revButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                OpenActivity2();
             }
         });
 
@@ -82,11 +73,6 @@ public class Profile extends AppCompatActivity {
     }
     public void OpenActivity(){
         Intent intent = new Intent(this, DisplayAllDataActivity.class);
-        startActivity(intent);
-    }
-
-    public void OpenActivity2(){
-        Intent intent = new Intent(this, reviewDeclaration.class);
         startActivity(intent);
     }
 }

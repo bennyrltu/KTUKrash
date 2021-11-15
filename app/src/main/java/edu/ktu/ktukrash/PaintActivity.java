@@ -63,6 +63,7 @@ public class PaintActivity extends AppCompatActivity {
     Button button1;
     ImageView imageView;
     Uri fileUri;
+    Button revButton;
 
 
     private ProgressDialog mProgressDialog;
@@ -102,6 +103,8 @@ public class PaintActivity extends AppCompatActivity {
         button1 = findViewById(R.id.addImage);
         imageView = findViewById(R.id.photoBackground);
         textView = findViewById(R.id.textView13);
+        revButton = findViewById(R.id.paintRevButton);
+        revButton.setVisibility(View.GONE);
 
         Intent intent = getIntent();
         String text = intent.getStringExtra(EventPictures.EXTRA_TEXT6);
@@ -134,6 +137,13 @@ public class PaintActivity extends AppCompatActivity {
                         .start(1);
 
 
+            }
+        });
+
+        revButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                OpenActivity();
             }
         });
 
@@ -185,6 +195,7 @@ public class PaintActivity extends AppCompatActivity {
                     Toast.makeText(PaintActivity.this,"Couldn't save drawing", Toast.LENGTH_SHORT).show();
                 }
             }
+            revButton.setVisibility(View.VISIBLE);
             }
         }) ;
 
@@ -306,4 +317,10 @@ public class PaintActivity extends AppCompatActivity {
                 }
             }
         }
-}}
+}
+
+    public void OpenActivity(){
+        Intent intent = new Intent(this, reviewDeclaration.class);
+        startActivity(intent);
+    }
+}
