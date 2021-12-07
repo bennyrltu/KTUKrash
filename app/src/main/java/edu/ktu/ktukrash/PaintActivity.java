@@ -63,6 +63,7 @@ public class PaintActivity extends AppCompatActivity {
     Button button1;
     ImageView imageView;
     Uri fileUri;
+    Button pdfButton;
 
 
     private ProgressDialog mProgressDialog;
@@ -102,6 +103,7 @@ public class PaintActivity extends AppCompatActivity {
         button1 = findViewById(R.id.addImage);
         imageView = findViewById(R.id.photoBackground);
         textView = findViewById(R.id.textView13);
+        pdfButton = findViewById(R.id.pdfButton);
 
         Intent intent = getIntent();
         String text = intent.getStringExtra(EventPictures.EXTRA_TEXT6);
@@ -132,6 +134,24 @@ public class PaintActivity extends AppCompatActivity {
                         .start(1);
 
 
+            }
+        });
+
+        pdfButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String activity = getIntent().getStringExtra("previousActivity");
+                //Toast.makeText(PaintActivity.this, "haha", Toast.LENGTH_SHORT).show();
+
+                if(activity != null && activity.equals("EventPictures")){
+                    Intent next = new Intent(PaintActivity.this, activity_pdf.class);
+                    Bundle bundle = getIntent().getExtras();
+                    HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
+                    HashMap<String, Object> data2 = (HashMap<String, Object>) bundle.get("pdfData2");
+                    next.putExtra("pdfData1", data1);
+                    next.putExtra("pdfData2", data2);
+                    startActivity(next);
+                }
             }
         });
 

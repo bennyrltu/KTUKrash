@@ -290,6 +290,12 @@ public class SecondPersonData extends AppCompatActivity implements DatePickerDia
 
 
         intent.putExtra(EXTRA_TEXT5, temp);
+        //For PDF
+        intent.putExtra("pdfData2", dataMap);
+        Bundle bundle = getIntent().getExtras();
+        HashMap<String, String> dataMap2 = (HashMap<String, String>) bundle.get("pdfData1");
+        intent.putExtra("pdfData1", dataMap2);
+        //
         startActivity(intent);
     }
 }

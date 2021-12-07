@@ -14,6 +14,7 @@ import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -293,6 +294,11 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
         TextView editText3 = (TextView) findViewById(R.id.firstPersonNumber);
         String text3 = editText3.getText().toString().trim();
         intent.putExtra(EXTRA_TEXT4, text3);
+
+        //For PDF
+        intent.putExtra("pdfData1", dataMap);
+        //
+
         startActivity(intent);
 
     }
