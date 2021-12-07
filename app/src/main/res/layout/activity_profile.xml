@@ -14,6 +14,7 @@
         android:layout_marginStart="160dp"
         android:layout_marginBottom="68dp"
         android:text="Logout"
+        android:textColor="#757575"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
@@ -25,6 +26,7 @@
         android:layout_marginStart="108dp"
         android:layout_marginBottom="260dp"
         android:text="Start declaration"
+        android:textColor="#00838F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
@@ -36,6 +38,7 @@
         android:layout_marginStart="160dp"
         android:layout_marginBottom="164dp"
         android:text="Draw"
+        android:textColor="#00838F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
@@ -47,6 +50,7 @@
         android:layout_marginStart="88dp"
         android:layout_marginBottom="340dp"
         android:text="Filled report drawings"
+        android:textColor="#D32F2F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
@@ -130,6 +134,19 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:text="Upload"
+        android:textColor="#757575"
         app:layout_constraintBaseline_toBaselineOf="@+id/signOut"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/FinalView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="300dp"
+        android:layout_marginBottom="68dp"
+        android:text="Logout"
+        android:textColor="#00838F"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".A_FinalUI_1">
+
+    <TextView
+        android:id="@+id/GeneralAccidentInformation"
+        android:layout_width="394dp"
+        android:layout_height="97dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="General accident information"
+        android:textAlignment="center"
+        android:textSize="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/WhenAccidentOccured"
+        android:layout_width="402dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="101dp"
+        android:text="When accident occured:"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/DisplayDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/TimeOfEvent"
+        android:layout_width="402dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="78dp"
+        android:text="Time of accident:"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/LocationOfEvent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/OpenDatePicker" />
+
+    <TextView
+        android:id="@+id/LocationOfEvent"
+        android:layout_width="402dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="18dp"
+        android:text="Location of event:"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/map"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TimeOfEvent" />
+
+    <EditText
+        android:id="@+id/DisplayDate"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintBottom_toTopOf="@+id/OpenDatePicker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/WhenAccidentOccured" />
+
+    <Button
+        android:id="@+id/OpenDatePicker"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="101dp"
+        android:layout_marginEnd="101dp"
+        android:layout_marginBottom="13dp"
+        android:background="@drawable/gradientbackr"
+        android:text="Pick event date"
+        app:layout_constraintBottom_toTopOf="@+id/TimeOfEvent"
+        app:layout_constraintEnd_toEndOf="@+id/map"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/DisplayDate" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="398dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="13:37"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.559" />
+
+    <Button
+        android:id="@+id/map"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="113dp"
+        android:background="@drawable/gradientbackr"
+        android:text="Set location"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/LocationOfEvent"
+        app:layout_constraintTop_toBottomOf="@+id/LocationOfEvent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

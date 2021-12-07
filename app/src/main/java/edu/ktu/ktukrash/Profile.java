@@ -26,11 +26,15 @@ public class Profile extends AppCompatActivity {
     private String userID;
     private Button listButton;
 
+//    private Button finalButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
         listButton = findViewById(R.id.declarationList);
+
+//        finalButton = findViewById(R.id.FinalView);
 
         listButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +42,13 @@ public class Profile extends AppCompatActivity {
                 OpenActivity();
             }
         });
+
+//        finalButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                OpenActivity2();
+//            }
+//        });
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users");
@@ -68,11 +79,14 @@ public class Profile extends AppCompatActivity {
             }
 
         });
-
-
     }
     public void OpenActivity(){
-        Intent intent = new Intent(this, DisplayAllDataActivity.class);
+        Intent intent = new Intent(this, A_FinalUI_3.class);
         startActivity(intent);
     }
+
+//    public void OpenActivity2(){
+//        Intent intent = new Intent(this, A_FinalUI_1.class);
+//        startActivity(intent);
+//    }
 }

@@ -20,11 +20,33 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-		
-        android:usesCleartextTraffic = "true"
-        android:theme="@style/Theme.KTUKrash">
+        android:theme="@style/Theme.KTUKrash"
+        android:usesCleartextTraffic="true">
         <activity
-            android:name=".activity_pdf"
+            android:name=".A_Circumstances_2"
+            android:exported="false" />
+        <activity
+            android:name=".A_Circumstances_1"
+            android:exported="false" />
+        <activity
+            android:name=".A_FinalUI_6"
+            android:exported="false" />
+        <activity
+            android:name=".A_FinalUI_5"
+            android:exported="false" />
+        <activity
+            android:name=".A_FinalUI_4"
+            android:exported="false" />
+        <activity
+            android:name=".A_FinalUI_3"
+            android:exported="false" />
+        <activity
+            android:name=".A_FinalUI_2"
+            android:exported="false" />
+        <activity
+            android:name=".A_FinalUI_1"
+            android:exported="false" />
+        <activity android:name=".activity_pdf" />
         <activity
             android:name=".ImageGalleryActivity"
             android:exported="false" />

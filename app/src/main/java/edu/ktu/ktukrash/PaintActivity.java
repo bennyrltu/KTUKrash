@@ -154,7 +154,7 @@ public class PaintActivity extends AppCompatActivity {
                 String activity = getIntent().getStringExtra("previousActivity");
                 //Toast.makeText(PaintActivity.this, "haha", Toast.LENGTH_SHORT).show();
 
-                if(activity != null && activity.equals("EventPictures")){
+                if (activity != null && activity.equals("EventPictures")) {
                     Intent next = new Intent(PaintActivity.this, activity_pdf.class);
                     Bundle bundle = getIntent().getExtras();
                     HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
@@ -163,6 +163,8 @@ public class PaintActivity extends AppCompatActivity {
                     next.putExtra("pdfData2", data2);
                     startActivity(next);
                 }
+            }
+        });
 
         revButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -342,7 +344,7 @@ public class PaintActivity extends AppCompatActivity {
                 }
             }
         }
-}
+    }
 
     public void OpenActivity(){
         Intent intent = new Intent(this, reviewDeclaration.class);
