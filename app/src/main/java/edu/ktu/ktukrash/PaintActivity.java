@@ -63,7 +63,11 @@ public class PaintActivity extends AppCompatActivity {
     Button button1;
     ImageView imageView;
     Uri fileUri;
+
     Button pdfButton;
+
+    Button revButton;
+
 
 
     private ProgressDialog mProgressDialog;
@@ -103,7 +107,11 @@ public class PaintActivity extends AppCompatActivity {
         button1 = findViewById(R.id.addImage);
         imageView = findViewById(R.id.photoBackground);
         textView = findViewById(R.id.textView13);
+
         pdfButton = findViewById(R.id.pdfButton);
+
+        revButton = findViewById(R.id.paintRevButton);
+        revButton.setVisibility(View.GONE);
 
         Intent intent = getIntent();
         String text = intent.getStringExtra(EventPictures.EXTRA_TEXT6);
@@ -111,6 +119,8 @@ public class PaintActivity extends AppCompatActivity {
         TextView textView1 = (TextView) findViewById(R.id.textView13);
 
         textView1.setText(text);
+
+        String stringas = textView1.getText().toString().trim();
 
         askPermission();
         signatureView.setBackground(Drawable.createFromPath("background.jpg"));
@@ -137,6 +147,7 @@ public class PaintActivity extends AppCompatActivity {
             }
         });
 
+
         pdfButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -152,6 +163,12 @@ public class PaintActivity extends AppCompatActivity {
                     next.putExtra("pdfData2", data2);
                     startActivity(next);
                 }
+
+        revButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                OpenActivity();
+
             }
         });
 
@@ -203,6 +220,7 @@ public class PaintActivity extends AppCompatActivity {
                     Toast.makeText(PaintActivity.this,"Couldn't save drawing", Toast.LENGTH_SHORT).show();
                 }
             }
+            revButton.setVisibility(View.VISIBLE);
             }
         }) ;
 
@@ -225,6 +243,11 @@ public class PaintActivity extends AppCompatActivity {
         File file = new File(fileName);
         FirebaseUser user = auth.getCurrentUser();
         String userID = user.getUid();
+        Intent intent = getIntent();
+        TextView textView1 = (TextView) findViewById(R.id.textView13);
+        String text = intent.getStringExtra(EventPictures.EXTRA_TEXT6);
+        textView1.setText(text);
+        String stringas = textView1.getText().toString().trim();
 
         Bitmap bitmap = signatureView.getSignatureBitmap();
         //Bitmap bitmap1 = imageView.getDrawingCache();
@@ -254,9 +277,6 @@ public class PaintActivity extends AppCompatActivity {
 
                 Toast.makeText(PaintActivity.this, "Successfully uploaded image", Toast.LENGTH_SHORT).show();
                 Task<Uri> result = taskSnapshot.getMetadata().getReference().getDownloadUrl();
-                TextView textView1 = (TextView) findViewById(R.id.textView13);
-                String stringas = textView1.getText().toString().trim();
-
                 result.addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
@@ -322,4 +342,10 @@ public class PaintActivity extends AppCompatActivity {
                 }
             }
         }
-}}
+}
+
+    public void OpenActivity(){
+        Intent intent = new Intent(this, reviewDeclaration.class);
+        startActivity(intent);
+    }
+}

@@ -20,10 +20,13 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+		
         android:usesCleartextTraffic = "true"
         android:theme="@style/Theme.KTUKrash">
         <activity
             android:name=".activity_pdf"
+        <activity
+            android:name=".ImageGalleryActivity"
             android:exported="false" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -91,6 +94,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".reviewDeclaration" />
     </application>
 
 </manifest>

@@ -7,6 +7,19 @@
     tools:context=".PaintActivity"
     >
 
+    <Button
+        android:id="@+id/paintRevButton"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/gradientbackr"
+        android:scaleType="center"
+        android:text="Review"
+        >
+
+    </Button>
 
     <Button
         android:layout_width="match_parent"

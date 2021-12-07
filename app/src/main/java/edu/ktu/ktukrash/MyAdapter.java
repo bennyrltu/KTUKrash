@@ -60,9 +60,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> implements Filtera
                     c.startActivity(intent);
                 }
                 if (gTitle == "Gallery"){
-                    //Intent intent = new Intent(c,Profile.class);
-                    //c.startActivity(intent);
-                    Toast.makeText(c, "Not implemented yet", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(c, ImageGalleryActivity.class);
+                    c.startActivity(intent);
                 }
                 if (gTitle == "Declaration"){
                     Intent intent = new Intent(c, DeclarationStart.class);
