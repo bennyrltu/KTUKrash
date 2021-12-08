@@ -2,11 +2,22 @@ package edu.ktu.ktukrash;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
+
 
 public class DeclarationCars extends AppCompatActivity {
 
@@ -14,10 +25,12 @@ public class DeclarationCars extends AppCompatActivity {
     public static final String EXTRA_TEXT2 = "ktu.edu.KTUKrash.EXTRA.TEXT2";
     private Button button, button1;
 
+    public float x = 250f;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_declaration_cars);
+
 
         Button button = (Button) findViewById(R.id.continueButton);
         button1 = (Button) findViewById(R.id.backButton);
@@ -34,6 +47,15 @@ public class DeclarationCars extends AppCompatActivity {
                 OpenNewActivity1();
             }
         });
+
+
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        ObjectAnimator animation = ObjectAnimator.ofFloat(progressBar, "TranslationX", x);
+
+        animation.setDuration(3500); // 3.5 second
+        animation.setInterpolator(new DecelerateInterpolator());
+        animation.start();
+
     }
 
     private void OpenNewActivity1() {

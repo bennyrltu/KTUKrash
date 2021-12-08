@@ -64,7 +64,7 @@ public class ImageAdapter extends FirebaseRecyclerAdapter<Upload, ImageAdapter.i
             super(itemView);
             First_Image_Link = (ImageView)itemView.findViewById(R.id.image_view_upload);
             Second_Image_Link = (ImageView)itemView.findViewById(R.id.image_view_upload2);
-            Third_Image_Link = (ImageView)itemView.findViewById(R.id.image_view_upload2);
+            Third_Image_Link = (ImageView)itemView.findViewById(R.id.image_view_upload3);
             Drawing_Image_Link = (ImageView)itemView.findViewById(R.id.image_view_upload4);
         }
     }

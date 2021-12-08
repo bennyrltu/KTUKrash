@@ -4,50 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".A_FinalUI_5">
+    tools:context=".A_FinalUI_5"
+    android:background="#628281">
 
     <TextView
         android:id="@+id/insuranceCompany"
-        android:layout_width="403dp"
-        android:layout_height="0dp"
-        android:text="Needed driver information:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Driver information:"
         android:textAlignment="center"
         android:textSize="32dp"
-        tools:layout_editor_absoluteX="4dp"
-        tools:layout_editor_absoluteY="4dp" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:ems="10"
-        android:hint="Category (A, B, ...):"
-        android:inputType="textPersonName"
-        android:text=""
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="149dp" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <EditText
         android:id="@+id/editTextTextPersonName16"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:hint="Driving licence n°"
         android:inputType="textPersonName"
         android:text=""
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="82dp" />
+        android:layout_marginBottom="-70dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/insuranceCompany" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="Category (A, B, ...):"
+        android:inputType="textPersonName"
+        android:text=""
+        android:layout_marginBottom="-50dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/editTextTextPersonName16" />
+
+
 
     <TextView
         android:id="@+id/textView16"
-        android:layout_width="205dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:text="Driver's license valid until"
-        android:textSize="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="223dp" />
+        android:textSize="20sp"
+        android:layout_marginBottom="-60dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/editTextTextPersonName2"  />
 
     <Button
         android:id="@+id/OpenDatePicker"
@@ -55,7 +67,57 @@
         android:layout_height="wrap_content"
         android:background="@drawable/gradientbackr"
         android:text="Valid until"
-        tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="282dp" />
+        android:layout_marginBottom="-70dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/textView16"/>
+
+    <Button
+        android:id="@+id/frontButton"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="-230dp"
+        android:text="Next"
+        android:textSize="15dp"
+        android:gravity="center"
+        android:drawablePadding="-15dp"
+        android:background="@drawable/gradientbackr"
+        android:drawableRight="@drawable/arrow_right"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="10dp"
+        android:text="Back"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:drawableLeft="@drawable/arrow_left"
+        android:drawablePadding="-30dp"
+        android:background="@drawable/gradientbackr"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-50dp"
+        android:indeterminateDrawable="@drawable/car"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/backButton"
+
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

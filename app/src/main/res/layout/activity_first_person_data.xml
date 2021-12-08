@@ -270,13 +270,12 @@
 
 
     <ProgressBar
+        android:layout_marginLeft="-50dp"
         android:id="@+id/progressBar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:progressDrawable="@drawable/custom_progress_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:progress="40"
-        android:max="100"
+
+        android:indeterminateDrawable="@drawable/car"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

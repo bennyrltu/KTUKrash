@@ -1,104 +1,282 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".A_Circumstances_1">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/insuranceCompany3"
-        android:layout_width="381dp"
-        android:layout_height="141dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
-        android:text="Put a cross in each of the relevant ▼
-boxes to help explain the drawing:"
-        android:textAlignment="center"
-        android:textSize="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Switch
-        android:id="@+id/switch6"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:text="Parked or stopped?"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="160dp" />
+        tools:context=".A_Circumstances_1"
+        android:background="#628281"
+        >
 
-    <Switch
-        android:id="@+id/switch11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Leaving a parking place?"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="205dp" />
+        <TextView
+            android:id="@+id/insuranceCompany3"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="5dp"
+            android:text="Select relevent accident details:"
+            android:textAlignment="center"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Switch
-        android:id="@+id/switch12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Entering a parking place?"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="251dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Parked or stopped?"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="-40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/insuranceCompany3"
+            />
 
-    <Switch
-        android:id="@+id/switch13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Emerging from a place?"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="300dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Leaving a parking place?"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="-40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/switch6"/>
 
-    <Switch
-        android:id="@+id/switch14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Entering a place?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="28dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entering a parking place?"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="-40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/switch11" />
 
-    <Switch
-        android:id="@+id/switch15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Entering a roundabout?"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="409dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Emerging from a place?"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="-40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/switch12" />
 
-    <Switch
-        android:id="@+id/switch16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Circulating a roundabout?"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="463dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entering a place?"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="-40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/switch13"/>
 
-    <Switch
-        android:id="@+id/switch17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Striking the rear in the same direction?"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="506dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entering a roundabout?"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="-40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/switch14"/>
 
-    <Switch
-        android:id="@+id/switch18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Same direction different lane?"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="557dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Circulating a roundabout?"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="-40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/switch15"/>
 
-    <Switch
-        android:id="@+id/switch19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:text="Changing lanes?"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="605dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Striking the rear in the same direction?"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="-40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/switch16"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Same direction different lane?"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="-40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/switch17"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Changing lanes?"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="-40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/switch18"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Overtaking?"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="-40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/switch19"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Turning to the right?"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="-40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/switch7"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Turning to the left?"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="-40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/switch8"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reversing?"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="-40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/switch9"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Encroaching on a lane?"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="-40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/switch10"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Coming from the right?"
+            tools:layout_editor_absoluteX="31dp"
+            tools:layout_editor_absoluteY="480dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="-40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/switch20"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Had not observed a sign?"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="-40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/switch21"/>
+
+        <Button
+            android:id="@+id/frontButton"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="-60dp"
+            android:layout_marginRight="-230dp"
+            android:text="Next"
+            android:textSize="15dp"
+            android:gravity="center"
+            android:drawablePadding="-15dp"
+            android:background="@drawable/gradientbackr"
+            android:drawableRight="@drawable/arrow_right"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/switch22"
+            />
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="-60dp"
+            android:layout_marginLeft="10dp"
+            android:text="Back"
+            android:textSize="15dp"
+            android:gravity="center"
+            android:drawableLeft="@drawable/arrow_left"
+            android:drawablePadding="-30dp"
+            android:background="@drawable/gradientbackr"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/switch22"
+            app:layout_constraintStart_toStartOf="parent"
+
+            />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-50dp"
+            android:indeterminateDrawable="@drawable/car"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/backButton"
+
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.DialogFragment;
 
 import android.Manifest;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Context;
@@ -17,9 +18,11 @@ import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,6 +59,8 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
     private Intent intent;
     private EditText locationText;
 
+
+    public float x = 250f;
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
 
     String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -126,6 +131,13 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
         locationText = (EditText) findViewById(R.id.addressField);
         //---------------------------------------------------
 
+
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        ObjectAnimator animation = ObjectAnimator.ofFloat(progressBar, "TranslationX", x);
+
+        animation.setDuration(3500); // 3.5 second
+        animation.setInterpolator(new DecelerateInterpolator());
+        animation.start();
 
     }
 

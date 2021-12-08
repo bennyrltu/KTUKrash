@@ -25,6 +25,8 @@ public class Profile extends AppCompatActivity {
     private DatabaseReference reference;
     private String userID;
     private Button listButton;
+    private Button next;
+
 
 //    private Button finalButton;
 
@@ -33,6 +35,7 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
         listButton = findViewById(R.id.declarationList);
+        next = findViewById(R.id.next);
 
 //        finalButton = findViewById(R.id.FinalView);
 
@@ -40,6 +43,12 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 OpenActivity();
+            }
+        });
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NewActivity();
             }
         });
 
@@ -80,6 +89,12 @@ public class Profile extends AppCompatActivity {
 
         });
     }
+
+    private void NewActivity() {
+        Intent intent = new Intent(this, A_Circumstances_1.class);
+        startActivity(intent);
+    }
+
     public void OpenActivity(){
         Intent intent = new Intent(this, A_FinalUI_3.class);
         startActivity(intent);

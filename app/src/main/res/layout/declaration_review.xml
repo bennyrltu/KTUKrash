@@ -109,12 +109,11 @@
             </ImageView>
 
             <TextView
-                android:layout_below="@+id/revScheme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/revScheme"
                 android:text="Sužalotų asmenų nėra. Trečiųjų asmenų turtui (pvz. statiniams, kelio įrenginiams ir pan.) žala nepadaryta."
-                android:textColor="@color/black"
-                >
+                android:textColor="@color/black">
 
 
             </TextView>

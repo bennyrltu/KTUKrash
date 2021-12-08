@@ -4,113 +4,113 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".A_FinalUI_2">
+    tools:context=".A_FinalUI_2"
+    android:background="#628281">
 
     <TextView
         android:id="@+id/generalAccidentInformation2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="15dp"
-        android:text="General accident information"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="General accident
+         information"
         android:textAlignment="center"
-        android:textSize="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/FillTheRemaining"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="32sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="179dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="14dp"
-        android:text="Any injuries?"
-        app:layout_constraintBottom_toTopOf="@+id/DamageToProperty"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FillTheRemaining" />
-
     <TextView
         android:id="@+id/FillTheRemaining"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="11dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Fill the remaining:"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/switch1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/generalAccidentInformation2" />
+        android:textSize="20sp"
+        android:layout_marginBottom="-70dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/generalAccidentInformation2" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Any injuries?"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="-40dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/FillTheRemaining"/>
+
+
 
     <TextView
         android:id="@+id/DamageToProperty"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="17dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Damage to property:"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/switch2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+        android:textSize="20sp"
+        android:layout_marginBottom="-35dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/switch1" />
 
-    <TextView
-        android:id="@+id/Witnesses"
-        android:layout_width="402dp"
-        android:layout_height="0dp"
-        android:text="Witnesses:"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/nestedScrollView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch3" />
-
-    <Switch
+    <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switch2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="14dp"
         android:text="Other than to vehicles A and B?"
-        app:layout_constraintBottom_toTopOf="@+id/switch3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DamageToProperty" />
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="-40dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/DamageToProperty"/>
 
-    <Switch
+    <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switch3"
-        android:layout_width="219dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Objects other than vehicles?"
-        app:layout_constraintBottom_toTopOf="@+id/Witnesses"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch2" />
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="-40dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/switch2"/>
+
+    <TextView
+        android:id="@+id/Witnesses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Witnesses:"
+        android:textSize="20sp"
+        android:layout_marginBottom="-35dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/switch3"/>
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
-        android:layout_width="402dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="81dp"
+        android:layout_marginBottom="100dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Witnesses">
 
         <EditText
             android:id="@+id/TextInput"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:ems="10"
-            android:gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:hint=" IN FREE FORM \n ,Enter names, last names of witnesses, \n
 their phone numbers,
 any other useful information"
@@ -121,5 +121,53 @@ any other useful information"
             android:typeface="normal" />
 
     </androidx.core.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/frontButton"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="-230dp"
+        android:text="Next"
+        android:textSize="15dp"
+        android:gravity="center"
+        android:drawablePadding="-15dp"
+        android:background="@drawable/gradientbackr"
+        android:drawableRight="@drawable/arrow_right"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="10dp"
+        android:text="Back"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:drawableLeft="@drawable/arrow_left"
+        android:drawablePadding="-30dp"
+        android:background="@drawable/gradientbackr"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-50dp"
+        android:indeterminateDrawable="@drawable/car"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/backButton"
+
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

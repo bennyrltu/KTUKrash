@@ -4,109 +4,157 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".A_FinalUI_1">
+    tools:context=".A_FinalUI_1"
+    android:background="#628281">
 
     <TextView
         android:id="@+id/GeneralAccidentInformation"
-        android:layout_width="394dp"
-        android:layout_height="97dp"
-        android:layout_marginStart="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="General accident information"
+        android:text="General accident
+        information"
         android:textAlignment="center"
-        android:textSize="32dp"
+        android:textSize="32sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/WhenAccidentOccured"
-        android:layout_width="402dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="101dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-70dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:text="When accident occured:"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/DisplayDate"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/TimeOfEvent"
-        android:layout_width="402dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="78dp"
-        android:text="Time of accident:"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/LocationOfEvent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/OpenDatePicker" />
-
-    <TextView
-        android:id="@+id/LocationOfEvent"
-        android:layout_width="402dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="18dp"
-        android:text="Location of event:"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/map"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TimeOfEvent" />
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/GeneralAccidentInformation" />
 
     <EditText
         android:id="@+id/DisplayDate"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:inputType="date"
-        app:layout_constraintBottom_toTopOf="@+id/OpenDatePicker"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/WhenAccidentOccured" />
+        android:layout_marginBottom="-50dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/WhenAccidentOccured" />
 
     <Button
         android:id="@+id/OpenDatePicker"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="101dp"
-        android:layout_marginEnd="101dp"
-        android:layout_marginBottom="13dp"
         android:background="@drawable/gradientbackr"
         android:text="Pick event date"
-        app:layout_constraintBottom_toTopOf="@+id/TimeOfEvent"
-        app:layout_constraintEnd_toEndOf="@+id/map"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/DisplayDate" />
+        android:textSize="15sp"
+        android:layout_marginBottom="-50dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/DisplayDate" />
+
+    <TextView
+        android:id="@+id/TimeOfEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Time of accident:"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/OpenDatePicker" />
+
+
 
     <EditText
         android:id="@+id/editTextTextPersonName"
-        android:layout_width="398dp"
-        android:layout_height="63dp"
-        android:layout_marginStart="8dp"
-        android:ems="10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:hint="13:37"
         android:inputType="textPersonName"
-        android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.559" />
+        android:layout_marginBottom="-50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/TimeOfEvent" />
+
+    <TextView
+        android:id="@+id/LocationOfEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Location of event:"
+        android:textSize="20sp"
+        android:layout_marginBottom="-50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/editTextTextPersonName"  />
 
     <Button
         android:id="@+id/map"
-        android:layout_width="120dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="113dp"
         android:background="@drawable/gradientbackr"
         android:text="Set location"
+        android:textSize="15sp"
+        android:layout_marginBottom="-60dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/LocationOfEvent" />
+
+    <Button
+        android:id="@+id/frontButton"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="-230dp"
+        android:text="Next"
+        android:textSize="15dp"
+        android:gravity="center"
+        android:drawablePadding="-15dp"
+        android:background="@drawable/gradientbackr"
+        android:drawableRight="@drawable/arrow_right"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/LocationOfEvent"
-        app:layout_constraintTop_toBottomOf="@+id/LocationOfEvent" />
+        />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="10dp"
+        android:text="Back"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:drawableLeft="@drawable/arrow_left"
+        android:drawablePadding="-30dp"
+        android:background="@drawable/gradientbackr"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-50dp"
+        android:indeterminateDrawable="@drawable/car"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/backButton"
+
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
