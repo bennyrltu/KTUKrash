@@ -60,7 +60,7 @@ public class PaintActivity extends AppCompatActivity {
     SeekBar seekBar;
     TextView txtPenSize, textView;
     private static String fileName;
-    Button button1;
+    Button button1, continueButton;
     ImageView imageView;
     Uri fileUri;
 
@@ -113,6 +113,8 @@ public class PaintActivity extends AppCompatActivity {
         revButton = findViewById(R.id.paintRevButton);
         revButton.setVisibility(View.GONE);
 
+        continueButton=findViewById(R.id.button4);
+
         Intent intent = getIntent();
         String text = intent.getStringExtra(EventPictures.EXTRA_TEXT6);
 
@@ -132,6 +134,14 @@ public class PaintActivity extends AppCompatActivity {
         {
             path.mkdirs();
         }
+
+
+        continueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OpenActivity2();
+            }
+        });
 
 
 
@@ -348,6 +358,11 @@ public class PaintActivity extends AppCompatActivity {
 
     public void OpenActivity(){
         Intent intent = new Intent(this, reviewDeclaration.class);
+        startActivity(intent);
+    }
+
+    public void OpenActivity2(){
+        Intent intent = new Intent(this, A_FinalUI_1.class);
         startActivity(intent);
     }
 }

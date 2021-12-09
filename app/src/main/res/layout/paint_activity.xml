@@ -22,10 +22,10 @@
     </Button>
 
     <Button
+        android:id="@+id/pdfButton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/pdfButton"
-        android:text="Generate PDF"/>
+        android:text="Generate PDF" />
 
     <com.kyanogen.signatureview.SignatureView xmlns:sign="http://schemas.android.com/apk/res-auto"
         android:id="@+id/signature_view"
@@ -138,6 +138,20 @@
 
         </LinearLayout>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="119dp"
+        android:layout_height="70dp"
+        android:layout_alignBottom="@+id/signature_view"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="71dp"
+        android:layout_marginEnd="237dp"
+        android:layout_marginBottom="559dp"
+        android:text="Continue" />
 
 
 </RelativeLayout>

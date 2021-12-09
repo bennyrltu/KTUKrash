@@ -31,6 +31,8 @@ public class A_FinalUI_1 extends AppCompatActivity implements DatePickerDialog.O
     private Intent intent;
     private EditText locationText;
 
+    private Button backButton,frontButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,12 +47,31 @@ public class A_FinalUI_1 extends AppCompatActivity implements DatePickerDialog.O
 
         currentTime.setText(currentDateAndTime);
 
+        backButton = findViewById(R.id.backButton);
+        frontButton = findViewById(R.id.frontButton);
+
+
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DialogFragment datePicker = new DateFragment();
                 datePicker.show(getSupportFragmentManager(), "date picker");
+            }
+        });
+
+        frontButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openNextActivity();
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openPreviousActivity();
             }
         });
 
@@ -91,5 +112,15 @@ public class A_FinalUI_1 extends AppCompatActivity implements DatePickerDialog.O
 
     private void initializeViews(){
         button = (Button) findViewById(R.id.OpenDatePicker);
+    }
+
+    private void openPreviousActivity() {
+        Intent intent = new Intent(this, PaintActivity.class);
+        startActivity(intent);
+    }
+
+    private void openNextActivity() {
+        Intent intent = new Intent(this, A_FinalUI_2.class);
+        startActivity(intent);
     }
 }
