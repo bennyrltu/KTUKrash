@@ -3,6 +3,7 @@ package edu.ktu.ktukrash;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
 
 public class A_FinalUI_1 extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
@@ -31,6 +33,9 @@ public class A_FinalUI_1 extends AppCompatActivity implements DatePickerDialog.O
     private Intent intent;
     private EditText locationText;
 
+    private TextView date;
+    //private TextView currentTime;
+
     private Button backButton,frontButton;
 
     @Override
@@ -40,7 +45,7 @@ public class A_FinalUI_1 extends AppCompatActivity implements DatePickerDialog.O
 
         initializeViews();
         Button button = (Button) findViewById(R.id.OpenDatePicker);
-        TextView currentTime = (TextView) findViewById(R.id.editTextTextPersonName);
+        currentTime = (TextView) findViewById(R.id.editTextTextPersonName);
 
         DateFormat df = new SimpleDateFormat("KK:mm:ss", Locale.getDefault());
         String currentDateAndTime = df.format(new Date());
@@ -84,10 +89,24 @@ public class A_FinalUI_1 extends AppCompatActivity implements DatePickerDialog.O
                 startMap();
             }
         });
-        locationText = (EditText) findViewById(R.id.addressField);
+        locationText = (EditText) findViewById(R.id.LocationOfEvent);
         //---------------------------------------------------
 
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch(requestCode) {
+            case (5) : {
+                if (resultCode == Activity.RESULT_OK) {
+                    String newText = data.getStringExtra("loc");
+                    locationText.setText(newText);
+                }
+                break;
+            }
+        }
     }
 
     @Override
@@ -98,11 +117,8 @@ public class A_FinalUI_1 extends AppCompatActivity implements DatePickerDialog.O
         c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
         String currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(c.getTime());
 
-        TextView textView = (TextView) findViewById(R.id.DisplayDate);
-        textView.setText(currentDateString);
-
-
-
+        date = (TextView) findViewById(R.id.DisplayDate);
+        date.setText(currentDateString);
     }
 
     private void startMap(){
@@ -115,12 +131,19 @@ public class A_FinalUI_1 extends AppCompatActivity implements DatePickerDialog.O
     }
 
     private void openPreviousActivity() {
-        Intent intent = new Intent(this, PaintActivity.class);
+        Intent intent = new Intent(this, FirstPersonData.class);
         startActivity(intent);
     }
 
     private void openNextActivity() {
         Intent intent = new Intent(this, A_FinalUI_2.class);
+        Bundle bundle = getIntent().getExtras();
+        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
+        data1.put("FP_Date", date.getText().toString());
+        data1.put("FP_Time", currentTime.getText().toString());
+        //data1.put("FP_Location", locationText.getText().toString());
+        intent.putExtra("pdfData1", data1);
+
         startActivity(intent);
     }
 }

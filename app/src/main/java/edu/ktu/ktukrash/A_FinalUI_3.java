@@ -32,6 +32,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
@@ -41,6 +42,8 @@ public class A_FinalUI_3 extends AppCompatActivity{
     private EditText editText,editText2;
     private EditText countryOfRegistration;
     private Button backButton,frontButton;
+
+    private EditText makerModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +65,8 @@ public class A_FinalUI_3 extends AppCompatActivity{
 
         backButton = findViewById(R.id.backButton);
         frontButton = findViewById(R.id.frontButton);
+
+        makerModel = findViewById(R.id.MakerAndModelEditText);
 
         bmark.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -104,6 +109,13 @@ public class A_FinalUI_3 extends AppCompatActivity{
 
     private void openNextActivity() {
         Intent intent = new Intent(this, A_FinalUI_4.class);
+        Bundle bundle = getIntent().getExtras();
+        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
+        data1.put("FP_Vehicle_Maker_model", makerModel.getText().toString());
+        data1.put("FP_Vehicle_Country", countryOfRegistration.getText().toString());
+        data1.put("FP_Trailer_Registration", editText.getText().toString());
+        data1.put("FP_Trailer_Country", editText2.getText().toString());
+        intent.putExtra("pdfData1", data1);
         startActivity(intent);
     }
 }

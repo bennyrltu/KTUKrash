@@ -16,10 +16,13 @@ import com.hbb20.CountryCodePicker;
 
 import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 
 public class A_FinalUI_5 extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
 
     private Button backButton,frontButton,button;
+    private EditText license_no, categories;
+    private TextView license_valid_until;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,10 @@ public class A_FinalUI_5 extends AppCompatActivity implements DatePickerDialog.O
 
         backButton = findViewById(R.id.backButton);
         frontButton = findViewById(R.id.frontButton);
+
+        license_no = findViewById(R.id.editTextTextPersonName16);
+        categories = findViewById(R.id.editTextTextPersonName2);
+        license_valid_until = findViewById(R.id.textView16);
 
         Button button = (Button) findViewById(R.id.OpenDatePicker);
 
@@ -61,6 +68,12 @@ public class A_FinalUI_5 extends AppCompatActivity implements DatePickerDialog.O
 
     private void openNextActivity() {
         Intent intent = new Intent(this, A_FinalUI_6.class);
+        Bundle bundle = getIntent().getExtras();
+        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
+        data1.put("FP_Driving_license_no", license_no.getText().toString());
+        data1.put("FP_Driving_ategories", categories.getText().toString());
+        data1.put("FP_License_valid_until", license_valid_until.getText().toString());
+        intent.putExtra("pdfData1", data1);
         startActivity(intent);
     }
 
