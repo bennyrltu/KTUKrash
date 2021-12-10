@@ -10,7 +10,7 @@ import android.widget.Button;
 
 import java.util.HashMap;
 
-public class A_Circumstances_1 extends AppCompatActivity {
+public class A_Circumstances_2 extends AppCompatActivity {
 
     private Button backButton,frontButton;
 
@@ -18,11 +18,11 @@ public class A_Circumstances_1 extends AppCompatActivity {
 
     private SwitchCompat switch6, switch11, switch13, switch14, switch15, switch16, switch17, switch18, switch19, switch7, switch8, switch9, switch10, switch20, switch21, switch22;
     private SwitchCompat switch12;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_acircumstances1);
-
+        setContentView(R.layout.activity_acircumstances2);
         backButton = findViewById(R.id.backButton);
         frontButton = findViewById(R.id.frontButton);
 
@@ -61,7 +61,7 @@ public class A_Circumstances_1 extends AppCompatActivity {
     }
 
     private void openPreviousActivity() {
-        Intent intent = new Intent(this, A_FinalUI_5.class);
+        Intent intent = new Intent(this, A_FinalUISecondPerson_5.class);
         startActivity(intent);
     }
 
@@ -69,95 +69,95 @@ public class A_Circumstances_1 extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
 //        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
 //        if (switch6.isChecked()){
-//            data1.put("FP_1", "true");
+//            data1.put("SP_1", "true");
 //            counter++;
 //        }
 //
 //        if (switch11.isChecked()){
-//            data1.put("FP_2", "true");
+//            data1.put("SP_2", "true");
 //            counter++;
 //        }
 //
 //        if (switch12.isChecked()){
-//            data1.put("FP_3", "true");
+//            data1.put("SP_3", "true");
 //            counter++;
 //        }
 //
 //        if (switch13.isChecked()){
-//            data1.put("FP_4", "true");
+//            data1.put("SP_4", "true");
 //            counter++;
 //        }
 //
 //        if (switch14.isChecked()){
-//            data1.put("FP_5", "true");
+//            data1.put("SP_5", "true");
 //            counter++;
 //        }
 //
 //        if (switch15.isChecked()){
-//            data1.put("FP_6", "true");
+//            data1.put("SP_6", "true");
 //            counter++;
 //        }
 //
 //        if (switch16.isChecked()){
-//            data1.put("FP_7", "true");
+//            data1.put("SP_7", "true");
 //            counter++;
 //        }
 //
 //        if (switch17.isChecked()){
-//            data1.put("FP_8", "true");
+//            data1.put("SP_8", "true");
 //            counter++;
 //        }
 //
 //        if (switch18.isChecked()){
-//            data1.put("FP_9", "true");
+//            data1.put("SP_9", "true");
 //            counter++;
 //        }
 //
 //        if (switch19.isChecked()){
-//            data1.put("FP_10", "true");
+//            data1.put("SP_10", "true");
 //            counter++;
 //        }
 //
 //        if (switch7.isChecked()){
-//            data1.put("FP_11", "true");
+//            data1.put("SP_11", "true");
 //            counter++;
 //        }
 //
 //        if (switch8.isChecked()){
-//            data1.put("FP_12", "true");
+//            data1.put("SP_12", "true");
 //            counter++;
 //        }
 //
 //        if (switch9.isChecked()){
-//            data1.put("FP_13", "true");
+//            data1.put("SP_13", "true");
 //            counter++;
 //        }
 //
 //        if (switch10.isChecked()){
-//            data1.put("FP_14", "true");
+//            data1.put("SP_14", "true");
 //            counter++;
 //        }
 //
 //        if (switch20.isChecked()){
-//            data1.put("FP_15", "true");
+//            data1.put("SP_15", "true");
 //            counter++;
 //        }
 //
 //        if (switch21.isChecked()){
-//            data1.put("FP_16", "true");
+//            data1.put("SP_16", "true");
 //            counter++;
 //        }
 //
 //        if (switch22.isChecked()){
-//            data1.put("FP_17", "true");
+//            data1.put("SP_17", "true");
 //            counter++;
 //        }
 //
 //        String countas = String.valueOf(counter);
 //
-//        data1.put("FP_CircumstancesC",countas);
+//        data1.put("SP_CircumstancesC",countas);
 
-        Intent intent = new Intent(this, A_FinalUI_6.class);
+        Intent intent = new Intent(this, A_FinalUISecondPerson_6.class);
         startActivity(intent);
     }
 }

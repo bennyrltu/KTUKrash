@@ -4,144 +4,110 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".A_FinalUI_4"
-    android:background="#628281">
+    tools:context=".A_FinalUI_1"
+    android:background="#ff976e">
 
     <TextView
-        android:id="@+id/InsuranceCompany"
+        android:id="@+id/GeneralAccidentInformation"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="5dp"
-        android:text="Insurance company info:"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="General accident
+        information"
         android:textAlignment="center"
-        android:textSize="32dp"
+        android:textSize="32sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/CompanyName"
+    <TextView
+        android:id="@+id/WhenAccidentOccured"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="Insurance company name"
-        android:inputType="textPersonName"
-        android:text=""
         android:layout_marginBottom="-70dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="When accident occured:"
+        android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/InsuranceCompany" />
+        app:layout_constraintBottom_toBottomOf="@id/GeneralAccidentInformation" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/DisplayDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:hint="Policy N°"
-        android:inputType="textPersonName"
-        android:text=""
+        android:inputType="date"
         android:layout_marginBottom="-50dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/CompanyName"/>
+        app:layout_constraintBottom_toBottomOf="@id/WhenAccidentOccured" />
+
+    <Button
+        android:id="@+id/OpenDatePicker"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradientbackr"
+        android:text="Pick event date"
+        android:textSize="15sp"
+        android:layout_marginBottom="-50dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/DisplayDate" />
+
+    <TextView
+        android:id="@+id/TimeOfEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Time of accident:"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/OpenDatePicker" />
+
+
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/editTextTextPersonName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="13:37"
+        android:inputType="textPersonName"
+        android:layout_marginBottom="-50dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:hint="Green Card N°"
-        android:inputType="textPersonName"
-        android:text=""
-        android:layout_marginBottom="-50dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/editTextTextPersonName3"/>
+        app:layout_constraintBottom_toBottomOf="@id/TimeOfEvent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/LocationOfEvent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Location of event:"
+        android:textSize="20sp"
+        android:layout_marginBottom="-50dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:hint="Agency"
-        android:inputType="textPersonName"
-        android:text=""
-        android:layout_marginBottom="-50dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/editTextTextPersonName4"/>
+        app:layout_constraintBottom_toBottomOf="@id/editTextTextPersonName"  />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName6"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/map"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:inputType="textPersonName"
-        android:text=""
-        android:hint="Agency name"
-        android:layout_marginBottom="-50dp"
+        android:background="@drawable/gradientbackr"
+        android:text="Set location"
+        android:textSize="15sp"
+        android:layout_marginBottom="-60dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/editTextTextPersonName5"/>
-
-    <EditText
-        android:id="@+id/editTextTextPersonName7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="Address"
-        android:inputType="textPersonName"
-        android:text=""
-        android:layout_marginBottom="-50dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/editTextTextPersonName6"/>
-
-    <EditText
-        android:id="@+id/editTextTextPersonName8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="Country"
-        android:inputType="textPersonName"
-        android:text=""
-        android:layout_marginBottom="-50dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/editTextTextPersonName7"/>
-
-    <EditText
-        android:id="@+id/editTextTextPersonName9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:inputType="textPersonName"
-        android:text=""
-        android:hint="E-mail:"
-        android:layout_marginBottom="-50dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/editTextTextPersonName8"/>
-
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/switch5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="-50dp"
-        android:text="Does the policy cover material damage to the vehicle?"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/editTextTextPersonName9"
-         />
+        app:layout_constraintBottom_toBottomOf="@id/LocationOfEvent" />
 
     <Button
         android:id="@+id/frontButton"
@@ -190,4 +156,5 @@
         app:layout_constraintBottom_toBottomOf="@id/backButton"
 
         />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

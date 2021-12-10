@@ -9,10 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.util.HashMap;
-
-public class A_FinalUI_4 extends AppCompatActivity {
-
+public class A_FinalUISecondPerson_4 extends AppCompatActivity {
     private Button backButton,frontButton;
 
     private EditText companyName, policy, greenCard, agency, name, address, country, email;
@@ -22,8 +19,7 @@ public class A_FinalUI_4 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_afinal_ui4);
-
+        setContentView(R.layout.activity_afinal_uisecond_person4);
         backButton = findViewById(R.id.backButton);
         frontButton = findViewById(R.id.frontButton);
 
@@ -55,28 +51,28 @@ public class A_FinalUI_4 extends AppCompatActivity {
     }
 
     private void openPreviousActivity() {
-        Intent intent = new Intent(this, A_FinalUI_3.class);
+        Intent intent = new Intent(this, A_FinalUISecondPerson_3.class);
         startActivity(intent);
     }
 
     private void openNextActivity() {
-        Intent intent = new Intent(this, A_FinalUI_5.class);
+        Intent intent = new Intent(this, A_FinalUISecondPerson_5.class);
         Bundle bundle = getIntent().getExtras();
 //        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
-//        data1.put("FP_Insurance_Name", companyName.getText().toString());
-//        data1.put("FP_Insurance_Policy", policy.getText().toString());
-//        data1.put("FP_Insurance_Green_Card", greenCard.getText().toString());
-//        data1.put("FP_Insurance_Agency", agency.getText().toString());
-//        data1.put("FP_Insurance_Name2", name.getText().toString());
-//        data1.put("FP_Insurance_Address", address.getText().toString());
-//        data1.put("FP_Insurance_Country", country.getText().toString());
-//        data1.put("FP_Insurance_Email", email.getText().toString());
+//        data1.put("SP_Insurance_Name", companyName.getText().toString());
+//        data1.put("SP_Insurance_Policy", policy.getText().toString());
+//        data1.put("SP_Insurance_Green_Card", greenCard.getText().toString());
+//        data1.put("SP_Insurance_Agency", agency.getText().toString());
+//        data1.put("SP_Insurance_Name2", name.getText().toString());
+//        data1.put("SP_Insurance_Address", address.getText().toString());
+//        data1.put("SP_Insurance_Country", country.getText().toString());
+//        data1.put("SP_Insurance_Email", email.getText().toString());
 //
 //        if (doesCover.isChecked()){
-//            data1.put("FP_DoesCover", "true");
+//            data1.put("SP_DoesCover", "true");
 //        }
 //        else{
-//            data1.put("FP_DoesCover", "false");
+//            data1.put("SP_DoesCover", "false");
 //        }
 //
 //        intent.putExtra("pdfData1", data1);

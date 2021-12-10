@@ -13,18 +13,12 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.hbb20.CountryCodePicker;
-
-import org.w3c.dom.Text;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Locale;
 
-public class A_FinalUI_1 extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+public class A_FinalUISecondPerson_1 extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
     private Button button;
 
     //Location stuff
@@ -41,8 +35,7 @@ public class A_FinalUI_1 extends AppCompatActivity implements DatePickerDialog.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_afinal_ui1);
-
+        setContentView(R.layout.activity_afinal_uisecond_person1);
         initializeViews();
         Button button = (Button) findViewById(R.id.OpenDatePicker);
         currentTime = (TextView) findViewById(R.id.editTextTextPersonName);
@@ -131,17 +124,17 @@ public class A_FinalUI_1 extends AppCompatActivity implements DatePickerDialog.O
     }
 
     private void openPreviousActivity() {
-        Intent intent = new Intent(this, FirstPersonData.class);
+        Intent intent = new Intent(this, A_FinalUI_6.class);
         startActivity(intent);
     }
 
     private void openNextActivity() {
-        Intent intent = new Intent(this, A_FinalUI_2.class);
+        Intent intent = new Intent(this, A_FinalUISecondPerson_2.class);
         Bundle bundle = getIntent().getExtras();
 //        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
-//        data1.put("FP_Date", date.getText().toString());
-//        data1.put("FP_Time", currentTime.getText().toString());
-//        data1.put("FP_Location", locationText.getText().toString());
+//        data1.put("SP_Date", date.getText().toString());
+//        data1.put("SP_Time", currentTime.getText().toString());
+//        data1.put("SP_Location", locationText.getText().toString());
 //        intent.putExtra("pdfData1", data1);
 
         startActivity(intent);

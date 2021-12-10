@@ -9,8 +9,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".A_Circumstances_1"
-        android:background="#628281"
+        tools:context=".A_Circumstances_2"
+        android:background="#ff976e">
         >
 
         <TextView

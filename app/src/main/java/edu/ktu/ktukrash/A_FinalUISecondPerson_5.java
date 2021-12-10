@@ -12,23 +12,19 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.hbb20.CountryCodePicker;
-
 import java.text.DateFormat;
 import java.util.Calendar;
-import java.util.HashMap;
 
-public class A_FinalUI_5 extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
-
+public class A_FinalUISecondPerson_5 extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     private Button backButton,frontButton,button;
     private EditText license_no, categories;
     private TextView license_valid_until;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_afinal_ui5);
-
+        setContentView(R.layout.activity_afinal_uisecond_person5);
         backButton = findViewById(R.id.backButton);
         frontButton = findViewById(R.id.frontButton);
 
@@ -62,17 +58,17 @@ public class A_FinalUI_5 extends AppCompatActivity implements DatePickerDialog.O
     }
 
     private void openPreviousActivity() {
-        Intent intent = new Intent(this, A_FinalUI_4.class);
+        Intent intent = new Intent(this, A_FinalUISecondPerson_4.class);
         startActivity(intent);
     }
 
     private void openNextActivity() {
-        Intent intent = new Intent(this, A_Circumstances_1.class);
+        Intent intent = new Intent(this, A_Circumstances_2.class);
 //        Bundle bundle = getIntent().getExtras();
 //        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
-//        data1.put("FP_Driving_license_no", license_no.getText().toString());
-//        data1.put("FP_Driving_ategories", categories.getText().toString());
-//        data1.put("FP_License_valid_until", license_valid_until.getText().toString());
+//        data1.put("SP_Driving_license_no", license_no.getText().toString());
+//        data1.put("SP_Driving_ategories", categories.getText().toString());
+//        data1.put("SP_License_valid_until", license_valid_until.getText().toString());
 //        intent.putExtra("pdfData1", data1);
         startActivity(intent);
     }

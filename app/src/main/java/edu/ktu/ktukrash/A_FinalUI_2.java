@@ -31,6 +31,7 @@ public class A_FinalUI_2 extends AppCompatActivity {
         vehicles = findViewById(R.id.switch3);
         witness = findViewById(R.id.TextInput);
 
+
         frontButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,30 +55,21 @@ public class A_FinalUI_2 extends AppCompatActivity {
     private void openNextActivity() {
         Intent intent = new Intent(this, A_FinalUI_3.class);
         Bundle bundle = getIntent().getExtras();
-        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
-        if (injuries.isChecked()){
-            data1.put("FP_Injuries", "true");
-        }
-        else{
-            data1.put("FP_Injuries", "false");
-        }
-
-        if (A_B.isChecked()){
-            data1.put("FP_other_than_A_B", "true");
-        }
-        else{
-            data1.put("FP_other_than_A_B", "false");
-        }
-
-        if (vehicles.isChecked()){
-            data1.put("FP_other_than_A_B_vehicles", "true");
-        }
-        else{
-            data1.put("FP_other_than_A_B_vehicles", "false");
-        }
-
-        data1.put("FP_Witness", witness.getText().toString());
-        intent.putExtra("pdfData1", data1);
+//        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
+//        if (injuries.isChecked()){
+//            data1.put("FP_Injuries", "true");
+//        }
+//
+//        if (A_B.isChecked()){
+//            data1.put("FP_other_than_A_B", "true");
+//        }
+//
+//        if (vehicles.isChecked()){
+//            data1.put("FP_other_than_A_B_vehicles", "true");
+//        }
+//
+//        data1.put("FP_Witness", witness.getText().toString());
+//        intent.putExtra("pdfData1", data1);
         startActivity(intent);
     }
 }

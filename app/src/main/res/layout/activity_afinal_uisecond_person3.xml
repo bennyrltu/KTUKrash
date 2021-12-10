@@ -2,146 +2,143 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".A_FinalUI_4"
-    android:background="#628281">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".A_FinalUI_3"
+    android:background="#ff976e">
 
     <TextView
-        android:id="@+id/InsuranceCompany"
+        android:id="@+id/VehicleInfo"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="Insurance company info:"
+        android:text="Vehicle information"
         android:textAlignment="center"
-        android:textSize="32dp"
+        android:textSize="32sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <EditText
-        android:id="@+id/CompanyName"
+    <TextView
+        android:id="@+id/MakerModel1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="Insurance company name"
-        android:inputType="textPersonName"
-        android:text=""
+        android:text="Enter manufacturer, model:"
+        android:textSize="20sp"
         android:layout_marginBottom="-70dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/InsuranceCompany" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:hint="Policy N°"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/VehicleInfo" />
+
+    <EditText
+        android:id="@+id/MakerAndModelEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Manufacturer and model"
         android:inputType="textPersonName"
         android:text=""
         android:layout_marginBottom="-50dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/CompanyName"/>
-
-    <EditText
-        android:id="@+id/editTextTextPersonName4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:hint="Green Card N°"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/MakerModel1" />
+
+    <TextView
+        android:id="@+id/RegisteredCountry2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter country of registration:"
+        android:textSize="20sp"
+        android:layout_marginBottom="-45dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/MakerAndModelEditText" />
+
+    <EditText
+        android:id="@+id/CountryOfRegistration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Country of registration"
         android:inputType="textPersonName"
         android:text=""
         android:layout_marginBottom="-50dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/editTextTextPersonName3"/>
-
-    <EditText
-        android:id="@+id/editTextTextPersonName5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:hint="Agency"
-        android:inputType="textPersonName"
-        android:text=""
-        android:layout_marginBottom="-50dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/editTextTextPersonName4"/>
-
-    <EditText
-        android:id="@+id/editTextTextPersonName6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:inputType="textPersonName"
-        android:text=""
-        android:hint="Agency name"
-        android:layout_marginBottom="-50dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/editTextTextPersonName5"/>
-
-    <EditText
-        android:id="@+id/editTextTextPersonName7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="Address"
-        android:inputType="textPersonName"
-        android:text=""
-        android:layout_marginBottom="-50dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/editTextTextPersonName6"/>
-
-    <EditText
-        android:id="@+id/editTextTextPersonName8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="Country"
-        android:inputType="textPersonName"
-        android:text=""
-        android:layout_marginBottom="-50dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/editTextTextPersonName7"/>
-
-    <EditText
-        android:id="@+id/editTextTextPersonName9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:inputType="textPersonName"
-        android:text=""
-        android:hint="E-mail:"
-        android:layout_marginBottom="-50dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/editTextTextPersonName8"/>
+        app:layout_constraintBottom_toBottomOf="@id/RegisteredCountry2"
+        />
 
     <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/switch5"
-        android:layout_width="match_parent"
+        android:id="@+id/switch4"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="-50dp"
-        android:text="Does the policy cover material damage to the vehicle?"
+        android:text="Is there a trailer?"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="-40dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/editTextTextPersonName9"
-         />
+        app:layout_constraintBottom_toBottomOf="@id/CountryOfRegistration"/>
+
+    <TextView
+        android:id="@+id/registeredCountryHID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter registration number:"
+        android:textSize="20sp"
+        android:layout_marginBottom="-45dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/switch4" />
+
+    <EditText
+        android:id="@+id/TrailerRegistrationHID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Trailer registration number"
+        android:inputType="textPersonName"
+        android:text=""
+        android:layout_marginBottom="-50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/registeredCountryHID"/>
+
+    <TextView
+        android:id="@+id/registeredCountry3HID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="Enter country of registration:"
+        android:textSize="20sp"
+        android:layout_marginBottom="-45dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/TrailerRegistrationHID" />
+
+    <EditText
+        android:id="@+id/countryOfRegistration2HID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Country of registration"
+        android:inputType="textPersonName"
+        android:text=""
+        android:layout_marginBottom="-50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/registeredCountry3HID" />
 
     <Button
         android:id="@+id/frontButton"
@@ -190,4 +187,8 @@
         app:layout_constraintBottom_toBottomOf="@id/backButton"
 
         />
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

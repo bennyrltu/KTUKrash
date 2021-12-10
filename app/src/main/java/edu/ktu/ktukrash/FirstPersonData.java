@@ -186,9 +186,9 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
 
     private void OpenNewActivity() {
 
-        //Intent intent = new Intent(this, SecondPersonData.class); <-- OLD
+        Intent intent = new Intent(this, SecondPersonData.class);// <-- OLD
 
-        Intent intent = new Intent(this, A_FinalUI_1.class);
+        //Intent intent = new Intent(this, A_FinalUI_1.class);
 
         //Validation--------------------------------------------------------------
         EditText name = (EditText) findViewById(R.id.FirstPersonNameField);

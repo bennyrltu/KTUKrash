@@ -8,9 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.util.HashMap;
-
-public class A_FinalUI_6 extends AppCompatActivity {
+public class A_FinalUISecondPerson_6 extends AppCompatActivity {
 
     private Button backButton,frontButton;
     private EditText damage, remarks;
@@ -18,8 +16,7 @@ public class A_FinalUI_6 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_afinal_ui6);
-
+        setContentView(R.layout.activity_afinal_uisecond_person6);
         backButton = findViewById(R.id.backButton);
         frontButton = findViewById(R.id.frontButton);
 
@@ -42,12 +39,12 @@ public class A_FinalUI_6 extends AppCompatActivity {
     }
 
     private void openPreviousActivity() {
-        Intent intent = new Intent(this, A_FinalUI_5.class);
+        Intent intent = new Intent(this, A_FinalUISecondPerson_5.class);
         startActivity(intent);
     }
 
     private void openNextActivity() {
-        Intent intent = new Intent(this, A_FinalUISecondPerson_1.class);
+        Intent intent = new Intent(this, reviewDeclaration.class);
 //        Bundle bundle = getIntent().getExtras();
 //        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
 //        data1.put("FP_Remarks_damage", damage.getText().toString());
