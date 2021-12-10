@@ -55,21 +55,23 @@ public class A_FinalUI_2 extends AppCompatActivity {
     private void openNextActivity() {
         Intent intent = new Intent(this, A_FinalUI_3.class);
         Bundle bundle = getIntent().getExtras();
-//        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
-//        if (injuries.isChecked()){
-//            data1.put("FP_Injuries", "true");
-//        }
-//
-//        if (A_B.isChecked()){
-//            data1.put("FP_other_than_A_B", "true");
-//        }
-//
-//        if (vehicles.isChecked()){
-//            data1.put("FP_other_than_A_B_vehicles", "true");
-//        }
-//
-//        data1.put("FP_Witness", witness.getText().toString());
-//        intent.putExtra("pdfData1", data1);
+        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
+        HashMap<String, Object> data2 = (HashMap<String, Object>) bundle.get("pdfData2");
+        if (injuries.isChecked()){
+            data1.put("FP_Injuries", "true");
+        }
+
+        if (A_B.isChecked()){
+            data1.put("FP_other_than_A_B", "true");
+        }
+
+        if (vehicles.isChecked()){
+            data1.put("FP_other_than_A_B_vehicles", "true");
+        }
+
+        data1.put("FP_Witness", witness.getText().toString());
+        intent.putExtra("pdfData1", data1);
+        intent.putExtra("pdfData2", data2);
         startActivity(intent);
     }
 }

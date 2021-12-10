@@ -10,6 +10,8 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.HashMap;
+
 public class A_FinalUISecondPerson_3 extends AppCompatActivity {
     private CompoundButton bmark;
     private TextView textview1,textview2;
@@ -84,12 +86,14 @@ public class A_FinalUISecondPerson_3 extends AppCompatActivity {
     private void openNextActivity() {
         Intent intent = new Intent(this, A_FinalUISecondPerson_4.class);
         Bundle bundle = getIntent().getExtras();
-//        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
-//        data1.put("SP_Vehicle_Maker_model", makerModel.getText().toString());
-//        data1.put("SP_Vehicle_Country", countryOfRegistration.getText().toString());
-//        data1.put("SP_Trailer_Registration", editText.getText().toString());
-//        data1.put("SP_Trailer_Country", editText2.getText().toString());
-//        intent.putExtra("pdfData1", data1);
+        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
+        HashMap<String, Object> data2 = (HashMap<String, Object>) bundle.get("pdfData2");
+        data2.put("SP_Vehicle_Maker_model", makerModel.getText().toString());
+        data2.put("SP_Vehicle_Country", countryOfRegistration.getText().toString());
+        data2.put("SP_Trailer_Registration", editText.getText().toString());
+        data2.put("SP_Trailer_Country", editText2.getText().toString());
+        intent.putExtra("pdfData1", data1);
+        intent.putExtra("pdfData2", data2);
         startActivity(intent);
     }
 }

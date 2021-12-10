@@ -48,11 +48,13 @@ public class A_FinalUI_6 extends AppCompatActivity {
 
     private void openNextActivity() {
         Intent intent = new Intent(this, A_FinalUISecondPerson_1.class);
-//        Bundle bundle = getIntent().getExtras();
-//        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
-//        data1.put("FP_Remarks_damage", damage.getText().toString());
-//        data1.put("FP_Remarks", remarks.getText().toString());
-//        intent.putExtra("pdfData1", data1);
+        Bundle bundle = getIntent().getExtras();
+        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
+        HashMap<String, Object> data2 = (HashMap<String, Object>) bundle.get("pdfData2");
+        data1.put("FP_Remarks_damage", damage.getText().toString());
+        data1.put("FP_Remarks", remarks.getText().toString());
+        intent.putExtra("pdfData1", data1);
+        intent.putExtra("pdfData2", data2);
         startActivity(intent);
     }
 }

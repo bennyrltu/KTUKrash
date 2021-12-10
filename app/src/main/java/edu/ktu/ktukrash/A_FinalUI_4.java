@@ -62,24 +62,26 @@ public class A_FinalUI_4 extends AppCompatActivity {
     private void openNextActivity() {
         Intent intent = new Intent(this, A_FinalUI_5.class);
         Bundle bundle = getIntent().getExtras();
-//        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
-//        data1.put("FP_Insurance_Name", companyName.getText().toString());
-//        data1.put("FP_Insurance_Policy", policy.getText().toString());
-//        data1.put("FP_Insurance_Green_Card", greenCard.getText().toString());
-//        data1.put("FP_Insurance_Agency", agency.getText().toString());
-//        data1.put("FP_Insurance_Name2", name.getText().toString());
-//        data1.put("FP_Insurance_Address", address.getText().toString());
-//        data1.put("FP_Insurance_Country", country.getText().toString());
-//        data1.put("FP_Insurance_Email", email.getText().toString());
-//
-//        if (doesCover.isChecked()){
-//            data1.put("FP_DoesCover", "true");
-//        }
-//        else{
-//            data1.put("FP_DoesCover", "false");
-//        }
-//
-//        intent.putExtra("pdfData1", data1);
+        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
+        HashMap<String, Object> data2 = (HashMap<String, Object>) bundle.get("pdfData2");
+        data1.put("FP_Insurance_Name", companyName.getText().toString());
+        data1.put("FP_Insurance_Policy", policy.getText().toString());
+        data1.put("FP_Insurance_Green_Card", greenCard.getText().toString());
+        data1.put("FP_Insurance_Agency", agency.getText().toString());
+        data1.put("FP_Insurance_Name2", name.getText().toString());
+        data1.put("FP_Insurance_Address", address.getText().toString());
+        data1.put("FP_Insurance_Country", country.getText().toString());
+        data1.put("FP_Insurance_Email", email.getText().toString());
+
+        if (doesCover.isChecked()){
+            data1.put("FP_DoesCover", "true");
+        }
+        else{
+            data1.put("FP_DoesCover", "false");
+        }
+
+        intent.putExtra("pdfData1", data1);
+        intent.putExtra("pdfData2", data2);
         startActivity(intent);
     }
 }

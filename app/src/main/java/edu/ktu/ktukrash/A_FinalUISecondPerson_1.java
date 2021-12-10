@@ -17,6 +17,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
 public class A_FinalUISecondPerson_1 extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
     private Button button;
@@ -48,7 +49,7 @@ public class A_FinalUISecondPerson_1 extends AppCompatActivity implements DatePi
         backButton = findViewById(R.id.backButton);
         frontButton = findViewById(R.id.frontButton);
 
-
+        date = (TextView) findViewById(R.id.DisplayDate);
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -109,8 +110,6 @@ public class A_FinalUISecondPerson_1 extends AppCompatActivity implements DatePi
         c.set(Calendar.MONTH, month);
         c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
         String currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(c.getTime());
-
-        date = (TextView) findViewById(R.id.DisplayDate);
         date.setText(currentDateString);
     }
 
@@ -131,11 +130,13 @@ public class A_FinalUISecondPerson_1 extends AppCompatActivity implements DatePi
     private void openNextActivity() {
         Intent intent = new Intent(this, A_FinalUISecondPerson_2.class);
         Bundle bundle = getIntent().getExtras();
-//        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
-//        data1.put("SP_Date", date.getText().toString());
-//        data1.put("SP_Time", currentTime.getText().toString());
-//        data1.put("SP_Location", locationText.getText().toString());
-//        intent.putExtra("pdfData1", data1);
+        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
+        HashMap<String, Object> data2 = (HashMap<String, Object>) bundle.get("pdfData2");
+        data2.put("SP_Date", date.getText().toString());
+        data2.put("SP_Time", currentTime.getText().toString());
+        data2.put("SP_Location", locationText.getText().toString());
+        intent.putExtra("pdfData1", data1);
+        intent.putExtra("pdfData2", data2);
 
         startActivity(intent);
     }

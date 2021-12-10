@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.HashMap;
+
 public class A_FinalUISecondPerson_4 extends AppCompatActivity {
     private Button backButton,frontButton;
 
@@ -58,24 +60,26 @@ public class A_FinalUISecondPerson_4 extends AppCompatActivity {
     private void openNextActivity() {
         Intent intent = new Intent(this, A_FinalUISecondPerson_5.class);
         Bundle bundle = getIntent().getExtras();
-//        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
-//        data1.put("SP_Insurance_Name", companyName.getText().toString());
-//        data1.put("SP_Insurance_Policy", policy.getText().toString());
-//        data1.put("SP_Insurance_Green_Card", greenCard.getText().toString());
-//        data1.put("SP_Insurance_Agency", agency.getText().toString());
-//        data1.put("SP_Insurance_Name2", name.getText().toString());
-//        data1.put("SP_Insurance_Address", address.getText().toString());
-//        data1.put("SP_Insurance_Country", country.getText().toString());
-//        data1.put("SP_Insurance_Email", email.getText().toString());
-//
-//        if (doesCover.isChecked()){
-//            data1.put("SP_DoesCover", "true");
-//        }
-//        else{
-//            data1.put("SP_DoesCover", "false");
-//        }
-//
-//        intent.putExtra("pdfData1", data1);
+        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
+        HashMap<String, Object> data2 = (HashMap<String, Object>) bundle.get("pdfData2");
+        data2.put("SP_Insurance_Name", companyName.getText().toString());
+        data2.put("SP_Insurance_Policy", policy.getText().toString());
+        data2.put("SP_Insurance_Green_Card", greenCard.getText().toString());
+        data2.put("SP_Insurance_Agency", agency.getText().toString());
+        data2.put("SP_Insurance_Name2", name.getText().toString());
+        data2.put("SP_Insurance_Address", address.getText().toString());
+        data2.put("SP_Insurance_Country", country.getText().toString());
+        data2.put("SP_Insurance_Email", email.getText().toString());
+
+        if (doesCover.isChecked()){
+            data2.put("SP_DoesCover", "true");
+        }
+        else{
+            data2.put("SP_DoesCover", "false");
+        }
+
+        intent.putExtra("pdfData1", data1);
+        intent.putExtra("pdfData2", data2);
         startActivity(intent);
     }
 }

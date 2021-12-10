@@ -55,6 +55,8 @@ public class A_FinalUI_1 extends AppCompatActivity implements DatePickerDialog.O
         backButton = findViewById(R.id.backButton);
         frontButton = findViewById(R.id.frontButton);
 
+        date = (TextView) findViewById(R.id.DisplayDate);
+
 
 
 
@@ -117,7 +119,6 @@ public class A_FinalUI_1 extends AppCompatActivity implements DatePickerDialog.O
         c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
         String currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(c.getTime());
 
-        date = (TextView) findViewById(R.id.DisplayDate);
         date.setText(currentDateString);
     }
 
@@ -131,13 +132,20 @@ public class A_FinalUI_1 extends AppCompatActivity implements DatePickerDialog.O
     }
 
     private void openPreviousActivity() {
-        Intent intent = new Intent(this, FirstPersonData.class);
+        Intent intent = new Intent(this, PaintActivity.class);
         startActivity(intent);
     }
 
     private void openNextActivity() {
         Intent intent = new Intent(this, A_FinalUI_2.class);
         Bundle bundle = getIntent().getExtras();
+        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
+        HashMap<String, Object> data2 = (HashMap<String, Object>) bundle.get("pdfData2");
+        data1.put("FP_Date", date.getText().toString());
+        data1.put("FP_Time", currentTime.getText().toString());
+        data1.put("FP_Location", locationText.getText().toString());
+        intent.putExtra("pdfData1", data1);
+        intent.putExtra("pdfData2", data2);
 //        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
 //        data1.put("FP_Date", date.getText().toString());
 //        data1.put("FP_Time", currentTime.getText().toString());

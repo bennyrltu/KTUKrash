@@ -68,12 +68,14 @@ public class A_FinalUI_5 extends AppCompatActivity implements DatePickerDialog.O
 
     private void openNextActivity() {
         Intent intent = new Intent(this, A_Circumstances_1.class);
-//        Bundle bundle = getIntent().getExtras();
-//        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
-//        data1.put("FP_Driving_license_no", license_no.getText().toString());
-//        data1.put("FP_Driving_ategories", categories.getText().toString());
-//        data1.put("FP_License_valid_until", license_valid_until.getText().toString());
-//        intent.putExtra("pdfData1", data1);
+        Bundle bundle = getIntent().getExtras();
+        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
+        HashMap<String, Object> data2 = (HashMap<String, Object>) bundle.get("pdfData2");
+        data1.put("FP_Driving_license_no", license_no.getText().toString());
+        data1.put("FP_Driving_ategories", categories.getText().toString());
+        data1.put("FP_License_valid_until", license_valid_until.getText().toString());
+        intent.putExtra("pdfData1", data1);
+        intent.putExtra("pdfData2", data2);
         startActivity(intent);
     }
 

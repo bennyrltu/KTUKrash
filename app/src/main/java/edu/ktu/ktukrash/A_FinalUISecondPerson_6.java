@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.HashMap;
+
 public class A_FinalUISecondPerson_6 extends AppCompatActivity {
 
     private Button backButton,frontButton;
@@ -39,17 +41,19 @@ public class A_FinalUISecondPerson_6 extends AppCompatActivity {
     }
 
     private void openPreviousActivity() {
-        Intent intent = new Intent(this, A_FinalUISecondPerson_5.class);
+        Intent intent = new Intent(this, A_Circumstances_2.class);
         startActivity(intent);
     }
 
     private void openNextActivity() {
         Intent intent = new Intent(this, reviewDeclaration.class);
-//        Bundle bundle = getIntent().getExtras();
-//        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
-//        data1.put("FP_Remarks_damage", damage.getText().toString());
-//        data1.put("FP_Remarks", remarks.getText().toString());
-//        intent.putExtra("pdfData1", data1);
+        Bundle bundle = getIntent().getExtras();
+        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
+        HashMap<String, Object> data2 = (HashMap<String, Object>) bundle.get("pdfData2");
+        data1.put("FP_Remarks_damage", damage.getText().toString());
+        data1.put("FP_Remarks", remarks.getText().toString());
+        intent.putExtra("pdfData1", data1);
+        intent.putExtra("pdfData2", data2);
         startActivity(intent);
     }
 }

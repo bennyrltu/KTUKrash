@@ -67,97 +67,100 @@ public class A_Circumstances_2 extends AppCompatActivity {
 
     private void openNextActivity() {
         Bundle bundle = getIntent().getExtras();
-//        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
-//        if (switch6.isChecked()){
-//            data1.put("SP_1", "true");
-//            counter++;
-//        }
-//
-//        if (switch11.isChecked()){
-//            data1.put("SP_2", "true");
-//            counter++;
-//        }
-//
-//        if (switch12.isChecked()){
-//            data1.put("SP_3", "true");
-//            counter++;
-//        }
-//
-//        if (switch13.isChecked()){
-//            data1.put("SP_4", "true");
-//            counter++;
-//        }
-//
-//        if (switch14.isChecked()){
-//            data1.put("SP_5", "true");
-//            counter++;
-//        }
-//
-//        if (switch15.isChecked()){
-//            data1.put("SP_6", "true");
-//            counter++;
-//        }
-//
-//        if (switch16.isChecked()){
-//            data1.put("SP_7", "true");
-//            counter++;
-//        }
-//
-//        if (switch17.isChecked()){
-//            data1.put("SP_8", "true");
-//            counter++;
-//        }
-//
-//        if (switch18.isChecked()){
-//            data1.put("SP_9", "true");
-//            counter++;
-//        }
-//
-//        if (switch19.isChecked()){
-//            data1.put("SP_10", "true");
-//            counter++;
-//        }
-//
-//        if (switch7.isChecked()){
-//            data1.put("SP_11", "true");
-//            counter++;
-//        }
-//
-//        if (switch8.isChecked()){
-//            data1.put("SP_12", "true");
-//            counter++;
-//        }
-//
-//        if (switch9.isChecked()){
-//            data1.put("SP_13", "true");
-//            counter++;
-//        }
-//
-//        if (switch10.isChecked()){
-//            data1.put("SP_14", "true");
-//            counter++;
-//        }
-//
-//        if (switch20.isChecked()){
-//            data1.put("SP_15", "true");
-//            counter++;
-//        }
-//
-//        if (switch21.isChecked()){
-//            data1.put("SP_16", "true");
-//            counter++;
-//        }
-//
-//        if (switch22.isChecked()){
-//            data1.put("SP_17", "true");
-//            counter++;
-//        }
-//
-//        String countas = String.valueOf(counter);
-//
-//        data1.put("SP_CircumstancesC",countas);
+        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
+        HashMap<String, Object> data2 = (HashMap<String, Object>) bundle.get("pdfData2");
+        if (switch6.isChecked()){
+            data2.put("SP_1", "true");
+            counter++;
+        }
+
+        if (switch11.isChecked()){
+            data2.put("SP_2", "true");
+            counter++;
+        }
+
+        if (switch12.isChecked()){
+            data2.put("SP_3", "true");
+            counter++;
+        }
+
+        if (switch13.isChecked()){
+            data2.put("SP_4", "true");
+            counter++;
+        }
+
+        if (switch14.isChecked()){
+            data2.put("SP_5", "true");
+            counter++;
+        }
+
+        if (switch15.isChecked()){
+            data2.put("SP_6", "true");
+            counter++;
+        }
+
+        if (switch16.isChecked()){
+            data2.put("SP_7", "true");
+            counter++;
+        }
+
+        if (switch17.isChecked()){
+            data2.put("SP_8", "true");
+            counter++;
+        }
+
+        if (switch18.isChecked()){
+            data2.put("SP_9", "true");
+            counter++;
+        }
+
+        if (switch19.isChecked()){
+            data2.put("SP_10", "true");
+            counter++;
+        }
+
+        if (switch7.isChecked()){
+            data2.put("SP_11", "true");
+            counter++;
+        }
+
+        if (switch8.isChecked()){
+            data2.put("SP_12", "true");
+            counter++;
+        }
+
+        if (switch9.isChecked()){
+            data2.put("SP_13", "true");
+            counter++;
+        }
+
+        if (switch10.isChecked()){
+            data2.put("SP_14", "true");
+            counter++;
+        }
+
+        if (switch20.isChecked()){
+            data2.put("SP_15", "true");
+            counter++;
+        }
+
+        if (switch21.isChecked()){
+            data2.put("SP_16", "true");
+            counter++;
+        }
+
+        if (switch22.isChecked()){
+            data2.put("SP_17", "true");
+            counter++;
+        }
+
+        String countas = String.valueOf(counter);
+
+        data2.put("SP_CircumstancesC",countas);
 
         Intent intent = new Intent(this, A_FinalUISecondPerson_6.class);
+        intent.putExtra("pdfData1", data1);
+        intent.putExtra("pdfData2", data2);
         startActivity(intent);
     }
 }

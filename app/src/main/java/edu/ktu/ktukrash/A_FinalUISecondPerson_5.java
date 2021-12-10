@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 
 public class A_FinalUISecondPerson_5 extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     private Button backButton,frontButton,button;
@@ -64,12 +65,14 @@ public class A_FinalUISecondPerson_5 extends AppCompatActivity implements DatePi
 
     private void openNextActivity() {
         Intent intent = new Intent(this, A_Circumstances_2.class);
-//        Bundle bundle = getIntent().getExtras();
-//        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
-//        data1.put("SP_Driving_license_no", license_no.getText().toString());
-//        data1.put("SP_Driving_ategories", categories.getText().toString());
-//        data1.put("SP_License_valid_until", license_valid_until.getText().toString());
-//        intent.putExtra("pdfData1", data1);
+        Bundle bundle = getIntent().getExtras();
+        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
+        HashMap<String, Object> data2 = (HashMap<String, Object>) bundle.get("pdfData2");
+        data2.put("SP_Driving_license_no", license_no.getText().toString());
+        data2.put("SP_Driving_ategories", categories.getText().toString());
+        data2.put("SP_License_valid_until", license_valid_until.getText().toString());
+        intent.putExtra("pdfData1", data1);
+        intent.putExtra("pdfData2", data2);
         startActivity(intent);
     }
 

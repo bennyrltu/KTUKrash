@@ -252,8 +252,6 @@ public class EventPictures extends AppCompatActivity {
         HashMap<String, Object> data2 = (HashMap<String, Object>) bundle.get("pdfData2");
         intent.putExtra("pdfData1", data1);
         intent.putExtra("pdfData2", data2);
-        intent.putExtra("previousActivity", "EventPictures");
-
 
         String stringas = textView11.getText().toString().trim();
         intent.putExtra(EXTRA_TEXT6, stringas);
