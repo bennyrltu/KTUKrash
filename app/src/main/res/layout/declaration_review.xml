@@ -99,12 +99,11 @@
             </TextView>
 
             <ImageView
+                android:id="@+id/revScheme"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:id="@+id/revScheme"
-                android:src="@drawable/logo1"
                 android:layout_below="@+id/revSchemetext"
-                >
+                android:src="@drawable/logo1">
 
             </ImageView>
 
@@ -574,6 +573,15 @@
 
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/nextActivityButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_below="@id/spCardView"
+            android:text="Generate PDF"
+            android:textAlignment="center"
+            />
 
     </RelativeLayout>
 

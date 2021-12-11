@@ -39,11 +39,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private ActivityMapsBinding binding;
     private EditText locationText;
     private Button confirmButton;
+    private String country, postal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        country = "";
+        postal = "";
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -60,6 +63,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onClick(View v) {
                 Intent resultIntent = new Intent();
                 resultIntent.putExtra("loc", locationText.getText().toString());
+                resultIntent.putExtra("country",country);
+                resultIntent.putExtra("postal",postal);
                 setResult(Activity.RESULT_OK, resultIntent);
                 finish();
             }
@@ -95,6 +100,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             );
 
                             locationText.setText(addresses.get(0).getAddressLine(0));
+                            country = addresses.get(0).getCountryName();
+                            postal = addresses.get(0).getPostalCode();
 
                             LatLng markerLocation = new LatLng(addresses.get(0).getLatitude(), addresses.get(0).getLongitude());
                             mMap.addMarker(new MarkerOptions().position(markerLocation));

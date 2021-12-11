@@ -73,85 +73,136 @@ public class A_Circumstances_2 extends AppCompatActivity {
             data2.put("SP_1", "true");
             counter++;
         }
+        else{
+            data2.put("SP_1", "false");
+        }
 
         if (switch11.isChecked()){
             data2.put("SP_2", "true");
             counter++;
+        }
+        else{
+            data2.put("SP_2", "false");
         }
 
         if (switch12.isChecked()){
             data2.put("SP_3", "true");
             counter++;
         }
+        else{
+            data2.put("SP_3", "false");
+        }
 
         if (switch13.isChecked()){
             data2.put("SP_4", "true");
             counter++;
+        }
+        else{
+            data2.put("SP_4", "false");
         }
 
         if (switch14.isChecked()){
             data2.put("SP_5", "true");
             counter++;
         }
+        else{
+            data2.put("SP_5", "false");
+        }
 
         if (switch15.isChecked()){
             data2.put("SP_6", "true");
             counter++;
+        }
+        else{
+            data2.put("SP_6", "false");
         }
 
         if (switch16.isChecked()){
             data2.put("SP_7", "true");
             counter++;
         }
+        else{
+            data2.put("SP_7", "false");
+        }
 
         if (switch17.isChecked()){
             data2.put("SP_8", "true");
             counter++;
+        }
+        else{
+            data2.put("SP_8", "false");
         }
 
         if (switch18.isChecked()){
             data2.put("SP_9", "true");
             counter++;
         }
+        else{
+            data2.put("SP_9", "false");
+        }
 
         if (switch19.isChecked()){
             data2.put("SP_10", "true");
             counter++;
+        }
+        else{
+            data2.put("SP_10", "false");
         }
 
         if (switch7.isChecked()){
             data2.put("SP_11", "true");
             counter++;
         }
+        else{
+            data2.put("SP_11", "false");
+        }
 
         if (switch8.isChecked()){
             data2.put("SP_12", "true");
             counter++;
+        }
+        else{
+            data2.put("SP_12", "false");
         }
 
         if (switch9.isChecked()){
             data2.put("SP_13", "true");
             counter++;
         }
+        else{
+            data2.put("SP_13", "false");
+        }
 
         if (switch10.isChecked()){
             data2.put("SP_14", "true");
             counter++;
+        }
+        else{
+            data2.put("SP_14", "false");
         }
 
         if (switch20.isChecked()){
             data2.put("SP_15", "true");
             counter++;
         }
+        else{
+            data2.put("SP_15", "false");
+        }
 
         if (switch21.isChecked()){
             data2.put("SP_16", "true");
             counter++;
         }
+        else{
+            data2.put("SP_16", "false");
+        }
 
         if (switch22.isChecked()){
             data2.put("SP_17", "true");
             counter++;
+        }
+        else{
+            data2.put("SP_17", "false");
         }
 
         String countas = String.valueOf(counter);

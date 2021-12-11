@@ -50,8 +50,8 @@ public class A_FinalUISecondPerson_6 extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
         HashMap<String, Object> data2 = (HashMap<String, Object>) bundle.get("pdfData2");
-        data1.put("FP_Remarks_damage", damage.getText().toString());
-        data1.put("FP_Remarks", remarks.getText().toString());
+        data2.put("SP_Remarks_damage", damage.getText().toString());
+        data2.put("SP_Remarks", remarks.getText().toString());
         intent.putExtra("pdfData1", data1);
         intent.putExtra("pdfData2", data2);
         startActivity(intent);

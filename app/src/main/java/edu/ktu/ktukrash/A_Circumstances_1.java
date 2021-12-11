@@ -72,86 +72,135 @@ public class A_Circumstances_1 extends AppCompatActivity {
         if (switch6.isChecked()){
             data1.put("FP_1", "true");
             counter++;
+        }else{
+            data1.put("FP_1", "false");
         }
 
         if (switch11.isChecked()){
             data1.put("FP_2", "true");
             counter++;
         }
+        else{
+            data1.put("FP_2", "false");
+        }
 
         if (switch12.isChecked()){
             data1.put("FP_3", "true");
             counter++;
+        }
+        else{
+            data1.put("FP_3", "false");
         }
 
         if (switch13.isChecked()){
             data1.put("FP_4", "true");
             counter++;
         }
+        else{
+            data1.put("FP_4", "false");
+        }
 
         if (switch14.isChecked()){
             data1.put("FP_5", "true");
             counter++;
+        }
+        else{
+            data1.put("FP_5", "false");
         }
 
         if (switch15.isChecked()){
             data1.put("FP_6", "true");
             counter++;
         }
+        else{
+            data1.put("FP_6", "false");
+        }
 
         if (switch16.isChecked()){
             data1.put("FP_7", "true");
             counter++;
+        }
+        else{
+            data1.put("FP_7", "false");
         }
 
         if (switch17.isChecked()){
             data1.put("FP_8", "true");
             counter++;
         }
+        else{
+            data1.put("FP_8", "false");
+        }
 
         if (switch18.isChecked()){
             data1.put("FP_9", "true");
             counter++;
+        }else{
+            data1.put("FP_9", "false");
         }
 
         if (switch19.isChecked()){
             data1.put("FP_10", "true");
             counter++;
         }
+        else{
+            data1.put("FP_10", "false");
+        }
 
         if (switch7.isChecked()){
             data1.put("FP_11", "true");
             counter++;
+        }
+        else{
+            data1.put("FP_11", "false");
         }
 
         if (switch8.isChecked()){
             data1.put("FP_12", "true");
             counter++;
         }
+        else{
+            data1.put("FP_12", "false");
+        }
 
         if (switch9.isChecked()){
             data1.put("FP_13", "true");
             counter++;
+        }
+        else{
+            data1.put("FP_13", "false");
         }
 
         if (switch10.isChecked()){
             data1.put("FP_14", "true");
             counter++;
         }
+        else{
+            data1.put("FP_14", "false");
+        }
 
         if (switch20.isChecked()){
             data1.put("FP_15", "true");
             counter++;
+        }
+        else{
+            data1.put("FP_15", "false");
         }
 
         if (switch21.isChecked()){
             data1.put("FP_16", "true");
             counter++;
         }
+        else{
+            data1.put("FP_16", "false");
+        }
 
         if (switch22.isChecked()){
             data1.put("FP_17", "true");
             counter++;
+        }
+        else{
+            data1.put("FP_17", "false");
         }
 
         String countas = String.valueOf(counter);

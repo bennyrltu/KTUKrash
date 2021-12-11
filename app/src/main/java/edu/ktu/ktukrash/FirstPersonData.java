@@ -58,6 +58,7 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
     private Button map;
     private Intent intent;
     private EditText locationText;
+    private String country, postal;
 
 
     public float x = 250f;
@@ -78,6 +79,8 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_person_data);
+        country = "Lithuania";
+        postal = "";
 
         Intent intent = getIntent();
         String text = intent.getStringExtra(DeclarationCars.EXTRA_TEXT);
@@ -153,6 +156,8 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
             case (5) : {
                 if (resultCode == Activity.RESULT_OK) {
                     String newText = data.getStringExtra("loc");
+                    country = data.getStringExtra("country");
+                    postal = data.getStringExtra("postal");
                     locationText.setText(newText);
                 }
                 break;
@@ -294,6 +299,8 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
         dataMap.put("FP_Email", dbEmail);
         dataMap.put("FP_PersonalCode", dbCode);
         dataMap.put("FP_CarNumber", dbNumber);
+        dataMap.put("Country", country);
+        dataMap.put("FP_Postal", postal);
 
         //root.push().setValue(dataMap);
         root.child(newDeklaracija).setValue(dataMap);

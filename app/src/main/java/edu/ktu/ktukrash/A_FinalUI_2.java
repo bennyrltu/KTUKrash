@@ -60,13 +60,22 @@ public class A_FinalUI_2 extends AppCompatActivity {
         if (injuries.isChecked()){
             data1.put("FP_Injuries", "true");
         }
+        else{
+            data1.put("FP_Injuries", "false");
+        }
 
         if (A_B.isChecked()){
             data1.put("FP_other_than_A_B", "true");
         }
+        else{
+            data1.put("FP_other_than_A_B", "false");
+        }
 
         if (vehicles.isChecked()){
             data1.put("FP_other_than_A_B_vehicles", "true");
+        }
+        else{
+            data1.put("FP_other_than_A_B_vehicles", "false");
         }
 
         data1.put("FP_Witness", witness.getText().toString());

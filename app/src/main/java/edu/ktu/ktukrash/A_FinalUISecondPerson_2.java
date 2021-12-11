@@ -57,13 +57,22 @@ public class A_FinalUISecondPerson_2 extends AppCompatActivity {
         if (injuries.isChecked()){
             data2.put("SP_Injuries", "true");
         }
+        else{
+            data2.put("SP_Injuries", "false");
+        }
 
         if (A_B.isChecked()){
             data2.put("SP_other_than_A_B", "true");
         }
+        else{
+            data2.put("SP_other_than_A_B", "false");
+        }
 
         if (vehicles.isChecked()){
             data2.put("SP_other_than_A_B_vehicles", "true");
+        }
+        else{
+            data2.put("SP_other_than_A_B_vehicles", "false");
         }
 
         data2.put("SP_Witness", witness.getText().toString());

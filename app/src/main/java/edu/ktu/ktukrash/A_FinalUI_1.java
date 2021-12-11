@@ -143,7 +143,7 @@ public class A_FinalUI_1 extends AppCompatActivity implements DatePickerDialog.O
         HashMap<String, Object> data2 = (HashMap<String, Object>) bundle.get("pdfData2");
         data1.put("FP_Date", date.getText().toString());
         data1.put("FP_Time", currentTime.getText().toString());
-        data1.put("FP_Location", locationText.getText().toString());
+        data1.put("FP_Accident_Location", locationText.getText().toString());
         intent.putExtra("pdfData1", data1);
         intent.putExtra("pdfData2", data2);
 //        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
