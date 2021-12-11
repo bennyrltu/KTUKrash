@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -43,12 +44,14 @@ import com.kyanogen.signatureview.SignatureView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 import yuku.ambilwarna.AmbilWarnaDialog;
 
@@ -59,7 +62,7 @@ public class PaintActivity extends AppCompatActivity {
     ImageButton imgEraser, imgColor, imgSave;
     SeekBar seekBar;
     TextView txtPenSize, textView;
-    private static String fileName;
+    private static String fileName, fileName1;
     Button button1, continueButton;
     ImageView imageView;
     Uri fileUri;
@@ -124,12 +127,9 @@ public class PaintActivity extends AppCompatActivity {
         signatureView.setBackground(Drawable.createFromPath("background.jpg"));
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault());
         String date = format.format(new Date());
+        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString();
         fileName = date;
-
-        if(!path.exists())
-        {
-            path.mkdirs();
-        }
+        fileName1 = path + "/" + date + ".png";
 
 
         continueButton.setOnClickListener(new View.OnClickListener() {
@@ -216,20 +216,9 @@ public class PaintActivity extends AppCompatActivity {
     }
 
 
-    public static Bitmap mergeToPin(Bitmap back, Bitmap front) {
-        Bitmap result = Bitmap.createBitmap(back.getWidth(), back.getHeight(), back.getConfig());
-        Canvas canvas = new Canvas(result);
-        int widthBack = back.getWidth();
-        int widthFront = front.getWidth();
-        float move = (widthBack - widthFront) / 2;
-        canvas.drawBitmap(back, 0f, 0f, null);
-        canvas.drawBitmap(front, move, move, null);
-        return result;
-    }
-
-
     private void saveImage() throws IOException {
         File file = new File(fileName);
+        File file1 = new File(fileName1);
         FirebaseUser user = auth.getCurrentUser();
         String userID = user.getUid();
         Intent intent = getIntent();
@@ -239,8 +228,6 @@ public class PaintActivity extends AppCompatActivity {
         String stringas = textView1.getText().toString().trim();
 
         Bitmap bitmap = signatureView.getSignatureBitmap();
-        //Bitmap bitmap1 = imageView.getDrawingCache();
-        //Bitmap bitmap2 = mergeToPin(bitmap, bitmap1);
 
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
@@ -251,6 +238,11 @@ public class PaintActivity extends AppCompatActivity {
         StorageReference imagesRef = storageRef.child(fileName + ".png");
         UploadTask uploadTask = imagesRef.putBytes(bitmapData);
 
+        FileOutputStream fos = new FileOutputStream(file1);
+        fos.write(bitmapData);
+        fos.flush();
+        fos.close();
+
         uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception exception) {
@@ -259,6 +251,7 @@ public class PaintActivity extends AppCompatActivity {
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
                 Task<Uri> downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl();
                 Log.i("uri",downloadUrl.toString());
 
@@ -279,6 +272,36 @@ public class PaintActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    private void saveInside(Bitmap bitmap){
+        String root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString();
+        File myDir = new File(root + "/saved_images");
+        myDir.mkdirs();
+        String fname = fileName + ".png";
+        File file = new File(myDir, fname);
+        if (file.exists())
+            file.delete();
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
+            out.flush();
+            out.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Tell the media scanner about the new file so that it is
+        // immediately available to the user.
+        MediaScannerConnection.scanFile(this, new String[] { file.toString() }, null,
+                new MediaScannerConnection.OnScanCompletedListener() {
+                    public void onScanCompleted(String path, Uri uri) {
+                        Log.i("ExternalStorage", "Scanned " + path + ":");
+                        Log.i("ExternalStorage", "-> uri=" + uri);
+                    }
+                });
     }
 
 
