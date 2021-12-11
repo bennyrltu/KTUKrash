@@ -138,7 +138,6 @@ public class EventPictures extends AppCompatActivity {
                 UploadTask uploadTask2 = uploadImageRef2.putFile(fileUri2);
                 UploadTask uploadTask3 = uploadImageRef3.putFile(fileUri3);
 
-
                 HashMap<String, Object> dataMap = new HashMap<>();
 
                 uploadTask2.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {

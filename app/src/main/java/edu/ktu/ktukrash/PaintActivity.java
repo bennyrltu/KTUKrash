@@ -69,6 +69,12 @@ public class PaintActivity extends AppCompatActivity {
 
     Button revButton;
 
+    HashMap<String, String> data1;
+    HashMap<String, Object> data2;
+    private String carNumber;
+    private String carNumber2;
+    private String numberSum;
+
 
 
     private ProgressDialog mProgressDialog;
@@ -86,9 +92,6 @@ public class PaintActivity extends AppCompatActivity {
             .child("Declaration_Data")
             .child(currentuser)
             .child("Declarations");
-
-
-    File path = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pictures");
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -120,6 +123,12 @@ public class PaintActivity extends AppCompatActivity {
         TextView textView1 = (TextView) findViewById(R.id.textView13);
 
         textView1.setText(text);
+        Bundle bundle = getIntent().getExtras();
+        data1 = (HashMap<String, String>) bundle.get("pdfData1");
+        data2 = (HashMap<String, Object>) bundle.get("pdfData2");
+        carNumber = data1.get("FP_CarNumber");
+        carNumber2 = data2.get("SP_CarNumber").toString();
+        numberSum = carNumber + carNumber2;
 
         String stringas = textView1.getText().toString().trim();
 
@@ -129,7 +138,7 @@ public class PaintActivity extends AppCompatActivity {
         String date = format.format(new Date());
         String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString();
         fileName = date;
-        fileName1 = path + "/" + date + ".png";
+        fileName1 = path + "/" + numberSum + ".png";
 
 
         continueButton.setOnClickListener(new View.OnClickListener() {
@@ -275,35 +284,6 @@ public class PaintActivity extends AppCompatActivity {
 
     }
 
-    private void saveInside(Bitmap bitmap){
-        String root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString();
-        File myDir = new File(root + "/saved_images");
-        myDir.mkdirs();
-        String fname = fileName + ".png";
-        File file = new File(myDir, fname);
-        if (file.exists())
-            file.delete();
-        try {
-            FileOutputStream out = new FileOutputStream(file);
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
-            out.flush();
-            out.close();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        // Tell the media scanner about the new file so that it is
-        // immediately available to the user.
-        MediaScannerConnection.scanFile(this, new String[] { file.toString() }, null,
-                new MediaScannerConnection.OnScanCompletedListener() {
-                    public void onScanCompleted(String path, Uri uri) {
-                        Log.i("ExternalStorage", "Scanned " + path + ":");
-                        Log.i("ExternalStorage", "-> uri=" + uri);
-                    }
-                });
-    }
-
 
 
     private void openColorPicker() {
@@ -364,8 +344,7 @@ public class PaintActivity extends AppCompatActivity {
     public void OpenActivity2(){
         Intent intent = new Intent(this, A_FinalUI_1.class);
         Bundle bundle = getIntent().getExtras();
-        HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
-        HashMap<String, Object> data2 = (HashMap<String, Object>) bundle.get("pdfData2");
+        data1.put("pictureName", numberSum);
         intent.putExtra("pdfData1", data1);
         intent.putExtra("pdfData2", data2);
         startActivity(intent);
