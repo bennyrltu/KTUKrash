@@ -128,7 +128,7 @@ public class PaintActivity extends AppCompatActivity {
         data2 = (HashMap<String, Object>) bundle.get("pdfData2");
         carNumber = data1.get("FP_CarNumber");
         carNumber2 = data2.get("SP_CarNumber").toString();
-        numberSum = carNumber + carNumber2;
+        numberSum = "empty";
 
         String stringas = textView1.getText().toString().trim();
 
@@ -136,9 +136,9 @@ public class PaintActivity extends AppCompatActivity {
         signatureView.setBackground(Drawable.createFromPath("background.jpg"));
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault());
         String date = format.format(new Date());
-        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString();
         fileName = date;
-        fileName1 = path + "/" + numberSum + ".png";
+        fileName1 = "empty";
+
 
 
         continueButton.setOnClickListener(new View.OnClickListener() {
@@ -226,7 +226,9 @@ public class PaintActivity extends AppCompatActivity {
 
 
     private void saveImage() throws IOException {
-        File file = new File(fileName);
+        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString();
+        numberSum = carNumber + carNumber2;
+        fileName1 = path + "/" + numberSum + ".png";
         File file1 = new File(fileName1);
         FirebaseUser user = auth.getCurrentUser();
         String userID = user.getUid();
@@ -344,7 +346,7 @@ public class PaintActivity extends AppCompatActivity {
     public void OpenActivity2(){
         Intent intent = new Intent(this, A_FinalUI_1.class);
         Bundle bundle = getIntent().getExtras();
-        data1.put("pictureName", numberSum);
+        data1.put("picturePath", fileName1);
         intent.putExtra("pdfData1", data1);
         intent.putExtra("pdfData2", data2);
         startActivity(intent);
