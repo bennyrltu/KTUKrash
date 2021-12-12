@@ -67,7 +67,6 @@ public class PaintActivity extends AppCompatActivity {
     ImageView imageView;
     Uri fileUri;
 
-    Button revButton;
 
     HashMap<String, String> data1;
     HashMap<String, Object> data2;
@@ -112,8 +111,6 @@ public class PaintActivity extends AppCompatActivity {
         imageView = findViewById(R.id.photoBackground);
         textView = findViewById(R.id.textView13);
 
-
-        revButton.setVisibility(View.GONE);
 
         continueButton=findViewById(R.id.button4);
 
@@ -162,13 +159,6 @@ public class PaintActivity extends AppCompatActivity {
             }
         });
 
-        revButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                OpenActivity();
-            }
-        });
 
 
         defaultColor = ContextCompat.getColor(PaintActivity.this, R.color.black);
@@ -218,7 +208,6 @@ public class PaintActivity extends AppCompatActivity {
                     Toast.makeText(PaintActivity.this,"Couldn't save drawing", Toast.LENGTH_SHORT).show();
                 }
             }
-            revButton.setVisibility(View.VISIBLE);
             }
         }) ;
 

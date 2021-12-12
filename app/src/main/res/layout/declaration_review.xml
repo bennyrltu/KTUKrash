@@ -58,6 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/revDateTime"
                 android:text="Place of accident:"
+                android:layout_marginBottom="15dp"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold">
@@ -75,20 +76,11 @@
 
             </TextView>
 
-            <ImageView
-                android:layout_below="@+id/revLocation"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:id="@+id/revMAPAS"
-                android:src="@drawable/logo1">
-
-            </ImageView>
-
             <TextView
                 android:id="@+id/revSchemetext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/revMAPAS"
+                android:layout_below="@+id/revVieta"
                 android:text="Scheme"
                 android:textColor="@color/black"
                 android:textSize="12sp"
@@ -107,6 +99,7 @@
             </ImageView>
 
             <TextView
+                android:id="@+id/revZala"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/revScheme"
@@ -311,12 +304,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/fprevEmail"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="50dp"
                     android:layout_toRightOf="@id/revApdrausta"
                     android:text="įvažiuojant į žiedinę sankryžą."
                     android:textColor="@color/black">
 
                 </TextView>
+
+                <TextView
+                    android:id="@+id/FPrevdamage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/FPrevDescription"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_toRightOf="@id/revApdrausta"
+                    android:text="yep."
+                    android:textColor="@color/black"></TextView>
 
                 <TextView
                     android:id="@+id/revSugadinimai"
@@ -328,18 +332,6 @@
                     android:textStyle="bold">
 
                 </TextView>
-
-                <ImageView
-                    android:id="@+id/revImage"
-                    android:layout_width="200dp"
-                    android:layout_height="300dp"
-                    android:layout_below="@id/revSugadinimai"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:src="@drawable/logo1">
-
-                </ImageView>
 
             </RelativeLayout>
 
@@ -538,7 +530,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/sprevEmail"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="50dp"
                     android:layout_toRightOf="@id/sprevApdrausta"
                     android:text="įvažiuojant į žiedinę sankryžą."
                     android:textColor="@color/black">
@@ -556,17 +548,18 @@
 
                 </TextView>
 
-                <ImageView
-                    android:id="@+id/sprevImage"
-                    android:layout_width="200dp"
-                    android:layout_height="300dp"
-                    android:layout_below="@id/sprevSugadinimai"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginTop="10dp"
+                <TextView
+                    android:id="@+id/SPrevdamage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sprevDescription"
+                    android:layout_marginLeft="50dp"
                     android:layout_marginBottom="10dp"
-                    android:src="@drawable/logo1">
+                    android:layout_toRightOf="@id/sprevApdrausta"
+                    android:text="yep."
+                    android:textColor="@color/black"></TextView>
 
-                </ImageView>
+
 
 
 
@@ -576,9 +569,17 @@
         <Button
             android:id="@+id/nextActivityButton"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="50dp"
             android:layout_below="@id/spCardView"
             android:text="Generate PDF"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/backToHomeFromReview"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/nextActivityButton"
+            android:text="Back to dashboard"
             android:textAlignment="center"
             />
 

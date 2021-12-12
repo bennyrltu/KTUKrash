@@ -16,6 +16,7 @@ public class reviewDeclaration extends AppCompatActivity {
     HashMap<String, String> data1;
     HashMap<String, Object> data2;
     Button toPDF;
+    Button toDashboard;
     TextView fpNameLastName;
     TextView fprevModel;
     TextView fprevNumber;
@@ -25,6 +26,8 @@ public class reviewDeclaration extends AppCompatActivity {
     TextView fprevEmail;
     TextView fprevDescription;
     TextView fpSugadinimai;
+    TextView FPrevdamage;
+    TextView SPrevdamage;
     TextView spNameLastName;
     TextView sprevModel;
     TextView sprevNumber;
@@ -36,6 +39,7 @@ public class reviewDeclaration extends AppCompatActivity {
     TextView spSugadinimai;
     TextView revData;
     TextView revVieta;
+    TextView accidentInfo;
     ImageView scheme;
 
     @Override
@@ -47,6 +51,7 @@ public class reviewDeclaration extends AppCompatActivity {
         data1 = (HashMap<String, String>) bundle.get("pdfData1");
         data2 = (HashMap<String, Object>) bundle.get("pdfData2");
         toPDF = (Button) findViewById(R.id.nextActivityButton);
+        toDashboard = (Button) findViewById(R.id.backToHomeFromReview);
 
         toPDF.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +60,12 @@ public class reviewDeclaration extends AppCompatActivity {
             }
         });
 
+        toDashboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OpenActivity2();
+            }
+        });
         fpNameLastName = findViewById(R.id.fprevNameLastName);
         fprevModel = findViewById(R.id.revModel);
         fprevNumber = findViewById(R.id.revNumber);
@@ -62,6 +73,8 @@ public class reviewDeclaration extends AppCompatActivity {
         fprevAge = findViewById(R.id.fprevAge);
         fprevPhone = findViewById(R.id.fprevPhone);
         fprevEmail = findViewById(R.id.fprevEmail);
+        FPrevdamage = findViewById(R.id.FPrevdamage);
+
 
         fprevDescription = findViewById(R.id.FPrevDescription);
         fpSugadinimai = findViewById(R.id.revSugadinimai);
@@ -69,6 +82,24 @@ public class reviewDeclaration extends AppCompatActivity {
         revData = findViewById(R.id.revDateTime);
         revVieta = findViewById(R.id.revLocation);
         scheme = findViewById(R.id.revScheme);
+        accidentInfo = findViewById(R.id.revZala);
+        accidentInfo.setText("");
+
+        if(data1.get("FP_Injuries").equals("true") || data2.get("SP_Injuries").equals("true")){
+            accidentInfo.setText((accidentInfo.getText() + "There are no injured persons. ").toString());
+        }
+        else{
+            accidentInfo.setText((accidentInfo.getText() + "There are no injured persons. ").toString());
+        }
+
+        if((data1.get("FP_other_than_A_B_vehicles").equals("true") || data2.get("SP_other_than_A_B_vehicles").equals("true")) || (data1.get("FP_other_than_A_B").equals("true") || data2.get("SP_other_than_A_B").equals("true"))){
+
+            accidentInfo.setText((accidentInfo.getText() + "The property of third parties (e.g. structures, road installations, etc.) has been damaged.").toString());
+
+        }
+        else{
+            accidentInfo.setText((accidentInfo.getText() + "The property of third parties (e.g. structures, road installations, etc.) has not been damaged.").toString());
+        }
 
         spNameLastName = findViewById(R.id.sprevNameLastName);
         sprevModel = findViewById(R.id.sprevModel);
@@ -90,7 +121,7 @@ public class reviewDeclaration extends AppCompatActivity {
         fprevDraudimas.setText(data1.get("FP_Insurance_Name"));
         fpNameLastName.setText(data1.get("FP_Name") + " " + data1.get("FP_LastName"));
         fprevAge.setText(data1.get("FP_Birthdate"));
-        fprevPhone.setText(data1.get("FP_Phone"));
+        fprevPhone.setText(data1.get("FP_PhoneNumber"));
         fprevEmail.setText(data1.get("FP_Email"));
         fprevDescription.setText("");
 
@@ -146,12 +177,16 @@ public class reviewDeclaration extends AppCompatActivity {
             fprevDescription.setText(fprevDescription.getText() + data1.get("FP_17")+". ");
         }
 
+        // fields.get("A_sugadinimai").setValue(data1.get("FP_Remarks_damage")).setFontSize(10).setBorderWidth(0f);
+        FPrevdamage.setText(data1.get("FP_Remarks_damage"));
+
+        SPrevdamage = findViewById(R.id.SPrevdamage);
         sprevModel.setText(data2.get("SP_Vehicle_Maker_model").toString());
         sprevNumber.setText(data2.get("SP_CarNumber").toString());
         sprevDraudimas.setText(data2.get("SP_Insurance_Name").toString());
         spNameLastName.setText(data2.get("SP_Name").toString() + " " + data2.get("SP_LastName").toString());
         sprevAge.setText(data2.get("SP_Birthdate").toString());
-        sprevPhone.setText(data2.get("SP_Phone").toString());
+        sprevPhone.setText(data2.get("SP_PhoneNumber").toString());
         sprevEmail.setText(data2.get("SP_Email").toString());
         sprevDescription.setText("");
 
@@ -207,12 +242,18 @@ public class reviewDeclaration extends AppCompatActivity {
             sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_17")+". ");
         }
 
+        SPrevdamage.setText(data2.get("SP_Remarks_damage").toString());
     }
 
     public void OpenActivity(){
         Intent intent = new Intent(this, activity_pdf.class);
         intent.putExtra("pdfData1", data1);
         intent.putExtra("pdfData2", data2);
+        startActivity(intent);
+    }
+
+    public void OpenActivity2(){
+        Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
     }
 }
