@@ -174,7 +174,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/backButton"
-
+        android:layout_marginLeft="-300dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

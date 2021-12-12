@@ -3,11 +3,14 @@ package edu.ktu.ktukrash;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import java.util.HashMap;
 
@@ -15,6 +18,7 @@ public class A_FinalUISecondPerson_2 extends AppCompatActivity {
     private Button backButton,frontButton;
     private SwitchCompat injuries, A_B, vehicles;
     private EditText witness;
+    public float x = 715f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,13 @@ public class A_FinalUISecondPerson_2 extends AppCompatActivity {
                 openPreviousActivity();
             }
         });
+
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        ObjectAnimator animation = ObjectAnimator.ofFloat(progressBar, "TranslationX", x);
+
+        animation.setDuration(3500); // 3.5 second
+        animation.setInterpolator(new DecelerateInterpolator());
+        animation.start();
     }
 
     private void openPreviousActivity() {

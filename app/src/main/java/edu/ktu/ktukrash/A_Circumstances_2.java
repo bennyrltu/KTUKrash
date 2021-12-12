@@ -3,10 +3,13 @@ package edu.ktu.ktukrash;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 import java.util.HashMap;
 
@@ -15,7 +18,7 @@ public class A_Circumstances_2 extends AppCompatActivity {
     private Button backButton,frontButton;
 
     public int counter=0;
-
+    public float x = 935f;
     private SwitchCompat switch6, switch11, switch13, switch14, switch15, switch16, switch17, switch18, switch19, switch7, switch8, switch9, switch10, switch20, switch21, switch22;
     private SwitchCompat switch12;
 
@@ -58,6 +61,13 @@ public class A_Circumstances_2 extends AppCompatActivity {
                 openPreviousActivity();
             }
         });
+
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        ObjectAnimator animation = ObjectAnimator.ofFloat(progressBar, "TranslationX", x);
+
+        animation.setDuration(3500); // 3.5 second
+        animation.setInterpolator(new DecelerateInterpolator());
+        animation.start();
     }
 
     private void openPreviousActivity() {

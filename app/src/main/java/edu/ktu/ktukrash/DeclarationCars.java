@@ -25,7 +25,7 @@ public class DeclarationCars extends AppCompatActivity {
     public static final String EXTRA_TEXT2 = "ktu.edu.KTUKrash.EXTRA.TEXT2";
     private Button button, button1;
 
-    public float x = 250f;
+    public float x = 55f;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -7,6 +7,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -20,9 +21,11 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.ToggleButton;
@@ -42,6 +45,7 @@ public class A_FinalUI_3 extends AppCompatActivity{
     private EditText editText,editText2;
     private EditText countryOfRegistration;
     private Button backButton,frontButton;
+    public float x = 385f;
 
     private EditText makerModel;
     @Override
@@ -100,6 +104,13 @@ public class A_FinalUI_3 extends AppCompatActivity{
                 openPreviousActivity();
             }
         });
+
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        ObjectAnimator animation = ObjectAnimator.ofFloat(progressBar, "TranslationX", x);
+
+        animation.setDuration(3500); // 3.5 second
+        animation.setInterpolator(new DecelerateInterpolator());
+        animation.start();
     }
 
     private void openPreviousActivity() {

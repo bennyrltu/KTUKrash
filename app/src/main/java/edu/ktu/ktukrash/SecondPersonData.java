@@ -45,7 +45,7 @@ public class SecondPersonData extends AppCompatActivity implements DatePickerDia
     private TextView phoneTextView;
     private Button button, button2;
 
-    public float x = 250f;
+    public float x = 165f;
 
     //Location stuff
     private Button map;

@@ -270,7 +270,7 @@
 
 
     <ProgressBar
-        android:layout_marginLeft="-50dp"
+        android:layout_marginLeft="-300dp"
         android:id="@+id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
