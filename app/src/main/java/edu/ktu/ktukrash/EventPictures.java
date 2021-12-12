@@ -7,12 +7,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -51,6 +53,7 @@ public class EventPictures extends AppCompatActivity {
     ProgressBar progressBar;
     TextView progressTextView;
     Button uploadButton, backButton;
+    public float x = 220f;
 
     String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -234,6 +237,13 @@ public class EventPictures extends AppCompatActivity {
                 openPreviousActivity();
             }
         });
+
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar1);
+        ObjectAnimator animation = ObjectAnimator.ofFloat(progressBar, "TranslationX", x);
+
+        animation.setDuration(3500); // 3.5 second
+        animation.setInterpolator(new DecelerateInterpolator());
+        animation.start();
 
     }
 

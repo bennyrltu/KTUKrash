@@ -61,7 +61,7 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
     private String country, postal;
 
 
-    public float x = 250f;
+
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
 
     String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -74,7 +74,7 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
 
     public static final String EXTRA_TEXT3 = "ktu.edu.KTUKrash.EXTRA.TEXT3";
     public static final String EXTRA_TEXT4 = "ktu.edu.KTUKrash.EXTRA.TEXT4";
-
+    float x = 110f;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -265,7 +265,7 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
         }
 
         if(personalCode.getText().toString().matches(".*\\D.*")){
-            phone.setError("Personal code only contains numbers!");
+            phone.setError("Personal code only contain numbers!");
             phone.requestFocus();
             return;
         }
@@ -304,8 +304,6 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
 
         //root.push().setValue(dataMap);
         root.child(newDeklaracija).setValue(dataMap);
-
-
 
         //------------------------------------------------------------
         TextView editText2 = (TextView) findViewById(R.id.textView7);

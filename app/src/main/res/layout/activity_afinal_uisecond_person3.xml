@@ -5,7 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     tools:context=".A_FinalUI_3"
-    android:background="#ff976e">
+    android:background="@drawable/background1">
 
     <TextView
         android:id="@+id/VehicleInfo"
@@ -15,6 +15,8 @@
         android:text="Vehicle information"
         android:textAlignment="center"
         android:textSize="32sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -27,6 +29,8 @@
         android:layout_marginBottom="-70dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/VehicleInfo" />
@@ -34,13 +38,17 @@
     <EditText
         android:id="@+id/MakerAndModelEditText"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:hint="Manufacturer and model"
         android:inputType="textPersonName"
         android:text=""
         android:layout_marginBottom="-50dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:background="@drawable/edit_round"
+        android:drawablePadding="2dp"
+        android:padding="5dp"
+        android:gravity="left"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/MakerModel1" />
@@ -54,6 +62,8 @@
         android:layout_marginBottom="-45dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/MakerAndModelEditText" />
@@ -61,13 +71,17 @@
     <EditText
         android:id="@+id/CountryOfRegistration"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:hint="Country of registration"
         android:inputType="textPersonName"
         android:text=""
         android:layout_marginBottom="-50dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:background="@drawable/edit_round"
+        android:drawablePadding="2dp"
+        android:padding="5dp"
+        android:gravity="left"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/RegisteredCountry2"
@@ -94,6 +108,8 @@
         android:layout_marginBottom="-45dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/switch4" />
@@ -101,13 +117,17 @@
     <EditText
         android:id="@+id/TrailerRegistrationHID"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:hint="Trailer registration number"
         android:inputType="textPersonName"
         android:text=""
         android:layout_marginBottom="-50dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:background="@drawable/edit_round"
+        android:drawablePadding="2dp"
+        android:padding="5dp"
+        android:gravity="left"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/registeredCountryHID"/>
@@ -122,6 +142,8 @@
         android:layout_marginBottom="-45dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/TrailerRegistrationHID" />
@@ -129,13 +151,17 @@
     <EditText
         android:id="@+id/countryOfRegistration2HID"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:hint="Country of registration"
         android:inputType="textPersonName"
         android:text=""
         android:layout_marginBottom="-50dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:background="@drawable/edit_round"
+        android:drawablePadding="2dp"
+        android:padding="5dp"
+        android:gravity="left"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/registeredCountry3HID" />
@@ -185,7 +211,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/backButton"
-
+        android:layout_marginLeft="-300dp"
         />
 
 

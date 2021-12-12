@@ -263,7 +263,7 @@
         app:layout_constraintTop_toBottomOf="@+id/secondPersonPhoneNumber" />
 
     <ProgressBar
-        android:layout_marginLeft="200dp"
+        android:layout_marginLeft="-300dp"
         android:id="@+id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

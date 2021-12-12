@@ -35,7 +35,7 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
         listButton = findViewById(R.id.declarationList);
-        next = findViewById(R.id.next);
+
 
 //        finalButton = findViewById(R.id.FinalView);
 
@@ -43,12 +43,6 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 OpenActivity();
-            }
-        });
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NewActivity();
             }
         });
 

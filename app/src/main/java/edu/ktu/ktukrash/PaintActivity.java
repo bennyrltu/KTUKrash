@@ -112,7 +112,7 @@ public class PaintActivity extends AppCompatActivity {
         imageView = findViewById(R.id.photoBackground);
         textView = findViewById(R.id.textView13);
 
-        revButton = findViewById(R.id.paintRevButton);
+
         revButton.setVisibility(View.GONE);
 
         continueButton=findViewById(R.id.button4);

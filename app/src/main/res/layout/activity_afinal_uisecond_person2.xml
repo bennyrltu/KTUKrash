@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".A_FinalUI_2"
-    android:background="#ff976e">
+    android:background="@drawable/background1">
 
     <TextView
         android:id="@+id/generalAccidentInformation2"
@@ -16,6 +16,8 @@
          information"
         android:textAlignment="center"
         android:textSize="32sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,6 +30,8 @@
         android:layout_marginBottom="-70dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/generalAccidentInformation2" />
@@ -55,6 +59,8 @@
         android:layout_marginBottom="-35dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/switch1" />
@@ -92,6 +98,8 @@
         android:layout_marginBottom="-35dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/switch3"/>
@@ -114,10 +122,12 @@
             android:hint=" IN FREE FORM \n ,Enter names, last names of witnesses, \n
 their phone numbers,
 any other useful information"
+            android:background="@drawable/edit_round"
+            android:drawablePadding="2dp"
+            android:padding="5dp"
+            android:gravity="left"
             android:inputType="text|textMultiLine"
             android:lineSpacingExtra="5sp"
-            android:padding="5dp"
-            android:textAlignment="textEnd"
             android:typeface="normal" />
 
     </androidx.core.widget.NestedScrollView>
@@ -167,7 +177,7 @@ any other useful information"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/backButton"
-
+        android:layout_marginLeft="-300dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

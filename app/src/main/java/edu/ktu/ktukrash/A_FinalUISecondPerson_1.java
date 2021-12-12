@@ -3,14 +3,17 @@ package edu.ktu.ktukrash;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.text.DateFormat;
@@ -22,11 +25,13 @@ import java.util.HashMap;
 public class A_FinalUISecondPerson_1 extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
     private Button button;
 
+
     //Location stuff
     private Button map;
     private TextView currentTime;
     private Intent intent;
     private EditText locationText;
+    public float x = 660f;
 
     private TextView date;
     //private TextView currentTime;
@@ -86,7 +91,12 @@ public class A_FinalUISecondPerson_1 extends AppCompatActivity implements DatePi
         locationText = (EditText) findViewById(R.id.LocationOfEvent);
         //---------------------------------------------------
 
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        ObjectAnimator animation = ObjectAnimator.ofFloat(progressBar, "TranslationX", x);
 
+        animation.setDuration(3500); // 3.5 second
+        animation.setInterpolator(new DecelerateInterpolator());
+        animation.start();
     }
 
     @Override

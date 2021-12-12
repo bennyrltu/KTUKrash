@@ -3,13 +3,16 @@ package edu.ktu.ktukrash;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
+import android.animation.ObjectAnimator;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.text.DateFormat;
@@ -20,7 +23,7 @@ public class A_FinalUISecondPerson_5 extends AppCompatActivity implements DatePi
     private Button backButton,frontButton,button;
     private EditText license_no, categories;
     private TextView license_valid_until;
-
+    public float x = 880f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +59,12 @@ public class A_FinalUISecondPerson_5 extends AppCompatActivity implements DatePi
                 datePicker.show(getSupportFragmentManager(), "date picker");
             }
         });
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        ObjectAnimator animation = ObjectAnimator.ofFloat(progressBar, "TranslationX", x);
+
+        animation.setDuration(3500); // 3.5 second
+        animation.setInterpolator(new DecelerateInterpolator());
+        animation.start();
     }
 
     private void openPreviousActivity() {

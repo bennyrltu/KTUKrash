@@ -3,17 +3,21 @@ package edu.ktu.ktukrash;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import java.util.HashMap;
 
 public class A_FinalUI_4 extends AppCompatActivity {
 
     private Button backButton,frontButton;
+    public float x = 440f;
 
     private EditText companyName, policy, greenCard, agency, name, address, country, email;
     private SwitchCompat doesCover;
@@ -52,6 +56,13 @@ public class A_FinalUI_4 extends AppCompatActivity {
                 openPreviousActivity();
             }
         });
+
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        ObjectAnimator animation = ObjectAnimator.ofFloat(progressBar, "TranslationX", x);
+
+        animation.setDuration(3500); // 3.5 second
+        animation.setInterpolator(new DecelerateInterpolator());
+        animation.start();
     }
 
     private void openPreviousActivity() {
