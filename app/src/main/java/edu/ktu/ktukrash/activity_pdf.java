@@ -3,9 +3,12 @@ package edu.ktu.ktukrash;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.github.barteksc.pdfviewer.PDFView;
@@ -34,11 +37,22 @@ import java.util.Map;
 
 public class activity_pdf extends AppCompatActivity {
 
+    private Button homebutton;
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pdf);
+
+        homebutton = findViewById(R.id.homeButton);
+
+        homebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OpenNewActivity1();
+            }
+        });
 
 
         InputStream inputStream;
@@ -320,5 +334,10 @@ public class activity_pdf extends AppCompatActivity {
         } catch (Exception e) {
             Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void OpenNewActivity1() {
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
     }
 }

@@ -91,12 +91,12 @@ public class Profile extends AppCompatActivity {
     }
 
     private void NewActivity() {
-        Intent intent = new Intent(this, A_FinalUI_1.class);
+        Intent intent = new Intent(this, DisplayAllDataActivity.class);
         startActivity(intent);
     }
 
     public void OpenActivity(){
-        Intent intent = new Intent(this, A_FinalUI_3.class);
+        Intent intent = new Intent(this, DisplayAllDataActivity.class);
         startActivity(intent);
     }
 
