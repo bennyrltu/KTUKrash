@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".A_FinalUI_6"
-    android:background="#628281">
+    android:background="@drawable/background1">
 
     <TextView
         android:id="@+id/insuranceCompany2"
@@ -15,6 +15,8 @@
         android:text="Closing remarks:"
         android:textAlignment="center"
         android:textSize="32dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -32,9 +34,11 @@
         <EditText
             android:id="@+id/TextInput"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="center"
+            android:background="@drawable/edit_round"
+            android:drawablePadding="2dp"
             android:hint=" IN FREE FORM\nVisible damage to vehicle"
             android:inputType="text|textMultiLine"
             android:lineSpacingExtra="5sp"
@@ -56,14 +60,17 @@
         <EditText
             android:id="@+id/TextInputa"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="center"
             android:hint=" IN FREE FORM\nMy remarks"
             android:inputType="text|textMultiLine"
             android:lineSpacingExtra="5sp"
             android:padding="5dp"
-            android:typeface="normal" />
+            android:typeface="normal"
+            android:background="@drawable/edit_round"
+            android:drawablePadding="2dp"
+            />
 
     </androidx.core.widget.NestedScrollView>
 

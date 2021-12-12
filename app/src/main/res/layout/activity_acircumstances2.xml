@@ -10,15 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".A_Circumstances_2"
-        android:background="#ff976e">
-        >
+        android:background="@color/blueish">
+
 
         <TextView
             android:id="@+id/insuranceCompany3"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="5dp"
-            android:text="Select relevent accident details:"
+            android:text="2 person select relevant accident details:"
             android:textAlignment="center"
             android:textSize="32sp"
             app:layout_constraintEnd_toEndOf="parent"

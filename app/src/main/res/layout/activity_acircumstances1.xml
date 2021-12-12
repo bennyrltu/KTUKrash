@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".A_Circumstances_1"
-        android:background="#628281"
+        android:background="@color/blueish"
         >
 
         <TextView
@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="5dp"
-            android:text="Select relevent accident details:"
+            android:text="1 person select relevant accident details:"
             android:textAlignment="center"
             android:textSize="32sp"
             app:layout_constraintEnd_toEndOf="parent"

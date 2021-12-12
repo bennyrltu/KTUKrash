@@ -265,7 +265,7 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
         }
 
         if(personalCode.getText().toString().matches(".*\\D.*")){
-            phone.setError("Personal code only contains numbers!");
+            phone.setError("Personal code only contain numbers!");
             phone.requestFocus();
             return;
         }
@@ -304,8 +304,6 @@ public class FirstPersonData extends AppCompatActivity implements DatePickerDial
 
         //root.push().setValue(dataMap);
         root.child(newDeklaracija).setValue(dataMap);
-
-
 
         //------------------------------------------------------------
         TextView editText2 = (TextView) findViewById(R.id.textView7);
