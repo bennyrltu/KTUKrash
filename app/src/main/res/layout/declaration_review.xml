@@ -22,7 +22,7 @@
                 android:id="@+id/revTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Eismo įvykio duomenys"
+                android:text="Accident data"
                 android:textColor="@color/black"
                 android:textSize="25sp"
                 android:textStyle="bold">
@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/revTitle"
-                android:text="Eismo įvykio data ir laikas: "
+                android:text="Date and time of the accident:"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold">
@@ -57,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/revDateTime"
-                android:text="Eismo įvykio vieta: "
+                android:text="Place of accident:"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold">
@@ -85,15 +85,14 @@
             </ImageView>
 
             <TextView
-                android:layout_below="@+id/revMAPAS"
+                android:id="@+id/revSchemetext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Schema"
+                android:layout_below="@+id/revMAPAS"
+                android:text="Scheme"
                 android:textColor="@color/black"
-                android:id="@+id/revSchemetext"
                 android:textSize="12sp"
-                android:textStyle="bold"
-                >
+                android:textStyle="bold">
 
 
             </TextView>
@@ -137,7 +136,7 @@
                     android:id="@+id/revCar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Lengvasis automobilis"
+                    android:text="A vehicle"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold">
@@ -149,7 +148,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/revCar"
-                    android:text="NUMBERIS"
+                    android:text="NUMBER"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold">
@@ -163,7 +162,7 @@
                     android:layout_below="@id/revCar"
                     android:layout_marginLeft="5dp"
                     android:layout_toRightOf="@id/revNumber"
-                    android:text="MODELIS"
+                    android:text="MODEL"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold">
@@ -175,7 +174,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/revNumber"
-                    android:text="\nAtsakingas uz eismo ivyki"
+                    android:text="\nResponsible for traffic accident"
                     android:textColor="@color/penRoyalBlue"
                     android:textStyle="bold">
 
@@ -186,7 +185,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/revNukent"
-                    android:text="Apdrausta: "
+                    android:text="insurance company"
                     android:textColor="@color/black"
                     android:textStyle="bold">
 
@@ -209,7 +208,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/fprevDraudimas"
-                    android:text="Vairuotojas: "
+                    android:text="A driver:"
                     android:textColor="@color/black"
                     android:textStyle="bold">
 
@@ -232,7 +231,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/revVairuotojas"
-                    android:text="Amzius: "
+                    android:text="Age:"
                     android:textColor="@color/black"
                     android:textStyle="bold">
 
@@ -255,7 +254,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/revAmzius"
-                    android:text="Telefonas: "
+                    android:text="Phone:"
                     android:textColor="@color/black"
                     android:textStyle="bold">
 
@@ -278,7 +277,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/revTelefonas"
-                    android:text="El. pastas: "
+                    android:text="Email:"
                     android:textColor="@color/black"
                     android:textStyle="bold">
 
@@ -301,7 +300,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/revPastas"
-                    android:text="Aplinkybės: "
+                    android:text="Circumstances:"
                     android:textColor="@color/black"
                     android:textStyle="bold">
 
@@ -324,7 +323,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/revAplinkybes"
-                    android:text="Transporto priemonės sugadinimai: "
+                    android:text="Vehicle damage:"
                     android:textColor="@color/black"
                     android:textStyle="bold">
 
@@ -364,10 +363,10 @@
                     android:id="@+id/sprevCar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Lengvasis automobilis"
+                    android:text="B vehicle"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="20sp">
+                    android:textSize="20sp"
+                    android:textStyle="bold">
 
                 </TextView>
 
@@ -376,7 +375,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/sprevCar"
-                    android:text="NUMBERIS"
+                    android:text="NUMBER"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold">
@@ -390,10 +389,10 @@
                     android:layout_below="@id/sprevCar"
                     android:layout_marginLeft="5dp"
                     android:layout_toRightOf="@id/sprevNumber"
-                    android:text="MODELIS"
+                    android:text="MODEL"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="20sp">
+                    android:textSize="20sp"
+                    android:textStyle="bold">
 
                 </TextView>
 
@@ -402,7 +401,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/sprevNumber"
-                    android:text="\nNukentėjusysis"
+                    android:text="\nInjured"
                     android:textColor="@color/penRoyalBlue"
                     android:textStyle="bold">
 
@@ -413,7 +412,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/sprevNukent"
-                    android:text="Apdrausta: "
+                    android:text="Insurance company:"
                     android:textColor="@color/black"
                     android:textStyle="bold">
 
@@ -436,7 +435,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/sprevDraudimas"
-                    android:text="Vairuotojas: "
+                    android:text="B driver:"
                     android:textColor="@color/black"
                     android:textStyle="bold">
 
@@ -459,7 +458,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/sprevVairuotojas"
-                    android:text="Amzius: "
+                    android:text="Age:"
                     android:textColor="@color/black"
                     android:textStyle="bold">
 
@@ -482,7 +481,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/sprevAmzius"
-                    android:text="Telefonas: "
+                    android:text="Phone:"
                     android:textColor="@color/black"
                     android:textStyle="bold">
 
@@ -505,7 +504,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/sprevTelefonas"
-                    android:text="El. pastas: "
+                    android:text="Email:"
                     android:textColor="@color/black"
                     android:textStyle="bold">
 
@@ -528,7 +527,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/sprevPastas"
-                    android:text="Aplinkybės: "
+                    android:text="Circumstances:"
                     android:textColor="@color/black"
                     android:textStyle="bold">
 
@@ -551,7 +550,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/sprevAplinkybes"
-                    android:text="Transporto priemonės sugadinimai: "
+                    android:text="Vehicle damage:"
                     android:textColor="@color/black"
                     android:textStyle="bold">
 

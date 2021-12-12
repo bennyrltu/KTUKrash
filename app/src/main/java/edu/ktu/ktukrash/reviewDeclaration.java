@@ -4,15 +4,39 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.ObjectInputStream;
 import java.util.HashMap;
 
 public class reviewDeclaration extends AppCompatActivity {
     HashMap<String, String> data1;
     HashMap<String, Object> data2;
     Button toPDF;
+    TextView fpNameLastName;
+    TextView fprevModel;
+    TextView fprevNumber;
+    TextView fprevDraudimas;
+    TextView fprevAge;
+    TextView fprevPhone;
+    TextView fprevEmail;
+    TextView fprevDescription;
+    TextView fpSugadinimai;
+    TextView spNameLastName;
+    TextView sprevModel;
+    TextView sprevNumber;
+    TextView sprevDraudimas;
+    TextView sprevAge;
+    TextView sprevPhone;
+    TextView sprevEmail;
+    TextView sprevDescription;
+    TextView spSugadinimai;
+    TextView revData;
+    TextView revVieta;
+    ImageView scheme;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -30,6 +54,159 @@ public class reviewDeclaration extends AppCompatActivity {
                 OpenActivity();
             }
         });
+
+        fpNameLastName = findViewById(R.id.fprevNameLastName);
+        fprevModel = findViewById(R.id.revModel);
+        fprevNumber = findViewById(R.id.revNumber);
+        fprevDraudimas = findViewById(R.id.fprevDraudimas);
+        fprevAge = findViewById(R.id.fprevAge);
+        fprevPhone = findViewById(R.id.fprevPhone);
+        fprevEmail = findViewById(R.id.fprevEmail);
+
+        fprevDescription = findViewById(R.id.FPrevDescription);
+        fpSugadinimai = findViewById(R.id.revSugadinimai);
+
+        revData = findViewById(R.id.revDateTime);
+        revVieta = findViewById(R.id.revLocation);
+        scheme = findViewById(R.id.revScheme);
+
+        spNameLastName = findViewById(R.id.sprevNameLastName);
+        sprevModel = findViewById(R.id.sprevModel);
+        sprevNumber = findViewById(R.id.sprevNumber);
+        sprevDraudimas = findViewById(R.id.sprevDraudimas);
+        sprevAge = findViewById(R.id.sprevAge);
+        sprevPhone = findViewById(R.id.sprevPhone);
+        sprevEmail = findViewById(R.id.sprevEmail);
+
+        sprevDescription = findViewById(R.id.sprevDescription);
+        spSugadinimai = findViewById(R.id.sprevSugadinimai);
+
+        revData.setText(data1.get("FP_Date" + " " + "FP_Time"));
+        revVieta.setText(data1.get("FP_Accident_Location"));
+
+
+        fprevModel.setText(data1.get("FP_Vehicle_Maker_model"));
+        fprevNumber.setText(data1.get("FP_CarNumber"));
+        fprevDraudimas.setText(data1.get("FP_Insurance_Name"));
+        fpNameLastName.setText(data1.get("FP_Name") + " " + data1.get("FP_LastName"));
+        fprevAge.setText(data1.get("FP_Birthdate"));
+        fprevPhone.setText(data1.get("FP_Phone"));
+        fprevEmail.setText(data1.get("FP_Email"));
+        fprevDescription.setText("");
+
+        if(data1.get("FP_1").equals("true")){
+            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_1")+". ");
+        }
+        if(data1.get("FP_2").equals("true")){
+            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_2")+". ");
+        }
+        if(data1.get("FP_3").equals("true")){
+            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_3")+". ");
+        }
+        if(data1.get("FP_4").equals("true")){
+            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_4")+". ");
+        }
+        if(data1.get("FP_5").equals("true")){
+            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_5")+". ");
+        }
+        if(data1.get("FP_6").equals("true")){
+            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_6")+". ");
+        }
+        if(data1.get("FP_7").equals("true")){
+            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_7")+". ");
+        }
+        if(data1.get("FP_8").equals("true")){
+            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_8")+". ");
+        }
+        if(data1.get("FP_9").equals("true")){
+            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_9")+". ");
+        }
+        if(data1.get("FP_10").equals("true")){
+            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_10")+". ");
+        }
+        if(data1.get("FP_11").equals("true")){
+            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_11")+". ");
+        }
+        if(data1.get("FP_12").equals("true")){
+            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_12")+". ");
+        }
+        if(data1.get("FP_13").equals("true")){
+            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_13")+". ");
+        }
+        if(data1.get("FP_14").equals("true")){
+            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_14")+". ");
+        }
+        if(data1.get("FP_15").equals("true")){
+            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_15")+". ");
+        }
+        if(data1.get("FP_16").equals("true")){
+            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_16")+". ");
+        }
+        if(data1.get("FP_17").equals("true")){
+            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_17")+". ");
+        }
+
+        sprevModel.setText(data2.get("SP_Vehicle_Maker_model").toString());
+        sprevNumber.setText(data2.get("SP_CarNumber").toString());
+        sprevDraudimas.setText(data2.get("SP_Insurance_Name").toString());
+        spNameLastName.setText(data2.get("SP_Name").toString() + " " + data2.get("SP_LastName").toString());
+        sprevAge.setText(data2.get("SP_Birthdate").toString());
+        sprevPhone.setText(data2.get("SP_Phone").toString());
+        sprevEmail.setText(data2.get("SP_Email").toString());
+        sprevDescription.setText("");
+
+        if(data2.get("SP_1").toString().equals("true")){
+            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_1")+". ");
+        }
+        if(data2.get("SP_2").toString().equals("true")){
+            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_2")+". ");
+        }
+        if(data2.get("SP_3").toString().equals("true")){
+            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_3")+". ");
+        }
+        if(data2.get("SP_4").toString().equals("true")){
+            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_4")+". ");
+        }
+        if(data2.get("SP_5").toString().equals("true")){
+            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_5")+". ");
+        }
+        if(data2.get("SP_6").toString().equals("true")){
+            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_6")+". ");
+        }
+        if(data2.get("SP_7").toString().equals("true")){
+            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_7")+". ");
+        }
+        if(data2.get("SP_8").toString().equals("true")){
+            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_8")+". ");
+        }
+        if(data2.get("SP_9").toString().equals("true")){
+            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_9")+". ");
+        }
+        if(data2.get("SP_10").toString().equals("true")){
+            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_10")+". ");
+        }
+        if(data2.get("SP_11").toString().equals("true")){
+            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_11")+". ");
+        }
+        if(data2.get("SP_12").toString().equals("true")){
+            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_12")+". ");
+        }
+        if(data2.get("SP_13").toString().equals("true")){
+            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_13")+". ");
+        }
+        if(data2.get("SP_14").toString().equals("true")){
+            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_14")+". ");
+        }
+        if(data2.get("SP_15").toString().equals("true")){
+            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_15") + ". ");
+        }
+        if(data2.get("SP_16").toString().equals("true")){
+            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_16")+". ");
+        }
+        if(data2.get("SP_17").toString().equals("true")){
+            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_17")+". ");
+        }
+
     }
 
     public void OpenActivity(){
