@@ -7,18 +7,7 @@
     tools:context=".PaintActivity"
     >
 
-    <Button
-        android:id="@+id/paintRevButton"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_weight="1"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:background="@drawable/gradientbackr"
-        android:scaleType="center"
-        android:text="Review"
-        >
-    </Button>
+
 
     <com.kyanogen.signatureview.SignatureView xmlns:sign="http://schemas.android.com/apk/res-auto"
         android:id="@+id/signature_view"
@@ -125,7 +114,10 @@
                 android:layout_weight="1"
                 android:background="@color/blueish"
                 android:scaleType="center"
-                android:src="@drawable/ic_save"></ImageButton>
+                android:src="@drawable/ic_save">
+            </ImageButton>
+
+
 
 
         </LinearLayout>
@@ -133,17 +125,12 @@
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="119dp"
-        android:layout_height="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/signature_view"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="71dp"
-        android:layout_marginEnd="237dp"
-        android:layout_marginBottom="559dp"
-        android:text="Continue" />
+        android:layout_marginBottom="530dp"
+        android:background="@drawable/gradientbackr"
+        android:text="Next" />
 
 
 </RelativeLayout>
