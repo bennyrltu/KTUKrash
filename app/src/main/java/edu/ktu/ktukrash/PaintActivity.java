@@ -333,7 +333,7 @@ public class PaintActivity extends AppCompatActivity {
     }
 
     public void OpenActivity2(){
-        Intent intent = new Intent(this, A_FinalUI_1.class);
+        Intent intent = new Intent(this, activity_pdf.class);
         Bundle bundle = getIntent().getExtras();
         data1.put("picturePath", fileName1);
         intent.putExtra("pdfData1", data1);

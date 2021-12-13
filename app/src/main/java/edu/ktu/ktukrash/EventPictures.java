@@ -9,10 +9,13 @@ import androidx.core.content.ContextCompat;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
@@ -33,10 +36,15 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 
 public class EventPictures extends AppCompatActivity {
 
+    String fileName1, fileName2, fileName3;
     ImageView imageView;
     ImageView imageView2;
     ImageView imageView3;
@@ -71,6 +79,10 @@ public class EventPictures extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_pictures);
+
+        fileName1 = "empty";
+        fileName2 = "empty";
+        fileName3 = "empty";
 
         imageView = findViewById(R.id.imageView);
         imageView2 = findViewById(R.id.imageView2);
@@ -259,6 +271,9 @@ public class EventPictures extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         HashMap<String, String> data1 = (HashMap<String, String>) bundle.get("pdfData1");
         HashMap<String, Object> data2 = (HashMap<String, Object>) bundle.get("pdfData2");
+        data1.put("Pic1", fileName1);
+        data1.put("Pic2", fileName2);
+        data1.put("Pic3", fileName3);
         intent.putExtra("pdfData1", data1);
         intent.putExtra("pdfData2", data2);
 
@@ -275,6 +290,22 @@ public class EventPictures extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 if (data != null) {
                     fileUri = data.getData();
+                    try {
+                        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString();
+                        fileName1 = path + "/" + "pic1" + ".png";
+                        File file1 = new File(fileName1);
+                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), fileUri);
+                        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
+                        byte[] bitmapData = bos.toByteArray();
+
+                        FileOutputStream fos = new FileOutputStream(file1);
+                        fos.write(bitmapData);
+                        fos.flush();
+                        fos.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     imageView.setImageURI(fileUri);
                     IMG1 = true;
                     if (IMG1 && IMG2 && IMG3) {
@@ -290,6 +321,24 @@ public class EventPictures extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 if (data != null) {
                     fileUri2 = data.getData();
+
+                    try {
+                        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString();
+                        fileName2 = path + "/" + "pic2" + ".png";
+                        File file1 = new File(fileName2);
+                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), fileUri2);
+                        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
+                        byte[] bitmapData = bos.toByteArray();
+
+                        FileOutputStream fos = new FileOutputStream(file1);
+                        fos.write(bitmapData);
+                        fos.flush();
+                        fos.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
                     imageView2.setImageURI(fileUri2);
                     IMG2 = true;
                     if (IMG1 && IMG2 && IMG3) {
@@ -303,6 +352,24 @@ public class EventPictures extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 if (data != null) {
                     fileUri3 = data.getData();
+
+                    try {
+                        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString();
+                        fileName3 = path + "/" + "pic3" + ".png";
+                        File file1 = new File(fileName3);
+                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), fileUri3);
+                        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
+                        byte[] bitmapData = bos.toByteArray();
+
+                        FileOutputStream fos = new FileOutputStream(file1);
+                        fos.write(bitmapData);
+                        fos.flush();
+                        fos.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
                     imageView3.setImageURI(fileUri3);
                     IMG3 = true;
                     if (IMG1 && IMG2 && IMG3) {

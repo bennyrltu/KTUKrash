@@ -74,7 +74,7 @@ public class activity_pdf extends AppCompatActivity {
             PdfAcroForm form = PdfAcroForm.getAcroForm(pdfDoc, true);
             Map<String, PdfFormField> fields = form.getFormFields();
 
-            //General info
+            /*//General info
             fields.get("data").setValue(data1.get("FP_Date")).setFontSize(8).setBorderWidth(0f);
             fields.get("laikas").setValue(data1.get("FP_Time")).setFontSize(12).setBorderWidth(0f);
             fields.get("valstybe").setValue(data1.get("Country")).setFontSize(12).setBorderWidth(0f);
@@ -313,12 +313,33 @@ public class activity_pdf extends AppCompatActivity {
             //B sugadinimai
             fields.get("B_sugadinimai").setValue(data2.get("SP_Remarks_damage").toString()).setFontSize(10).setBorderWidth(0f);
             //B pastabos
-            fields.get("B_pastabos").setValue(data2.get("SP_Remarks").toString()).setFontSize(10).setBorderWidth(0f);
+            fields.get("B_pastabos").setValue(data2.get("SP_Remarks").toString()).setFontSize(10).setBorderWidth(0f);*/
 
             if(!data1.get("picturePath").equals("empty")){
                 com.itextpdf.layout.Document docment = new Document(pdfDoc);
                 ImageData imageData = ImageDataFactory.create(data1.get("picturePath"));
-                Image image = new Image(imageData).scaleAbsolute(100,160).setFixedPosition(1,250,90);
+                Image image = new Image(imageData).scaleAbsolute(50,80).setFixedPosition(1,250,200);
+                docment.add(image);
+            }
+
+            if(!data1.get("Pic1").equals("empty")){
+                com.itextpdf.layout.Document docment = new Document(pdfDoc);
+                ImageData imageData = ImageDataFactory.create(data1.get("Pic1"));
+                Image image = new Image(imageData).scaleAbsolute(100,160).setFixedPosition(1,150,90);
+                docment.add(image);
+            }
+
+            if(!data1.get("Pic2").equals("empty")){
+                com.itextpdf.layout.Document docment = new Document(pdfDoc);
+                ImageData imageData = ImageDataFactory.create(data1.get("Pic2"));
+                Image image = new Image(imageData).scaleAbsolute(100,160).setFixedPosition(1,350,90);
+                docment.add(image);
+            }
+
+            if(!data1.get("Pic3").equals("empty")){
+                com.itextpdf.layout.Document docment = new Document(pdfDoc);
+                ImageData imageData = ImageDataFactory.create(data1.get("Pic3"));
+                Image image = new Image(imageData).scaleAbsolute(100,160).setFixedPosition(1,250,50);
                 docment.add(image);
             }
 
