@@ -9,6 +9,14 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.io.ObjectInputStream;
 import java.util.HashMap;
 
@@ -40,7 +48,7 @@ public class reviewDeclaration extends AppCompatActivity {
     TextView revData;
     TextView revVieta;
     TextView accidentInfo;
-    ImageView scheme;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -81,15 +89,16 @@ public class reviewDeclaration extends AppCompatActivity {
 
         revData = findViewById(R.id.revDateTime);
         revVieta = findViewById(R.id.revLocation);
-        scheme = findViewById(R.id.revScheme);
+
+
         accidentInfo = findViewById(R.id.revZala);
         accidentInfo.setText("");
 
         if(data1.get("FP_Injuries").equals("true") || data2.get("SP_Injuries").equals("true")){
-            accidentInfo.setText((accidentInfo.getText() + "There are no injured persons. ").toString());
+            accidentInfo.setText((accidentInfo.getText() + "There are injured people. ").toString());
         }
         else{
-            accidentInfo.setText((accidentInfo.getText() + "There are no injured persons. ").toString());
+            accidentInfo.setText((accidentInfo.getText() + "There are no injured people. ").toString());
         }
 
         if((data1.get("FP_other_than_A_B_vehicles").equals("true") || data2.get("SP_other_than_A_B_vehicles").equals("true")) || (data1.get("FP_other_than_A_B").equals("true") || data2.get("SP_other_than_A_B").equals("true"))){
@@ -112,7 +121,7 @@ public class reviewDeclaration extends AppCompatActivity {
         sprevDescription = findViewById(R.id.sprevDescription);
         spSugadinimai = findViewById(R.id.sprevSugadinimai);
 
-        revData.setText(data1.get("FP_Date" + " " + "FP_Time"));
+        revData.setText(data1.get("FP_Date") + " " + data1.get("FP_Time"));
         revVieta.setText(data1.get("FP_Accident_Location"));
 
 
@@ -126,55 +135,55 @@ public class reviewDeclaration extends AppCompatActivity {
         fprevDescription.setText("");
 
         if(data1.get("FP_1").equals("true")){
-            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_1")+". ");
+            fprevDescription.setText(fprevDescription.getText() + "Parked or stopped\n");
         }
         if(data1.get("FP_2").equals("true")){
-            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_2")+". ");
+            fprevDescription.setText(fprevDescription.getText() + "Leaving a parking place\n");
         }
         if(data1.get("FP_3").equals("true")){
-            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_3")+". ");
+            fprevDescription.setText(fprevDescription.getText() + "Entering a parking place\n");
         }
         if(data1.get("FP_4").equals("true")){
-            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_4")+". ");
+            fprevDescription.setText(fprevDescription.getText() + "Emerging from a place\n");
         }
         if(data1.get("FP_5").equals("true")){
-            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_5")+". ");
+            fprevDescription.setText(fprevDescription.getText() + "Entering a place\n");
         }
         if(data1.get("FP_6").equals("true")){
-            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_6")+". ");
+            fprevDescription.setText(fprevDescription.getText() + "Entering a roundabout\n");
         }
         if(data1.get("FP_7").equals("true")){
-            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_7")+". ");
+            fprevDescription.setText(fprevDescription.getText() + "Circulating a roundabout\n");
         }
         if(data1.get("FP_8").equals("true")){
-            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_8")+". ");
+            fprevDescription.setText(fprevDescription.getText() + "Striking the rear in the same direction\n");
         }
         if(data1.get("FP_9").equals("true")){
-            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_9")+". ");
+            fprevDescription.setText(fprevDescription.getText() + "Same direction different lane\n");
         }
         if(data1.get("FP_10").equals("true")){
-            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_10")+". ");
+            fprevDescription.setText(fprevDescription.getText() + "Changing lanes\n");
         }
         if(data1.get("FP_11").equals("true")){
-            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_11")+". ");
+            fprevDescription.setText(fprevDescription.getText() + "Overtaking\n");
         }
         if(data1.get("FP_12").equals("true")){
-            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_12")+". ");
+            fprevDescription.setText(fprevDescription.getText() + "Turning to the right\n");
         }
         if(data1.get("FP_13").equals("true")){
-            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_13")+". ");
+            fprevDescription.setText(fprevDescription.getText() + "Turning to the left\n");
         }
         if(data1.get("FP_14").equals("true")){
-            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_14")+". ");
+            fprevDescription.setText(fprevDescription.getText() + "Reversing\n");
         }
         if(data1.get("FP_15").equals("true")){
-            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_15")+". ");
+            fprevDescription.setText(fprevDescription.getText() + "Encroaching on a lane\n");
         }
         if(data1.get("FP_16").equals("true")){
-            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_16")+". ");
+            fprevDescription.setText(fprevDescription.getText() + "coming from the right\n");
         }
         if(data1.get("FP_17").equals("true")){
-            fprevDescription.setText(fprevDescription.getText() + data1.get("FP_17")+". ");
+            fprevDescription.setText(fprevDescription.getText() + "Had not observed a sign\n");
         }
 
         // fields.get("A_sugadinimai").setValue(data1.get("FP_Remarks_damage")).setFontSize(10).setBorderWidth(0f);
@@ -191,58 +200,60 @@ public class reviewDeclaration extends AppCompatActivity {
         sprevDescription.setText("");
 
         if(data2.get("SP_1").toString().equals("true")){
-            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_1")+". ");
+            sprevDescription.setText(sprevDescription.getText().toString() + "Parked or stopped\n");
         }
         if(data2.get("SP_2").toString().equals("true")){
-            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_2")+". ");
+            sprevDescription.setText(sprevDescription.getText().toString() + "Leaving a parking place\n");
         }
         if(data2.get("SP_3").toString().equals("true")){
-            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_3")+". ");
+            sprevDescription.setText(sprevDescription.getText().toString() + "Entering a parking place\n");
         }
         if(data2.get("SP_4").toString().equals("true")){
-            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_4")+". ");
+            sprevDescription.setText(sprevDescription.getText().toString() + "Emerging from a place\n");
         }
         if(data2.get("SP_5").toString().equals("true")){
-            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_5")+". ");
+            sprevDescription.setText(sprevDescription.getText().toString() + "Entering a place\n");
         }
         if(data2.get("SP_6").toString().equals("true")){
-            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_6")+". ");
+            sprevDescription.setText(sprevDescription.getText().toString() + "Entering a roundabout\n");
         }
         if(data2.get("SP_7").toString().equals("true")){
-            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_7")+". ");
+            sprevDescription.setText(sprevDescription.getText().toString() + "Circulating a roundabout\n");
         }
         if(data2.get("SP_8").toString().equals("true")){
-            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_8")+". ");
+            sprevDescription.setText(sprevDescription.getText().toString() + "Striking the rear in the same direction\n");
         }
         if(data2.get("SP_9").toString().equals("true")){
-            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_9")+". ");
+            sprevDescription.setText(sprevDescription.getText().toString() + "Same direction different lane\n");
         }
         if(data2.get("SP_10").toString().equals("true")){
-            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_10")+". ");
+            sprevDescription.setText(sprevDescription.getText().toString() + "Changing lanes\n");
         }
         if(data2.get("SP_11").toString().equals("true")){
-            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_11")+". ");
+            sprevDescription.setText(sprevDescription.getText().toString() + "Overtaking\n");
         }
         if(data2.get("SP_12").toString().equals("true")){
-            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_12")+". ");
+            sprevDescription.setText(sprevDescription.getText().toString() + "Turning to the right\n");
         }
         if(data2.get("SP_13").toString().equals("true")){
-            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_13")+". ");
+            sprevDescription.setText(sprevDescription.getText().toString() + "Turning to the left\n");
         }
         if(data2.get("SP_14").toString().equals("true")){
-            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_14")+". ");
+            sprevDescription.setText(sprevDescription.getText().toString() + "Reversing\n");
         }
         if(data2.get("SP_15").toString().equals("true")){
-            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_15") + ". ");
+            sprevDescription.setText(sprevDescription.getText().toString() + "Encroaching on a lane\n");
         }
         if(data2.get("SP_16").toString().equals("true")){
-            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_16")+". ");
+            sprevDescription.setText(sprevDescription.getText().toString() + "coming from the right\n");
         }
         if(data2.get("SP_17").toString().equals("true")){
-            sprevDescription.setText(sprevDescription.getText().toString() + data2.get("SP_17")+". ");
+            sprevDescription.setText(sprevDescription.getText().toString() + "Had not observed a sign\n");
         }
 
         SPrevdamage.setText(data2.get("SP_Remarks_damage").toString());
+
+
     }
 
     public void OpenActivity(){

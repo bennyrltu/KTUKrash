@@ -13,9 +13,9 @@
         android:layout_height="wrap_content">
 
         <RelativeLayout
+            android:id="@+id/mapInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/mapInfo"
             android:layout_marginBottom="10dp">
 
             <TextView
@@ -34,6 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/revTitle"
+                android:layout_marginBottom="20dp"
                 android:text="Date and time of the accident:"
                 android:textColor="@color/black"
                 android:textSize="15sp"
@@ -46,6 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/revTitle"
+                android:layout_marginBottom="20dp"
                 android:layout_toRightOf="@id/revDate"
                 android:text="DATA LAIKAS"
                 android:textColor="@color/black">
@@ -57,8 +59,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/revDateTime"
+                android:layout_marginBottom="20dp"
                 android:text="Place of accident:"
-                android:layout_marginBottom="15dp"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold">
@@ -69,7 +71,8 @@
                 android:id="@+id/revLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/revDate"
+                android:layout_below="@id/revDateTime"
+                android:layout_marginBottom="20dp"
                 android:layout_toRightOf="@id/revVieta"
                 android:text="LOKACIJA"
                 android:textColor="@color/black">
@@ -77,32 +80,11 @@
             </TextView>
 
             <TextView
-                android:id="@+id/revSchemetext"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/revVieta"
-                android:text="Scheme"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                android:textStyle="bold">
-
-
-            </TextView>
-
-            <ImageView
-                android:id="@+id/revScheme"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_below="@+id/revSchemetext"
-                android:src="@drawable/logo1">
-
-            </ImageView>
-
-            <TextView
                 android:id="@+id/revZala"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/revScheme"
+                android:layout_below="@+id/revVieta"
+                android:layout_marginBottom="10dp"
                 android:text="Sužalotų asmenų nėra. Trečiųjų asmenų turtui (pvz. statiniams, kelio įrenginiams ir pan.) žala nepadaryta."
                 android:textColor="@color/black">
 
@@ -224,7 +206,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/revVairuotojas"
-                    android:text="Age:"
+                    android:layout_marginBottom="20dp"
+                    android:text="Birth date:"
                     android:textColor="@color/black"
                     android:textStyle="bold">
 
@@ -236,6 +219,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/revVairuotojas"
                     android:layout_marginLeft="50dp"
+                    android:layout_marginBottom="20dp"
                     android:layout_toRightOf="@id/revApdrausta"
                     android:text="Metai"
                     android:textColor="@color/black">
@@ -257,7 +241,7 @@
                     android:id="@+id/fprevPhone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/fprevAge"
+                    android:layout_below="@id/revAmzius"
                     android:layout_marginLeft="50dp"
                     android:layout_toRightOf="@id/revApdrausta"
                     android:text="phone number"
@@ -292,7 +276,9 @@
                     android:id="@+id/revAplinkybes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/revPastas"
+                    android:layout_below="@id/FPrevdamage"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="100dp"
                     android:text="Circumstances:"
                     android:textColor="@color/black"
                     android:textStyle="bold">
@@ -303,8 +289,10 @@
                     android:id="@+id/FPrevDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/fprevEmail"
+                    android:layout_below="@id/FPrevdamage"
                     android:layout_marginLeft="50dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="100dp"
                     android:layout_toRightOf="@id/revApdrausta"
                     android:text="įvažiuojant į žiedinę sankryžą."
                     android:textColor="@color/black">
@@ -315,9 +303,8 @@
                     android:id="@+id/FPrevdamage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/FPrevDescription"
+                    android:layout_below="@id/fprevEmail"
                     android:layout_marginLeft="50dp"
-                    android:layout_marginBottom="10dp"
                     android:layout_toRightOf="@id/revApdrausta"
                     android:text="yep."
                     android:textColor="@color/black"></TextView>
@@ -326,7 +313,7 @@
                     android:id="@+id/revSugadinimai"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/revAplinkybes"
+                    android:layout_below="@id/revPastas"
                     android:text="Vehicle damage:"
                     android:textColor="@color/black"
                     android:textStyle="bold">
@@ -450,7 +437,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/sprevVairuotojas"
-                    android:text="Age:"
+                    android:layout_marginBottom="15dp"
+                    android:text="Birth date:"
                     android:textColor="@color/black"
                     android:textStyle="bold">
 
@@ -462,6 +450,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/sprevVairuotojas"
                     android:layout_marginLeft="50dp"
+                    android:layout_marginBottom="15dp"
                     android:layout_toRightOf="@id/sprevApdrausta"
                     android:text="Metai"
                     android:textColor="@color/black">
@@ -518,7 +507,9 @@
                     android:id="@+id/sprevAplinkybes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/sprevPastas"
+                    android:layout_below="@id/sprevSugadinimai"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="100dp"
                     android:text="Circumstances:"
                     android:textColor="@color/black"
                     android:textStyle="bold">
@@ -529,8 +520,10 @@
                     android:id="@+id/sprevDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/sprevEmail"
+                    android:layout_below="@id/sprevSugadinimai"
                     android:layout_marginLeft="50dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="100dp"
                     android:layout_toRightOf="@id/sprevApdrausta"
                     android:text="įvažiuojant į žiedinę sankryžą."
                     android:textColor="@color/black">
@@ -541,7 +534,7 @@
                     android:id="@+id/sprevSugadinimai"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/sprevAplinkybes"
+                    android:layout_below="@id/sprevPastas"
                     android:text="Vehicle damage:"
                     android:textColor="@color/black"
                     android:textStyle="bold">
@@ -552,9 +545,8 @@
                     android:id="@+id/SPrevdamage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/sprevDescription"
+                    android:layout_below="@id/sprevEmail"
                     android:layout_marginLeft="50dp"
-                    android:layout_marginBottom="10dp"
                     android:layout_toRightOf="@id/sprevApdrausta"
                     android:text="yep."
                     android:textColor="@color/black"></TextView>
